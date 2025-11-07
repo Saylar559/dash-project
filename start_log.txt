@@ -1,0 +1,30 @@
++ IP=10.10.3.58
++ BACKEND_PORT=8000
++ FRONTEND_PORT=5173
++ LOG_DIR=logs
++ PID_FILE_BACKEND=backend.pid
++ PID_FILE_FRONTEND=frontend.pid
++++ dirname ./start.sh
+++ cd .
+++ pwd
++ PROJECT_ROOT=/home/user/escrow-dashboard
++ echo ============================================
+============================================
++ echo '🚀 Запуск проекта (Backend + Frontend)'
+🚀 Запуск проекта (Backend + Frontend)
++ echo ============================================
+============================================
++ echo '[1/6] Остановка своих процессов...'
+[1/6] Остановка своих процессов...
++ kill_pidfile backend.pid
++ local pid_file=backend.pid
++ '[' -f backend.pid ']'
++ kill_pidfile frontend.pid
++ local pid_file=frontend.pid
++ '[' -f frontend.pid ']'
++ kill_by_pattern_in_project 'uvicorn.*app.main:app'
++ local 'pattern=uvicorn.*app.main:app'
++ pgrep -fa 'uvicorn.*app.main:app'
++ grep /home/user/escrow-dashboard
++ awk '{print $1}'
++ read -r pid

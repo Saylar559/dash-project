@@ -1,0 +1,572 @@
+/* ============ DOM.RF Light Grey Palette ============ */
+:root {
+  /* Белый и светлые серые */
+  --domrf-white: #ffffff;
+  --domrf-off-white: #fafbfc;
+  
+  /* Светлые серые тона (основа) */
+  --domrf-grey-50: #f9fafb;
+  --domrf-grey-100: #f3f4f6;
+  --domrf-grey-150: #eff0f3;
+  --domrf-grey-200: #e5e7eb;
+  --domrf-grey-300: #d1d5db;
+  --domrf-grey-400: #9ca3af;
+  --domrf-grey-500: #6b7280;
+  --domrf-grey-600: #4b5563;
+  --domrf-grey-700: #374151;
+  --domrf-grey-800: #1f2937;
+  --domrf-grey-900: #111827;
+  
+  /* Зелёный акцент (ДОМ.РФ) */
+  --domrf-green: #8BC540;
+  --domrf-green-dark: #6B9B2C;
+  --domrf-green-light: #E8F5D8;
+  
+  /* Мягкие серые тени (очень светлые) */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.10), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Текстовые цвета */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --text-disabled: #d1d5db;
+  
+  /* Цвета строк (очень светлые) */
+  --row-zebra: #fafbfc;
+  --row-hover: #f3f4f6;
+  --row-active: #f0f4ff;
+  
+  /* Границы (нежные) */
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+}
+
+/* ============ Apple Card (Light Grey DOM.RF) ============ */
+.apple-card {
+  background: var(--domrf-white);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  padding: 20px;
+  backdrop-filter: none;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  color: var(--text-primary);
+}
+
+.apple-card:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+  border-color: var(--border-medium);
+}
+
+/* ============ Card Resize Handle ============ */
+.apple-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, transparent 50%, rgba(212, 216, 224, 0.3) 50%);
+  cursor: nwse-resize;
+  border-radius: 0 0 12px 0;
+  transition: background 0.2s ease;
+  opacity: 0.5;
+}
+
+.apple-card:hover::after {
+  background: linear-gradient(135deg, transparent 50%, rgba(209, 213, 219, 0.5) 50%);
+  opacity: 1;
+}
+
+/* ============ Table Wrapper ============ */
+.apple-table-wrap {
+  border-radius: 10px;
+  background: var(--domrf-white);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+  max-height: 600px;
+  overflow: auto;
+  flex: 1;
+}
+
+.apple-table-wrap:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: var(--border-medium);
+}
+
+/* ============ Table ============ */
+.apple-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: transparent;
+  table-layout: fixed;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.apple-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.apple-table tbody tr:nth-child(odd) {
+  background: var(--row-zebra);
+}
+
+.apple-table tbody tr:hover td {
+  background: var(--row-hover) !important;
+}
+
+.apple-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* ============ Table Header ============ */
+.apple-th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--domrf-grey-50);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 14px;
+  white-space: nowrap;
+  vertical-align: middle;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-size: 11px;
+  transition: background 0.1s ease;
+}
+
+.apple-th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.apple-th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.apple-th:hover {
+  background: var(--domrf-grey-100);
+  color: var(--text-primary);
+}
+
+/* ============ Header Container ============ */
+.apple-th__container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  height: 100%;
+  user-select: none;
+}
+
+.apple-th__text {
+  letter-spacing: 0.15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.apple-th__text::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid rgba(107, 114, 128, 0.3);
+  border-bottom: 1px solid rgba(107, 114, 128, 0.3);
+  transform: rotate(45deg) translateY(-1px);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.apple-th:hover .apple-th__text::after {
+  opacity: 0.4;
+}
+
+/* ============ Column Resizer ============ */
+.apple-th__resizer {
+  width: 3px;
+  height: 100%;
+  cursor: col-resize;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  top: 0;
+  user-select: none;
+  touch-action: none;
+  transition: background 0.1s ease;
+}
+
+.apple-th__resizer:hover {
+  background: rgba(209, 213, 219, 0.4);
+  width: 5px;
+}
+
+.apple-th__resizer:active {
+  background: rgba(209, 213, 219, 0.7);
+}
+
+/* ============ Table Rows ============ */
+.apple-tr {
+  transition: background-color 0.1s ease;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.apple-tr:nth-child(odd) {
+  background: var(--row-zebra);
+}
+
+.apple-tr:hover {
+  background: var(--row-hover);
+}
+
+.apple-tr.is-active {
+  background: var(--row-active);
+}
+
+.apple-tr:last-child {
+  border-bottom: none;
+}
+
+/* ============ Table Cells ============ */
+.apple-td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+  transition: color 0.1s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.apple-td--mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-family: "Courier New", "Menlo", monospace;
+  font-size: 12px;
+  text-align: right;
+  color: var(--text-secondary);
+}
+
+.apple-tr .apple-td:first-child {
+  border-left: 0;
+}
+
+.apple-tr .apple-td:last-child {
+  border-right: 0;
+}
+
+.apple-tr:last-child .apple-td {
+  border-bottom-color: transparent;
+}
+
+.apple-td.is-empty {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.apple-td:hover {
+  color: var(--domrf-green);
+}
+
+/* ============ Footer ============ */
+.apple-table__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--domrf-grey-50);
+  border-top: 1px solid var(--border-light);
+  border-radius: 0 0 10px 10px;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.apple-table__expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: linear-gradient(135deg, var(--domrf-green), var(--domrf-green-dark));
+  color: #ffffff;
+  border: 1px solid rgba(139, 197, 64, 0.1);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(139, 197, 64, 0.1);
+  flex-shrink: 0;
+}
+
+.apple-table__expand-btn:hover {
+  box-shadow: 0 2px 6px rgba(139, 197, 64, 0.15);
+  transform: translateY(-1px);
+}
+
+.apple-table__expand-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(139, 197, 64, 0.1);
+}
+
+/* ============ Dense Mode ============ */
+.apple-table--dense {
+  font-size: 12px;
+}
+
+.apple-table--dense .apple-td,
+.apple-table--dense .apple-th {
+  padding: 8px 10px;
+}
+
+/* ============ Spacious Mode ============ */
+.apple-table--spacious {
+  font-size: 15px;
+}
+
+.apple-table--spacious .apple-td,
+.apple-table--spacious .apple-th {
+  padding: 16px 16px;
+}
+
+/* ============ Cell Truncation ============ */
+.apple-td {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.apple-table--dense .apple-td {
+  max-width: 150px;
+}
+
+.apple-table--spacious .apple-td {
+  max-width: 300px;
+}
+
+/* ============ Pagination Buttons ============ */
+.apple-pagebtn {
+  background: var(--domrf-white);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.apple-pagebtn:hover {
+  background: var(--domrf-grey-50);
+  border-color: var(--border-medium);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.apple-pagebtn:active {
+  transform: translateY(1px);
+}
+
+.apple-pagebtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============ Empty State ============ */
+.apple-table__empty {
+  padding: 30px 20px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  background: var(--domrf-grey-50);
+  border: 1px dashed var(--border-light);
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+/* ============ Selection ============ */
+.apple-table tbody tr.selected td {
+  background: var(--domrf-green-light);
+}
+
+/* ============ Animations ============ */
+@keyframes row-highlight {
+  from {
+    background: rgba(139, 197, 64, 0.1);
+  }
+  to {
+    background: transparent;
+  }
+}
+
+.apple-table tbody tr.new-row td {
+  animation: row-highlight 1.2s ease-out;
+}
+
+/* ============ Focus State ============ */
+.apple-table tbody tr:focus-within {
+  outline: 1px solid var(--domrf-green);
+  outline-offset: -1px;
+}
+
+/* ============ Scrollbar ============ */
+.apple-table-wrap::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+.apple-table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(209, 213, 219, 0.4);
+  border-radius: 4px;
+}
+
+.apple-table-wrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(209, 213, 219, 0.6);
+}
+
+.apple-table-wrap::-webkit-scrollbar-thumb:active {
+  background: rgba(209, 213, 219, 0.8);
+}
+
+.apple-table-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+  .apple-card {
+    padding: 16px;
+  }
+
+  .apple-th,
+  .apple-td {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .apple-table-wrap {
+    max-height: 500px;
+  }
+
+  .apple-card::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .apple-card {
+    padding: 12px;
+    border-radius: 10px;
+    resize: none;
+  }
+
+  .apple-table-wrap {
+    max-height: 300px;
+    border-radius: 8px;
+  }
+
+  .apple-th,
+  .apple-td {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .apple-th {
+    font-size: 9px;
+  }
+
+  .apple-table__footer {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+
+  .apple-card::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .apple-card {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .apple-table-wrap {
+    max-height: 250px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  .apple-table {
+    font-size: 10px;
+    min-width: 300px;
+  }
+
+  .apple-th,
+  .apple-td {
+    padding: 6px 8px;
+  }
+
+  .apple-table__footer {
+    font-size: 9px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .apple-th__resizer {
+    display: none;
+  }
+
+  .apple-card::after {
+    display: none;
+  }
+}
+
+/* ============ Print ============ */
+@media print {
+  .apple-card {
+    box-shadow: none;
+    border: 1px solid var(--border-light);
+  }
+
+  .apple-table-wrap {
+    max-height: none;
+  }
+
+  .apple-table__footer {
+    display: none;
+  }
+}

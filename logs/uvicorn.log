@@ -1,0 +1,161 @@
+INFO:     Will watch for changes in these directories: ['/home/user/escrow-dashboard/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [3280224] using WatchFiles
+/home/user/escrow-dashboard/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:318: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+2025-11-07 15:36:28,069 - app.main - INFO - ✅ CORS enabled for all origins
+2025-11-07 15:36:28,072 - app.main - INFO - ✅ Auth router registered
+2025-11-07 15:36:28,076 - app.main - INFO - ✅ Users router registered
+2025-11-07 15:36:28,080 - app.main - INFO - ✅ Dashboards router registered
+2025-11-07 15:36:28,081 - app.main - INFO - ✅ SQL Executor router registered
+2025-11-07 15:36:28,082 - app.main - INFO - ✅ Code Executor router registered
+2025-11-07 15:36:28,082 - app.main - INFO - ✅ Meta (DB Structure) router registered
+2025-11-07 15:36:28,083 - app.main - INFO - ✅ Query router registered
+2025-11-07 15:36:28,083 - app.main - INFO - ✅ SQL Export router registered
+INFO:     Started server process [3280227]
+INFO:     Waiting for application startup.
+2025-11-07 15:36:28,085 - app.main - INFO - ============================================================
+2025-11-07 15:36:28,085 - app.main - INFO - 🚀 Starting Escrow Dashboard API...
+2025-11-07 15:36:28,085 - app.main - INFO - ============================================================
+2025-11-07 15:36:28,100 - app.main - INFO - ✅ Database tables created
+2025-11-07 15:36:28,104 - app.main - INFO - ✅ Default users already exist
+2025-11-07 15:36:28,105 - app.main - INFO - ✅ Default users initialized
+INFO:     Application startup complete.
+2025-11-07 15:36:29,110 - app.main - INFO - 🌐 GET http://localhost:8000/health
+2025-11-07 15:36:29,110 - app.main - INFO - 📟 Health check requested
+INFO:     127.0.0.1:38248 - "GET /health HTTP/1.1" 200 OK
+2025-11-07 15:36:38,104 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:38,107 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 15:36:38,108 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:38,111 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:38,120 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+INFO:     10.10.3.58:41136 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 15:36:38,161 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:41140 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 15:36:40,788 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:40,790 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 15:36:40,791 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:40,793 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:52870 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:40,801 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:52870 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+INFO:     10.10.3.58:52572 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 15:36:40,834 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:52574 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 15:36:42,478 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:52586 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 15:36:47,713 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52596 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 15:36:47,949 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52596 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 15:36:47,952 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52598 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 15:36:48,143 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 15:36:48,143 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:52598 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:52596 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 15:36:48,146 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:52602 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 15:36:48,161 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:52602 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 15:36:50,666 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52602 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 15:36:50,874 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52602 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 15:36:50,970 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 15:36:50,971 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:34646 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:50,973 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:34656 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:50,976 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:34656 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:36:50,978 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:34656 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+INFO:     10.10.3.58:41570 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 15:36:51,025 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:41582 - "GET /api/meta/tables HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-11-07 15:38:42,835 - app.main - INFO - 🛑 Shutting down Escrow Dashboard API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3280227]
+/home/user/escrow-dashboard/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:318: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+2025-11-07 15:38:43,913 - app.main - INFO - ✅ CORS enabled for all origins
+2025-11-07 15:38:43,916 - app.main - INFO - ✅ Auth router registered
+2025-11-07 15:38:43,921 - app.main - INFO - ✅ Users router registered
+2025-11-07 15:38:43,927 - app.main - INFO - ✅ Dashboards router registered
+2025-11-07 15:38:43,928 - app.main - INFO - ✅ SQL Executor router registered
+2025-11-07 15:38:43,929 - app.main - INFO - ✅ Code Executor router registered
+2025-11-07 15:38:43,929 - app.main - INFO - ✅ Meta (DB Structure) router registered
+2025-11-07 15:38:43,930 - app.main - INFO - ✅ Query router registered
+2025-11-07 15:38:43,930 - app.main - INFO - ✅ SQL Export router registered
+INFO:     Started server process [3280346]
+INFO:     Waiting for application startup.
+2025-11-07 15:38:43,932 - app.main - INFO - ============================================================
+2025-11-07 15:38:43,932 - app.main - INFO - 🚀 Starting Escrow Dashboard API...
+2025-11-07 15:38:43,932 - app.main - INFO - ============================================================
+2025-11-07 15:38:43,951 - app.main - INFO - ✅ Database tables created
+2025-11-07 15:38:43,958 - app.main - INFO - ✅ Default users already exist
+2025-11-07 15:38:43,958 - app.main - INFO - ✅ Default users initialized
+INFO:     Application startup complete.
+2025-11-07 15:39:29,765 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 15:39:29,766 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:39:29,768 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:39:29,771 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+2025-11-07 15:39:29,779 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
+INFO:     10.10.3.58:50390 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 15:39:29,816 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:50398 - "GET /api/meta/tables HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-11-07 15:40:57,948 - app.main - INFO - 🛑 Shutting down Escrow Dashboard API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3280346]
+/home/user/escrow-dashboard/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:318: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+2025-11-07 15:40:59,169 - app.main - INFO - ✅ CORS enabled for all origins
+2025-11-07 15:40:59,172 - app.main - INFO - ✅ Auth router registered
+2025-11-07 15:40:59,178 - app.main - INFO - ✅ Users router registered
+2025-11-07 15:40:59,183 - app.main - INFO - ✅ Dashboards router registered
+2025-11-07 15:40:59,185 - app.main - INFO - ✅ SQL Executor router registered
+2025-11-07 15:40:59,186 - app.main - INFO - ✅ Code Executor router registered
+2025-11-07 15:40:59,186 - app.main - INFO - ✅ Meta (DB Structure) router registered
+2025-11-07 15:40:59,186 - app.main - INFO - ✅ Query router registered
+2025-11-07 15:40:59,187 - app.main - INFO - ✅ SQL Export router registered
+INFO:     Started server process [3280380]
+INFO:     Waiting for application startup.
+2025-11-07 15:40:59,190 - app.main - INFO - ============================================================
+2025-11-07 15:40:59,190 - app.main - INFO - 🚀 Starting Escrow Dashboard API...
+2025-11-07 15:40:59,190 - app.main - INFO - ============================================================
+2025-11-07 15:40:59,211 - app.main - INFO - ✅ Database tables created
+2025-11-07 15:40:59,218 - app.main - INFO - ✅ Default users already exist
+2025-11-07 15:40:59,218 - app.main - INFO - ✅ Default users initialized
+INFO:     Application startup complete.
+2025-11-07 15:41:00,203 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 15:41:00,204 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 15:41:00,206 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 15:41:00,210 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 15:41:00,221 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46296 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59980 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 15:41:00,295 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:59988 - "GET /api/meta/tables HTTP/1.1" 200 OK

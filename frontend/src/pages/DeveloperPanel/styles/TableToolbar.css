@@ -1,0 +1,381 @@
+/* ============ DOM.RF Color Palette ============ */
+:root {
+  --domrf-green: #8BC540;
+  --domrf-gray-dark: #2F444E;
+  --domrf-gray-light: #76787A;
+  --domrf-border: #E6EDF6;
+  --domrf-bg-light: #F6F9FF;
+  --domrf-white: #FFFFFF;
+}
+
+/* ============ Toolbar Container ============ */
+.table-toolbar {
+  background: var(--domrf-white);
+  border: 1px solid var(--domrf-border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04),
+              0 4px 12px rgba(31, 94, 209, 0.05);
+  animation: toolbar-expand 0.3s ease;
+}
+
+@keyframes toolbar-expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 2000px;
+  }
+}
+
+/* ============ Collapsed State ============ */
+.table-toolbar--collapsed {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* ============ Header (с кнопкой скрытия) ============ */
+.table-toolbar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.table-toolbar__title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--domrf-gray-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ============ Toggle Button ============ */
+.table-toolbar__toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--domrf-border);
+  border-radius: 8px;
+  color: var(--domrf-gray-light);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.table-toolbar__toggle-btn:hover {
+  background: var(--domrf-bg-light);
+  border-color: #d8e3f2;
+  color: var(--domrf-green);
+}
+
+.table-toolbar__toggle-btn--close {
+  padding: 4px 8px;
+}
+
+.table-toolbar__toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.table-toolbar__toggle-btn--close .table-toolbar__toggle-icon {
+  transform: rotate(0deg);
+}
+
+.table-toolbar__toggle-text {
+  display: inline;
+}
+
+/* Скрыть текст на малых экранах */
+@media (max-width: 768px) {
+  .table-toolbar__toggle-text {
+    display: none;
+  }
+}
+
+/* ============ Grid Layout ============ */
+.table-toolbar__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+/* ============ Column Container ============ */
+.table-toolbar__column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--domrf-bg-light);
+  border: 1px solid var(--domrf-border);
+  border-radius: 10px;
+  transition: all 0.15s ease;
+}
+
+.table-toolbar__column:hover {
+  border-color: #d8e3f2;
+  background: #f9fbff;
+  box-shadow: 0 2px 8px rgba(139, 197, 64, 0.08);
+}
+
+/* ============ Label ============ */
+.table-toolbar__label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--domrf-gray-light);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* ============ Alias Input ============ */
+.table-toolbar__alias-input {
+  border: 1.5px solid var(--domrf-border);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 13px;
+  color: var(--domrf-gray-dark);
+  background: var(--domrf-white);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font-family: inherit;
+}
+
+.table-toolbar__alias-input::placeholder {
+  color: #94a8bf;
+}
+
+.table-toolbar__alias-input:hover {
+  border-color: #d8e3f2;
+}
+
+.table-toolbar__alias-input:focus {
+  outline: none;
+  border-color: var(--domrf-green);
+  box-shadow: 0 0 0 3px rgba(139, 197, 64, 0.15);
+  background: #fafbff;
+}
+
+/* ============ Filter Row ============ */
+.table-toolbar__filter-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 36px;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Operation Select */
+.table-toolbar__filter-op {
+  border: 1px solid var(--domrf-border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: var(--domrf-gray-dark);
+  background: var(--domrf-white);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.table-toolbar__filter-op:hover {
+  border-color: #d8e3f2;
+  background: #fafbff;
+}
+
+.table-toolbar__filter-op:focus {
+  outline: none;
+  border-color: var(--domrf-green);
+  box-shadow: 0 0 0 2px rgba(139, 197, 64, 0.15);
+}
+
+/* Value Input */
+.table-toolbar__filter-val {
+  border: 1.5px solid var(--domrf-border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--domrf-gray-dark);
+  background: var(--domrf-white);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font-family: inherit;
+}
+
+.table-toolbar__filter-val::placeholder {
+  color: #94a8bf;
+}
+
+.table-toolbar__filter-val:hover {
+  border-color: #d8e3f2;
+}
+
+.table-toolbar__filter-val:focus {
+  outline: none;
+  border-color: var(--domrf-green);
+  box-shadow: 0 0 0 3px rgba(139, 197, 64, 0.15);
+  background: #fafbff;
+}
+
+/* Reset Button (зелёный) */
+.table-toolbar__reset-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1.5px solid #d4edca;
+  background: #eef8e7;
+  color: var(--domrf-green);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-toolbar__reset-btn:hover {
+  background: #e5f3dd;
+  border-color: #8BC540;
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(139, 197, 64, 0.15);
+}
+
+.table-toolbar__reset-btn:active {
+  transform: scale(0.95);
+}
+
+.table-toolbar__reset-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(139, 197, 64, 0.25);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+  .table-toolbar__grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+
+  .table-toolbar {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-toolbar {
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+
+  .table-toolbar__title {
+    font-size: 11px;
+  }
+
+  .table-toolbar__grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .table-toolbar__column {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .table-toolbar__label {
+    font-size: 10px;
+  }
+
+  .table-toolbar__alias-input {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .table-toolbar__filter-row {
+    grid-template-columns: 60px 1fr 32px;
+    gap: 5px;
+  }
+
+  .table-toolbar__filter-op,
+  .table-toolbar__filter-val {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .table-toolbar__reset-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .table-toolbar__toggle-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-toolbar {
+    padding: 10px;
+  }
+
+  .table-toolbar--collapsed {
+    padding: 8px;
+  }
+
+  .table-toolbar__grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .table-toolbar__column {
+    padding: 10px;
+  }
+
+  .table-toolbar__filter-row {
+    grid-template-columns: 55px 1fr 30px;
+    gap: 6px;
+  }
+
+  .table-toolbar__alias-input {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .table-toolbar__filter-op,
+  .table-toolbar__filter-val {
+    padding: 5px 6px;
+    font-size: 10px;
+  }
+
+  .table-toolbar__reset-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .table-toolbar__toggle-btn {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}
+
+/* ============ Light Theme (Default) ============ */
+.table-toolbar {
+  --bg-primary: var(--domrf-white);
+  --bg-secondary: var(--domrf-bg-light);
+  --text-primary: var(--domrf-gray-dark);
+  --text-secondary: var(--domrf-gray-light);
+  --border-color: var(--domrf-border);
+  --accent-color: var(--domrf-green);
+}

@@ -1,0 +1,10 @@
+
+> escrow-dashboard-frontend@1.0.0 dev
+> vite --host 0.0.0.0 --port 5173
+
+Re-optimizing dependencies because lockfile has changed
+
+  VITE v5.4.21  ready in 208 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.10.3.58:5173/

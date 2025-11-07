@@ -1,0 +1,543 @@
+/* ============ DOM.RF Chart Colors Palette ============ */
+:root {
+  /* Brand Colors */
+  --domrf-green: #8BC540;
+  --domrf-green-dark: #6B9B2C;
+  --domrf-blue: #2B76F0;
+  --domrf-blue-light: #5B9EFF;
+  
+  /* Secondary Colors (для диаграмм) */
+  --chart-color-1: #8BC540;  /* Зелёный */
+  --chart-color-2: #2B76F0;  /* Синий */
+  --chart-color-3: #FF9D5C;  /* Оранжевый */
+  --chart-color-4: #6E5CE0;  /* Фиолетовый */
+  --chart-color-5: #00B4D8;  /* Голубой */
+  --chart-color-6: #FFB84D;  /* Жёлтый */
+  --chart-color-7: #E74C3C;  /* Красный */
+  --chart-color-8: #00D9A3;  /* Мятный */
+  
+  /* Gray Palette */
+  --domrf-gray-dark: #2F444E;
+  --domrf-gray-light: #76787A;
+  --domrf-border: #E6EDF6;
+  --domrf-bg-light: #F6F9FF;
+  --domrf-white: #FFFFFF;
+  
+  /* Shadows (серые) */
+  --shadow-sm: 0 1px 2px rgba(47, 68, 78, 0.06);
+  --shadow-md: 0 4px 12px rgba(47, 68, 78, 0.08);
+  --shadow-lg: 0 8px 24px rgba(47, 68, 78, 0.10);
+}
+
+
+/* ============ Chart Widget Container ============ */
+.chart-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: var(--domrf-white);
+  border-radius: 16px;
+  border: 1px solid var(--domrf-border);
+  box-shadow: var(--shadow-sm), var(--shadow-md);
+  transition: all 0.2s ease;
+}
+
+
+.chart-widget:hover {
+  box-shadow: var(--shadow-sm), var(--shadow-lg);
+}
+
+
+/* ============ Title ============ */
+.chart-widget__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--domrf-gray-dark);
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+
+/* ============ SQL Input ============ */
+.chart-widget__sql-input {
+  width: 100%;
+  border: 1.5px solid var(--domrf-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: 'Courier New', 'Menlo', monospace;
+  font-size: 13px;
+  color: var(--domrf-gray-dark);
+  background: var(--domrf-white);
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.chart-widget__sql-input:focus {
+  outline: none;
+  border-color: var(--chart-color-1);
+  box-shadow: 0 0 0 3px rgba(139, 197, 64, 0.18);
+}
+
+
+.chart-widget__sql-input::placeholder {
+  color: #94a8bf;
+}
+
+
+/* ============ Controls Grid ============ */
+.chart-widget__controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+
+/* ============ Select ============ */
+.chart-widget__select {
+  width: 100%;
+  border: 1.5px solid var(--domrf-border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--domrf-gray-dark);
+  background: var(--domrf-white);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-weight: 600;
+}
+
+
+.chart-widget__select:hover {
+  border-color: #d8e3f2;
+  background: var(--domrf-bg-light);
+}
+
+
+.chart-widget__select:focus {
+  outline: none;
+  border-color: var(--chart-color-1);
+  box-shadow: 0 0 0 2px rgba(139, 197, 64, 0.15);
+}
+
+
+/* ============ Save Button ============ */
+.chart-widget__save-btn {
+  align-self: flex-start;
+  padding: 10px 18px;
+  background: var(--chart-color-1);
+  color: var(--domrf-white);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 4px 12px rgba(139, 197, 64, 0.18);
+}
+
+
+.chart-widget__save-btn:hover {
+  background: #6B9B2C;
+  box-shadow: 0 6px 16px rgba(139, 197, 64, 0.25);
+  transform: translateY(-2px);
+}
+
+
+.chart-widget__save-btn:active {
+  transform: translateY(0);
+}
+
+
+.chart-widget__save-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* ============ Loading State ============ */
+.chart-widget__loading {
+  padding: 12px;
+  text-align: center;
+  color: var(--chart-color-2);
+  font-size: 13px;
+  background: linear-gradient(135deg, rgba(139, 197, 64, 0.08), rgba(139, 197, 64, 0.04));
+  border-radius: 10px;
+  border-left: 3px solid var(--chart-color-1);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+
+/* ============ Error State ============ */
+.chart-widget__error {
+  padding: 12px;
+  color: #c0392b;
+  font-size: 13px;
+  background: #fef3f3;
+  border-radius: 10px;
+  border-left: 3px solid #e74c3c;
+}
+
+
+/* ============ Empty State ============ */
+.chart-widget__empty {
+  padding: 24px;
+  text-align: center;
+  color: #94a8bf;
+  font-size: 14px;
+  background: linear-gradient(135deg, rgba(139, 197, 64, 0.04), rgba(139, 197, 64, 0.02));
+  border-radius: 12px;
+  border: 1px dashed var(--domrf-border);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ============ Chart Container ============ */
+.chart-widget__chart-container {
+  position: relative;
+  height: 300px;
+  background: var(--domrf-white);
+  border-radius: 12px;
+  border: 1px solid var(--domrf-border);
+  padding: 16px;
+}
+
+
+/* ============ Chart Animations ============ */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes barGrow {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+
+/* ============ Chart.js Overrides (ДОМ.РФ стиль) ============ */
+.chart-widget canvas {
+  animation: slideUp 0.5s ease-out;
+}
+
+
+/* Line Chart */
+.chart-widget .line-chart {
+  animation: fadeIn 0.8s ease-out;
+}
+
+
+.chart-widget .line-chart .chartjs-line {
+  stroke: var(--chart-color-1);
+  stroke-width: 2.5px;
+  fill: none;
+}
+
+
+/* Bar Chart */
+.chart-widget .bar-chart {
+  animation: fadeIn 0.8s ease-out;
+}
+
+
+.chart-widget .bar-chart .chartjs-bar {
+  fill: var(--chart-color-1);
+}
+
+
+/* Pie Chart */
+.chart-widget .pie-chart {
+  animation: fadeIn 0.6s ease-out;
+}
+
+
+/* ============ Legend Customization ============ */
+.chart-widget__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--domrf-bg-light);
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+
+.chart-widget__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.chart-widget__legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+
+/* ============ Chart Types (Color Variants) ============ */
+
+
+/* Вариант 1: Зелёный (основной) */
+.chart-widget--green .chart-widget__save-btn,
+.chart-widget--green canvas {
+  --primary-color: var(--chart-color-1);
+}
+
+
+/* Вариант 2: Синий */
+.chart-widget--blue .chart-widget__save-btn {
+  background: var(--chart-color-2);
+  box-shadow: 0 4px 12px rgba(43, 118, 240, 0.18);
+}
+
+
+.chart-widget--blue .chart-widget__save-btn:hover {
+  background: #1f5ed1;
+}
+
+
+/* Вариант 3: Оранжевый */
+.chart-widget--orange .chart-widget__save-btn {
+  background: var(--chart-color-3);
+  box-shadow: 0 4px 12px rgba(255, 157, 92, 0.18);
+}
+
+
+.chart-widget--orange .chart-widget__save-btn:hover {
+  background: #FF8C42;
+}
+
+
+/* Вариант 4: Фиолетовый */
+.chart-widget--purple .chart-widget__save-btn {
+  background: var(--chart-color-4);
+  box-shadow: 0 4px 12px rgba(110, 92, 224, 0.18);
+}
+
+
+.chart-widget--purple .chart-widget__save-btn:hover {
+  background: #5A4DB8;
+}
+
+
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+  .chart-widget {
+    padding: 16px;
+    gap: 14px;
+  }
+
+
+  .chart-widget__controls {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+
+  .chart-widget__chart-container {
+    height: 250px;
+    padding: 14px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .chart-widget {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 14px;
+  }
+
+
+  .chart-widget__title {
+    font-size: 15px;
+  }
+
+
+  .chart-widget__controls {
+    grid-template-columns: 1fr;
+  }
+
+
+  .chart-widget__sql-input {
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+
+  .chart-widget__select {
+    padding: 7px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+
+  .chart-widget__save-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    width: 100%;
+  }
+
+
+  .chart-widget__chart-container {
+    height: 220px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+
+  .chart-widget__legend {
+    gap: 12px;
+    padding: 10px;
+    font-size: 11px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .chart-widget {
+    padding: 10px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+
+  .chart-widget__title {
+    font-size: 13px;
+  }
+
+
+  .chart-widget__sql-input {
+    padding: 6px 8px;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+
+
+  .chart-widget__select {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+
+  .chart-widget__save-btn {
+    padding: 7px 14px;
+    font-size: 11px;
+    width: 100%;
+  }
+
+
+  .chart-widget__chart-container {
+    height: 180px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+
+  .chart-widget__legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px;
+    font-size: 10px;
+  }
+
+
+  .chart-widget__loading,
+  .chart-widget__error {
+    font-size: 11px;
+    padding: 10px;
+  }
+}
+
+
+/* ============ Dark Mode Support ============ */
+@media (prefers-color-scheme: dark) {
+  .chart-widget {
+    background: #1a1f2e;
+    border-color: #2a3545;
+  }
+
+
+  .chart-widget__sql-input,
+  .chart-widget__select {
+    background: #0f1419;
+    color: #e5e7eb;
+    border-color: #2a3545;
+  }
+
+
+  .chart-widget__chart-container {
+    background: #0f1419;
+    border-color: #2a3545;
+  }
+
+
+  .chart-widget__empty {
+    background: rgba(139, 197, 64, 0.08);
+    color: #94a8bf;
+  }
+}
+
+
+/* ============ Print Styles ============ */
+@media print {
+  .chart-widget {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+
+  .chart-widget__controls,
+  .chart-widget__sql-input {
+    display: none;
+  }
+
+
+  .chart-widget__chart-container {
+    height: auto;
+  }
+}
