@@ -1,0 +1,166 @@
+:root {
+  --domrf-green: #8bc540;
+  --domrf-blue: #4ec3e0;
+  --domrf-gray: #2f444e;
+  --domrf-accent: #149183;
+  --domrf-light-bg: #f4f8f4;
+  --domrf-border: #dde5db;
+  --domrf-panel: #fff;
+  --domrf-shadow: rgba(76, 195, 224, 0.14);
+  --domrf-shadow-strong: rgba(47, 68, 78, 0.09);
+  --input-height: 36px;
+}
+
+/* Корневая карточка панели */
+.chart-config-panel {
+  background: var(--domrf-panel);
+  border-radius: 18px;
+  border: 1.5px solid var(--domrf-border);
+  padding: 22px 28px 16px;
+  margin: 18px 0 20px 0;
+  box-shadow: 0 4px 14px var(--domrf-shadow), 0 1.5px 7px var(--domrf-shadow-strong);
+  display: block;
+  transition: box-shadow 0.17s;
+}
+
+/* Grid для компактного и аккуратного расположения */
+.chart-config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 32px;
+}
+@media (max-width: 680px) {
+  .chart-config-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .chart-config-panel { padding: 15px; }
+}
+
+/* Поля и лейблы */
+.chart-config-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  justify-content: flex-start;
+}
+.chart-config-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--domrf-gray);
+  margin-bottom: 2px;
+}
+
+/* Цвета серий */
+.chart-config-colors {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+input[type='color'] {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: #f6fbfa;
+  box-shadow: 0 0 0 2px var(--domrf-border);
+  padding: 0;
+  cursor: pointer;
+  transition: box-shadow 0.17s;
+}
+input[type='color']:focus {
+  outline: 2px solid var(--domrf-green);
+  box-shadow: 0 0 0 4px var(--domrf-blue);
+}
+.chart-config-color-btn {
+  background: #ebf3eb;
+  border: 1.5px solid var(--domrf-border);
+  color: var(--domrf-green);
+  border-radius: 8px;
+  font-size: 17px;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.14s;
+  cursor: pointer;
+  margin: 0 2px;
+}
+.chart-config-color-btn:hover {
+  background: var(--domrf-green);
+  color: #fff;
+}
+
+/* Краткая строка для чекбоксов/селектов */
+.chart-config-row-tight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+/* Стиль чекбоксов и текстов */
+.chart-config-row-tight input[type='checkbox'] {
+  transform: scale(1.13);
+  margin-right: 7px;
+  accent-color: var(--domrf-green);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.chart-config-label,
+.chart-config-row-tight label {
+  font-size: 14px;
+  color: var(--domrf-gray);
+  vertical-align: middle;
+}
+
+/* Select и input */
+.chart-config-select, .chart-config-input {
+  height: var(--input-height);
+  border: 1.5px solid var(--domrf-border);
+  border-radius: 9px;
+  background: #f7faf7;
+  padding: 0 12px;
+  font-size: 15px;
+  color: var(--domrf-gray);
+  margin: 0 10px 0 2px;
+  transition: border-color 0.13s, box-shadow 0.12s;
+}
+.chart-config-select:focus,
+.chart-config-input:focus {
+  border-color: var(--domrf-green);
+  box-shadow: 0 2px 8px var(--domrf-shadow);
+  outline: none;
+}
+.chart-config-input::placeholder {
+  color: #a9bac6;
+}
+
+/* Тёмная тема */
+.chart-dark {
+  background: #232b2b;
+  color: #c6eed6;
+}
+.chart-dark .chart-config-label,
+.chart-dark .chart-config-row-tight label,
+.chart-dark .chart-config-select,
+.chart-dark .chart-config-input {
+  color: #c6eed6;
+  background: #253b23;
+}
+.chart-dark input[type='color'] { background: #2f444e; }
+.chart-dark .chart-config-color-btn {
+  background: #2f444e; color: #8bc540; border-color: #4ec3e0;
+}
+.chart-dark .chart-config-color-btn:hover {
+  background: #8bc540; color: #fff;
+}
+
+/* Responsive для телефона */
+@media (max-width: 480px) {
+  .chart-config-panel { border-radius: 8px; font-size: 12px;}
+  .chart-config-grid { gap: 10px;}
+  .chart-config-color-btn, input[type='color'] { width: 24px; height: 24px;}
+}

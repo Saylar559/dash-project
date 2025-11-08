@@ -1,0 +1,220 @@
+/* AccountantPage.css */
+:root {
+  --brand-primary: #0d6efd;
+  --brand-success: #198754;
+  --brand-light: #f8f9fa;
+  --brand-white: #ffffff;
+  --border-color: #dee2e6;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  --error: #dc3545;
+  --success: #198754;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+  --transition: all 0.2s ease;
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --font-base: 'Inter', 'SF Pro Display', 'Roboto', Arial, sans-serif;
+    --container-width: 1320px;
+}
+
+/* === ГЛОБАЛЬНЫЕ СБРОСЫ === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, #root {
+  background: var(--brand-light);
+  color: var(--text-primary);
+  font-family: var(--font-base);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* === КОНТЕЙНЕР === */
+.accountant-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* === ХЕДЕР === */
+.accountant-header {
+  background: var(--brand-white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.accountant-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.accountant-logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--error);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--error);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.accountant-logout-btn:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #b91c1c;
+  box-shadow: var(--shadow-sm);
+}
+
+.accountant-logout-btn:active {
+  transform: translateY(1px);
+}
+
+/* === КАРТОЧКИ === */
+.accountant-cards-row {
+  flex: 1;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* === CARD BLOCK (предполагается, что CardBlock — это компонент) === */
+/* Если CardBlock — это ваш компонент, стили ниже для него */
+.accountant-card {
+  background: var(--brand-white);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.accountant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-success));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.accountant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--brand-primary);
+}
+
+.accountant-card:hover::before {
+  opacity: 1;
+}
+
+.accountant-card:active {
+  transform: translateY(-3px);
+}
+
+/* Иконка */
+.accountant-card > *:first-child {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* Заголовок */
+.accountant-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+/* Описание */
+.accountant-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+  .accountant-header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .accountant-title {
+    font-size: 1.375rem;
+  }
+
+  .accountant-cards-row {
+    padding: 1.5rem 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .accountant-card {
+    padding: 1.25rem;
+  }
+
+  .accountant-card > *:first-child {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .accountant-header {
+    padding: 0.75rem;
+  }
+
+  .accountant-title {
+    font-size: 1.25rem;
+  }
+
+  .accountant-logout-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .accountant-cards-row {
+    padding: 1rem 0.75rem;
+    gap: 1rem;
+  }
+}

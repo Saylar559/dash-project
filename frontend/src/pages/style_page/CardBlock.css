@@ -1,0 +1,96 @@
+:root {
+  --card-bg-start: #ffffff;
+  --card-bg-end: #f2f7fc;
+  --card-shadow-base: 0 6px 26px rgba(165,192,227,0.14);
+  --card-shadow-hover: 0 10px 48px rgba(120,120,172,0.19);
+  --card-radius: 22px;
+  --card-transition: box-shadow 0.16s ease, transform 0.14s ease;
+  --text-primary: #232c49;
+  --text-secondary: #52618b;
+  --icon-shadow: 0 2px 12px #e8edfa;
+}
+
+/* Карточка */
+.card-block {
+  padding: 22px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Выравнивание по центру, компактней */
+  background: linear-gradient(134deg, var(--card-bg-start) 70%, var(--card-bg-end) 100%);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow-base);
+  min-height: 134px;
+  max-height: 210px;                       /* лимит максимальной высоты! */
+  max-width: 270px;
+  transition: var(--card-transition);
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+}
+
+/* Акцентная линия сверху */
+.card-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,#0d6efd,#198754);
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+
+.card-block:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px) scale(1.028);
+}
+.card-block:hover::before { opacity: 1; }
+.card-block:active { transform: scale(0.99); }
+.card-block:focus-visible { outline: 2px solid #0d6efd; outline-offset: 2px; }
+
+/* Иконка */
+.card-icon {
+  font-size: 2.2em;
+  margin-bottom: 8px;
+  margin-top: 1px;
+  text-shadow: var(--icon-shadow);
+  line-height: 1;
+}
+/* Заголовок */
+.card-title {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1.07em;
+  margin: 0 0 4px 0;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+/* Описание */
+.card-desc {
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 1em;
+  font-weight: 400;
+  opacity: 0.83;
+  margin: 0;
+  line-height: 1.35;
+  max-width: 90%;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Адаптив */
+@media (max-width: 640px) {
+  .card-block {
+    padding: 14px 10px;
+    min-height: 98px;
+    max-height: 160px;
+    max-width: 100%;
+  }
+  .card-icon { font-size: 1.52em; margin-bottom: 7px; }
+  .card-title { font-size: 1em; margin-bottom: 2px; }
+  .card-desc { font-size: 0.93em; }
+}

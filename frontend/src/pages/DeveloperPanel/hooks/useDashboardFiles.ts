@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 
-const API_BASE = 'http://localhost:8000/api/dashboards-files';
+// КОРРЕКТНО: относительный путь, работает с любым vite proxy/production!
+const API_BASE = '/api/dashboards-files';
 
 export interface StoredDashboard {
   id: string;
@@ -21,14 +22,11 @@ export const useDashboardFiles = () => {
   const fetchDashboards = useCallback(async () => {
     setLoading(true);
     setError(null);
-    
     try {
       const response = await fetch(`${API_BASE}/list`);
-      
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-      
       const data = await response.json();
       setDashboards(Array.isArray(data) ? data : []);
       return data;
@@ -42,7 +40,6 @@ export const useDashboardFiles = () => {
     }
   }, []);
 
-  // Загрузить при монтировании
   useEffect(() => {
     fetchDashboards();
   }, [fetchDashboards]);
@@ -51,11 +48,9 @@ export const useDashboardFiles = () => {
   const getDashboard = useCallback(async (id: string) => {
     try {
       const response = await fetch(`${API_BASE}/${id}`);
-      
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-      
       const data = await response.json();
       return data;
     } catch (err: any) {
@@ -80,18 +75,13 @@ export const useDashboardFiles = () => {
           config,
         }),
       });
-
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.detail || `HTTP ${response.status}`);
       }
-
       const result = await response.json();
       console.log('✅ Дашборд сохранён:', result);
-      
-      // Перезагрузить список
       await fetchDashboards();
-      
       return result;
     } catch (err: any) {
       const message = err.message || 'Ошибка сохранения';
@@ -114,18 +104,13 @@ export const useDashboardFiles = () => {
           config,
         }),
       });
-
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.detail || `HTTP ${response.status}`);
       }
-
       const result = await response.json();
       console.log('✅ Дашборд обновлён:', result);
-      
-      // Перезагрузить список
       await fetchDashboards();
-      
       return result;
     } catch (err: any) {
       const message = err.message || 'Ошибка обновления';
@@ -141,15 +126,11 @@ export const useDashboardFiles = () => {
       const response = await fetch(`${API_BASE}/${id}`, {
         method: 'DELETE',
       });
-
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.detail || `HTTP ${response.status}`);
       }
-
       console.log('✅ Дашборд удалён:', id);
-      
-      // Перезагрузить список
       await fetchDashboards();
     } catch (err: any) {
       const message = err.message || 'Ошибка удаления';

@@ -5,6 +5,7 @@ import { executeSQL } from "../../../services/queryService";
 import { ChevronDown, ChevronUp, Plus, Eye } from 'lucide-react';
 import '../styles/Sidebar.css';
 
+// Типы виджетов
 const widgetTypes = [
   { type: 'table', label: 'Таблица', icon: '📑' },
   { type: 'chart', label: 'График', icon: '📈' },
@@ -13,7 +14,6 @@ const widgetTypes = [
   { type: 'info', label: 'Текст/Инфо', icon: '📝' },
 ];
 
-// ergonomic, instant access to data, section toggle and fast add to dashboard!
 const Sidebar: React.FC<{
   dashboards: any[];
   selectedDashboard: any;
@@ -21,6 +21,7 @@ const Sidebar: React.FC<{
   widgets: DashboardWidget[];
   onAddWidget: (type: DashboardWidget['type'], props?: any) => void;
   onSelectDashboard: (dashboard: any) => void;
+  onDeleteDashboard: (id: string, title: string) => void;
   onClear: () => void;
 }> = ({
   dashboards,
@@ -29,6 +30,7 @@ const Sidebar: React.FC<{
   widgets,
   onAddWidget,
   onSelectDashboard,
+  onDeleteDashboard,
   onClear,
 }) => {
   const [tables, setTables] = useState<any[]>([]);
@@ -127,6 +129,7 @@ const Sidebar: React.FC<{
 
   return (
     <aside className="sidebar" aria-label="Боковая панель">
+      {/* Виджеты */}
       <section className="sidebar__section">
         <button
           className="sidebar__section-header"
@@ -155,6 +158,7 @@ const Sidebar: React.FC<{
         )}
       </section>
 
+      {/* Таблицы */}
       <section className="sidebar__section">
         <button
           className="sidebar__section-header"
@@ -204,6 +208,7 @@ const Sidebar: React.FC<{
         )}
       </section>
 
+      {/* Список дашбордов с возможностью удалить */}
       <section className="sidebar__section">
         <button
           className="sidebar__section-header"
@@ -221,24 +226,38 @@ const Sidebar: React.FC<{
               <span className="sidebar__status sidebar__status--empty">📭 Нет дашбордов</span>
             ) : (
               dashboards.map(d => (
-                <button
-                  key={d.id}
-                  className={`sidebar__dashboard-btn ${
-                    selectedDashboard?.id === d.id ? 'sidebar__dashboard-btn--selected' : ''
-                  }`}
-                  onClick={() => onSelectDashboard(d)}
-                  title={`Открыть "${d.title}"`}
-                  aria-label={`Открыть ${d.title}`}
-                >
-                  <span className="sidebar__dashboard-icon">📊</span>
-                  <span className="sidebar__dashboard-title">{d.title}</span>
-                </button>
+                <div key={d.id} className="sidebar__dashboard-row">
+                  <button
+                    className={`sidebar__dashboard-btn ${
+                      selectedDashboard?.id === d.id ? 'sidebar__dashboard-btn--selected' : ''
+                    }`}
+                    onClick={() => onSelectDashboard(d)}
+                    title={`Открыть "${d.title}"`}
+                    aria-label={`Открыть ${d.title}`}
+                  >
+                    <span className="sidebar__dashboard-icon">📊</span>
+                    <span className="sidebar__dashboard-title">{d.title}</span>
+                  </button>
+                  <button
+                    className="sidebar__dashboard-btn sidebar__dashboard-btn--delete"
+                    title="Удалить дашборд"
+                    aria-label={`Удалить ${d.title}`}
+                    onClick={() => {
+                      if (window.confirm(`🗑️ Удалить дашборд "${d.title}"?`)) {
+                        onDeleteDashboard(d.id, d.title);
+                      }
+                    }}
+                  >
+                    🗑️
+                  </button>
+                </div>
               ))
             )}
           </div>
         )}
       </section>
 
+      {/* Управление рабочей областью */}
       <section className="sidebar__section">
         <button
           className="sidebar__section-header"

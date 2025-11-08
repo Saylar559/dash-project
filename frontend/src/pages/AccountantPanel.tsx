@@ -4,118 +4,8 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 dayjs.extend(customParseFormat);
 
-// ===== Корпоративный Apple стиль =====
-const corporateAppleStyles = `
-:root {
-  --bg: linear-gradient(120deg,#eef2f9 69%,#dbe6f7 100%);
-  --sidebar-bg: radial-gradient(ellipse at top left,#fafdff 73%,#e2eaf3 100%);
-  --accent-sapphire: #0071e3;
-  --accent-silver: #b8c6db;
-  --accent-navy: #33527a;
-  --accent-hover: #e3f3fa;
-  --input-bg: #f8fafd;
-  --input-focus: #b6d6fa;
-  --error: #d32f2f;
-  --ok: #2067a3;
-}
-body, #root {
-  background: var(--bg); color: #264060; margin: 0; font-family: "Inter","San Francisco","Roboto",Arial,sans-serif;
-  font-size: 16px; -webkit-font-smoothing: antialiased;
-}
-.app {
-  display: flex; min-height: 100vh; background: var(--bg);
-}
-.sidebar {
-  width: 350px; min-width: 246px;
-  background: var(--sidebar-bg);
-  border-right: 1.5px solid #e5e8f3;
-  border-radius: 18px 0 0 18px;
-  box-shadow: 0 14px 64px -18px #adc6ee9a, 0 2px 12px 0 #7589a726;
-  padding: 38px 32px 32px 32px;
-  position: sticky; top: 0; height: 100vh; z-index: 4;
-  display: flex; flex-direction: column; align-items: flex-start;
-}
-.sidebar h3 {
-  font-weight: 800; font-size: 1.43em; color: #2c3e5b;
-  letter-spacing: 0.02em; margin-bottom: 32px;
-}
-.sidebar .back-btn {
-  display: flex; align-items: center; gap: 12px;
-  background: linear-gradient(93deg,#e9f3fa 3%,#dde8f1 96%);
-  border-radius: 14px; border: none; font-size: 17px; font-weight: 600;
-  color: #1d416c; padding: 10px 24px 10px 16px; margin-bottom: 30px;
-  box-shadow: 0 4px 26px #c0d5ed1a; cursor: pointer;
-  transition: background .19s, box-shadow .17s;
-}
-.sidebar .back-btn:hover {
-  background: linear-gradient(97deg,#ddeaf5 5%,#eff5fa 100%);
-  box-shadow: 0 8px 18px #bdd0eb5b;
-}
-.group { margin-bottom: 36px; width: 100%; }
-.label { font-weight: 700; margin-bottom: 13px; color: #33527a; font-size: 1.13em; }
-.row { display: flex; gap: 18px; }
-.input, .select {
-  font-size: 17px; padding: 14px 12px; border: 1.4px solid #c6d2e0;
-  border-radius: 13px; background: var(--input-bg); color: #2c435c;
-  box-shadow: 0 2px 8px #dbeaf611; font-weight: 400;
-  transition: border-color .16s, box-shadow .14s;
-}
-.input:focus, .select:focus {
-  border-color: var(--input-focus); outline: none; box-shadow: 0 0 0 2px #b6d6fa;
-}
-.checkbox {
-  width: 26px; height: 26px; accent-color: var(--accent-sapphire);
-  margin-right: 13px; vertical-align: middle;
-  box-shadow: 0 1px 5px #a7bcce2b; cursor: pointer;
-}
-.btn {
-  background: linear-gradient(95deg,#0071e3 0%,#33527a 100%);
-  color: #fff; border: none; border-radius: 14px; padding: 18px 0; cursor: pointer; font-size: 1.12em;
-  font-weight: 600; width: 100%; box-shadow: 0 10px 32px #b6cde84a;
-  transition: background .15s, box-shadow .13s; margin-top: 10px;
-}
-.btn:disabled { filter: grayscale(.32); cursor: not-allowed; opacity: .73; }
-.btn:hover { background: linear-gradient(89deg,#219bf7 0%,#b8c6db 70%); }
-.content {
-  flex: 1; padding: 48px 38px 38px 38px; background: none;
-}
-.title {
-  font-size: 2.7em; font-weight: 800; text-align: center;
-  margin: 0 0 .7em; letter-spacing: 0.01em;
-  color: #1b2f4b; text-shadow: 0 2px 17px #dbe4fa7a;
-}
-.subtitle {
-  font-size: 1.22em; font-weight: 600; text-align: center; margin: 0 0 1.3em;
-  color: #45658e; letter-spacing: .01em;
-}
-.dropzone {
-  border: 2px dashed #0071e3; padding: 22px; text-align: center; background: #fff; border-radius: 16px;
-  margin: 22px 0 24px; cursor: pointer; font-size: 1.08em; color: #23415c;
-  transition: background .13s, border-color .14s;
-  box-shadow: 0 2px 18px #b7c6e344;
-}
-.dropzone.dragover {
-  background: #eafdff; border-color: #097ce9; color: #0071e3;
-}
-.hidden { display: none; }
-.actions { display: flex; gap: 14px; justify-content: flex-end; margin: 18px 0 32px 0; }
-.success { color: var(--ok); font-weight: 600; text-align: right; margin-top: 18px; font-size: 1.09em; }
-.error { color: var(--error); font-weight: 700; text-align: center; margin-top: 18px; font-size: 1.03em; letter-spacing: 0.003em; }
-table {
-  width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden;
-  box-shadow: 0 4px 32px #e6eef933; font-size: 1.01em;
-}
-th, td { padding: 13px 18px; border-bottom: 1px solid #e3eaf4; font-size: 1em; text-align: left; }
-th { background: #f6fafd; font-weight: 700; }
-.topbar { display: flex; gap: 18px; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-@media (max-width: 700px) {
-  .app { flex-direction: column; }
-  .sidebar { width: 100%; border-radius: 0 0 20px 20px; min-width: 0; padding: 18px 10px 18px 10px; height: auto; box-shadow: 0 4px 22px #b7c6e336; }
-  .content { padding: 16px 6vw 16px 6vw; }
-  .title { font-size: 1.28em; }
-  .subtitle { font-size: 0.98em; }
-}
-`;
+// CSS — импортируй внешний файл!
+import "./style_page/AppExcelImport.css";
 
 function formatAmountRub(n) {
   if (typeof n !== 'number' || Number.isNaN(n)) return '';
@@ -256,7 +146,7 @@ function exportAsXlsx(jsonRows, filename) {
 export default function App() {
   const [files, setFiles] = useState([]);
   const [filterByPeriod, setFilterByPeriod] = useState(false);
-  const [excludeNegative, setExcludeNegative] = useState(false); // <-- Галочка снята по умолчанию!
+  const [excludeNegative, setExcludeNegative] = useState(false);
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth() + 1);
   const [results, setResults] = useState([]);
@@ -264,13 +154,6 @@ export default function App() {
   const [dragOver, setDragOver] = useState(false);
   const [processing, setProcessing] = useState(false);
   const fileInputRef = useRef(null);
-
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = corporateAppleStyles;
-    document.head.appendChild(style);
-    return () => { document.head.removeChild(style); };
-  }, []);
 
   const periodText = useMemo(() => (
     filterByPeriod ? `за ${year}-${String(month).padStart(2, '0')}` : 'за весь период'

@@ -15,6 +15,7 @@ const MAX_WIDTH = 900;
 const INITIAL_WIDTH = 440;
 
 const ModalConfirm: React.FC<Props> = ({ open, title, message, onConfirm, onCancel }) => {
+  // Все хуки — до любого return!
   const [width, setWidth] = useState(INITIAL_WIDTH);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -23,7 +24,6 @@ const ModalConfirm: React.FC<Props> = ({ open, title, message, onConfirm, onCanc
 
   useEffect(() => {
     if (!open) return;
-
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging) {
         const delta = e.clientX - startX.current;
@@ -31,7 +31,6 @@ const ModalConfirm: React.FC<Props> = ({ open, title, message, onConfirm, onCanc
       }
     };
     const handleMouseUp = () => setIsDragging(false);
-
     if (isDragging) {
       document.body.style.cursor = "ew-resize";
       document.addEventListener('mousemove', handleMouseMove);
@@ -49,9 +48,6 @@ const ModalConfirm: React.FC<Props> = ({ open, title, message, onConfirm, onCanc
     setIsFullscreen(false);
   }, [open]);
 
-  if (!open) return null;
-
-  // Escape key closes modal
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") onCancel();
@@ -59,6 +55,9 @@ const ModalConfirm: React.FC<Props> = ({ open, title, message, onConfirm, onCanc
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
   }, [onCancel]);
+
+  // Только после всех хуков — return null (условно компонент не отрисовывать)
+  if (!open) return null;
 
   const modalStyles = {
     width: isFullscreen ? '90vw' : width,

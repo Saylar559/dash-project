@@ -1,0 +1,93 @@
+{
+  "title": "1",
+  "description": "",
+  "config": {
+    "widgets": [
+      {
+        "id": "ec6239e1-297b-4e0b-bc9b-f77a6b9f59c6",
+        "type": "table",
+        "props": {
+          "sql": "SELECT * FROM users LIMIT 100",
+          "result": {
+            "columns": [
+              "id",
+              "username",
+              "email",
+              "hashed_password",
+              "role",
+              "is_active",
+              "created_at",
+              "updated_at",
+              "last_login"
+            ],
+            "data": [
+              {
+                "id": 1,
+                "username": "admin",
+                "email": "admin@test.com",
+                "hashed_password": "$2b$12$WzxBer9MIYbelFncx2Ooq.H1RlokmL6971yMI0tZrEmzGmBVGlfBS",
+                "role": "ADMIN",
+                "is_active": true,
+                "created_at": "2025-10-31T11:38:40.644388+03:00",
+                "updated_at": "2025-10-31T11:38:40.644388+03:00",
+                "last_login": null
+              },
+              {
+                "id": 16,
+                "username": "developer",
+                "email": "developer@mail.ru",
+                "hashed_password": "$2b$12$ODyn6w.GpjtqjP3enq1mW.JtxgjVbsPXOl9hKONiTndLN4Etl4o3W",
+                "role": "DEVELOPER",
+                "is_active": true,
+                "created_at": "2025-10-31T12:03:41.548156+03:00",
+                "updated_at": "2025-10-31T12:03:41.548156+03:00",
+                "last_login": null
+              },
+              {
+                "id": 17,
+                "username": "buhgalter",
+                "email": "buhgalter@mail.ru",
+                "hashed_password": "$2b$12$xozODF4UEKxbgvAZl3xzRe/mbt/3mAtnPvgWiR3Py4XMjexmUh7ki",
+                "role": "ACCOUNTANT",
+                "is_active": true,
+                "created_at": "2025-10-31T15:11:09.692095+03:00",
+                "updated_at": "2025-10-31T15:11:09.692095+03:00",
+                "last_login": null
+              }
+            ],
+            "row_count": 3,
+            "query": "SELECT * FROM users LIMIT 50"
+          },
+          "tableName": "users",
+          "filterFields": [],
+          "filterValues": {},
+          "chartConfig": {
+            "type": "line",
+            "colors": [
+              "#8BC540",
+              "#4EC3E0"
+            ],
+            "legendPosition": "top",
+            "showTitle": false,
+            "titleText": "",
+            "dark": false
+          },
+          "chartType": "line"
+        }
+      }
+    ],
+    "layout": [
+      {
+        "widgetId": "ec6239e1-297b-4e0b-bc9b-f77a6b9f59c6",
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 8
+      }
+    ],
+    "filters": {},
+    "theme": "corporate"
+  },
+  "created_at": "2025-11-07T17:52:46.084767",
+  "updated_at": "2025-11-07T17:52:46.084772"
+}

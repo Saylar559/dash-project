@@ -1,161 +1,1309 @@
 INFO:     Will watch for changes in these directories: ['/home/user/escrow-dashboard/backend']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [3280224] using WatchFiles
+INFO:     Started reloader process [3288754] using WatchFiles
 /home/user/escrow-dashboard/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:318: UserWarning: Valid config keys have changed in V2:
 * 'orm_mode' has been renamed to 'from_attributes'
   warnings.warn(message, UserWarning)
-2025-11-07 15:36:28,069 - app.main - INFO - ✅ CORS enabled for all origins
-2025-11-07 15:36:28,072 - app.main - INFO - ✅ Auth router registered
-2025-11-07 15:36:28,076 - app.main - INFO - ✅ Users router registered
-2025-11-07 15:36:28,080 - app.main - INFO - ✅ Dashboards router registered
-2025-11-07 15:36:28,081 - app.main - INFO - ✅ SQL Executor router registered
-2025-11-07 15:36:28,082 - app.main - INFO - ✅ Code Executor router registered
-2025-11-07 15:36:28,082 - app.main - INFO - ✅ Meta (DB Structure) router registered
-2025-11-07 15:36:28,083 - app.main - INFO - ✅ Query router registered
-2025-11-07 15:36:28,083 - app.main - INFO - ✅ SQL Export router registered
-INFO:     Started server process [3280227]
+2025-11-07 17:09:21,389 - app.main - INFO - ✅ CORS enabled for all origins
+2025-11-07 17:09:21,391 - app.main - INFO - ✅ Auth router registered
+2025-11-07 17:09:21,396 - app.main - INFO - ✅ Users router registered
+2025-11-07 17:09:21,400 - app.main - INFO - ✅ Dashboards router registered
+2025-11-07 17:09:21,401 - app.main - INFO - ✅ SQL Executor router registered
+2025-11-07 17:09:21,402 - app.main - INFO - ✅ Code Executor router registered
+2025-11-07 17:09:21,402 - app.main - INFO - ✅ Meta (DB Structure) router registered
+2025-11-07 17:09:21,402 - app.main - INFO - ✅ Query router registered
+2025-11-07 17:09:21,403 - app.main - INFO - ✅ SQL Export router registered
+INFO:     Started server process [3288757]
 INFO:     Waiting for application startup.
-2025-11-07 15:36:28,085 - app.main - INFO - ============================================================
-2025-11-07 15:36:28,085 - app.main - INFO - 🚀 Starting Escrow Dashboard API...
-2025-11-07 15:36:28,085 - app.main - INFO - ============================================================
-2025-11-07 15:36:28,100 - app.main - INFO - ✅ Database tables created
-2025-11-07 15:36:28,104 - app.main - INFO - ✅ Default users already exist
-2025-11-07 15:36:28,105 - app.main - INFO - ✅ Default users initialized
+2025-11-07 17:09:21,405 - app.main - INFO - ============================================================
+2025-11-07 17:09:21,405 - app.main - INFO - 🚀 Starting Escrow Dashboard API...
+2025-11-07 17:09:21,406 - app.main - INFO - ============================================================
+2025-11-07 17:09:21,422 - app.main - INFO - ✅ Database tables created
+2025-11-07 17:09:21,426 - app.main - INFO - ✅ Default users already exist
+2025-11-07 17:09:21,426 - app.main - INFO - ✅ Default users initialized
 INFO:     Application startup complete.
-2025-11-07 15:36:29,110 - app.main - INFO - 🌐 GET http://localhost:8000/health
-2025-11-07 15:36:29,110 - app.main - INFO - 📟 Health check requested
-INFO:     127.0.0.1:38248 - "GET /health HTTP/1.1" 200 OK
-2025-11-07 15:36:38,104 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:38,107 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-2025-11-07 15:36:38,108 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:38,111 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:38,120 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-INFO:     10.10.3.58:41136 - "GET /api/meta/tables HTTP/1.1" 200 OK
-2025-11-07 15:36:38,161 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     10.10.3.58:41140 - "GET /api/meta/tables HTTP/1.1" 200 OK
-2025-11-07 15:36:40,788 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:40,790 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-2025-11-07 15:36:40,791 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:40284 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:40,793 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:52870 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:40,801 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:52870 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-INFO:     10.10.3.58:52572 - "GET /api/meta/tables HTTP/1.1" 200 OK
-2025-11-07 15:36:40,834 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     10.10.3.58:52574 - "GET /api/meta/tables HTTP/1.1" 200 OK
-2025-11-07 15:36:42,478 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
-INFO:     10.10.3.58:52586 - "POST /api/query/ HTTP/1.1" 200 OK
-2025-11-07 15:36:47,713 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
-INFO:     10.10.3.58:52596 - "POST /api/auth/login HTTP/1.1" 200 OK
-2025-11-07 15:36:47,949 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
-INFO:     10.10.3.58:52596 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
-2025-11-07 15:36:47,952 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
-INFO:     10.10.3.58:52598 - "GET /api/users/me HTTP/1.1" 200 OK
-2025-11-07 15:36:48,143 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
-2025-11-07 15:36:48,143 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
-INFO:     10.10.3.58:52598 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
-INFO:     10.10.3.58:52596 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
-2025-11-07 15:36:48,146 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
-INFO:     10.10.3.58:52602 - "GET /api/users/ HTTP/1.1" 200 OK
-2025-11-07 15:36:48,161 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
-INFO:     10.10.3.58:52602 - "GET /api/users/ HTTP/1.1" 200 OK
-2025-11-07 15:36:50,666 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
-INFO:     10.10.3.58:52602 - "POST /api/auth/login HTTP/1.1" 200 OK
-2025-11-07 15:36:50,874 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
-INFO:     10.10.3.58:52602 - "GET /api/users/me HTTP/1.1" 200 OK
-2025-11-07 15:36:50,970 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-2025-11-07 15:36:50,971 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     127.0.0.1:34646 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:50,973 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:34656 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:50,976 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:34656 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:36:50,978 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:34656 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-INFO:     10.10.3.58:41570 - "GET /api/meta/tables HTTP/1.1" 200 OK
-2025-11-07 15:36:51,025 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     10.10.3.58:41582 - "GET /api/meta/tables HTTP/1.1" 200 OK
-WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-2025-11-07 15:38:42,835 - app.main - INFO - 🛑 Shutting down Escrow Dashboard API...
-INFO:     Application shutdown complete.
-INFO:     Finished server process [3280227]
-/home/user/escrow-dashboard/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:318: UserWarning: Valid config keys have changed in V2:
-* 'orm_mode' has been renamed to 'from_attributes'
-  warnings.warn(message, UserWarning)
-2025-11-07 15:38:43,913 - app.main - INFO - ✅ CORS enabled for all origins
-2025-11-07 15:38:43,916 - app.main - INFO - ✅ Auth router registered
-2025-11-07 15:38:43,921 - app.main - INFO - ✅ Users router registered
-2025-11-07 15:38:43,927 - app.main - INFO - ✅ Dashboards router registered
-2025-11-07 15:38:43,928 - app.main - INFO - ✅ SQL Executor router registered
-2025-11-07 15:38:43,929 - app.main - INFO - ✅ Code Executor router registered
-2025-11-07 15:38:43,929 - app.main - INFO - ✅ Meta (DB Structure) router registered
-2025-11-07 15:38:43,930 - app.main - INFO - ✅ Query router registered
-2025-11-07 15:38:43,930 - app.main - INFO - ✅ SQL Export router registered
-INFO:     Started server process [3280346]
-INFO:     Waiting for application startup.
-2025-11-07 15:38:43,932 - app.main - INFO - ============================================================
-2025-11-07 15:38:43,932 - app.main - INFO - 🚀 Starting Escrow Dashboard API...
-2025-11-07 15:38:43,932 - app.main - INFO - ============================================================
-2025-11-07 15:38:43,951 - app.main - INFO - ✅ Database tables created
-2025-11-07 15:38:43,958 - app.main - INFO - ✅ Default users already exist
-2025-11-07 15:38:43,958 - app.main - INFO - ✅ Default users initialized
-INFO:     Application startup complete.
-2025-11-07 15:39:29,765 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-2025-11-07 15:39:29,766 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:39:29,768 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:39:29,771 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-2025-11-07 15:39:29,779 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:45682 - "GET /api/dashboards-files/list HTTP/1.1" 404 Not Found
-INFO:     10.10.3.58:50390 - "GET /api/meta/tables HTTP/1.1" 200 OK
-2025-11-07 15:39:29,816 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     10.10.3.58:50398 - "GET /api/meta/tables HTTP/1.1" 200 OK
-WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-2025-11-07 15:40:57,948 - app.main - INFO - 🛑 Shutting down Escrow Dashboard API...
-INFO:     Application shutdown complete.
-INFO:     Finished server process [3280346]
-/home/user/escrow-dashboard/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:318: UserWarning: Valid config keys have changed in V2:
-* 'orm_mode' has been renamed to 'from_attributes'
-  warnings.warn(message, UserWarning)
-2025-11-07 15:40:59,169 - app.main - INFO - ✅ CORS enabled for all origins
-2025-11-07 15:40:59,172 - app.main - INFO - ✅ Auth router registered
-2025-11-07 15:40:59,178 - app.main - INFO - ✅ Users router registered
-2025-11-07 15:40:59,183 - app.main - INFO - ✅ Dashboards router registered
-2025-11-07 15:40:59,185 - app.main - INFO - ✅ SQL Executor router registered
-2025-11-07 15:40:59,186 - app.main - INFO - ✅ Code Executor router registered
-2025-11-07 15:40:59,186 - app.main - INFO - ✅ Meta (DB Structure) router registered
-2025-11-07 15:40:59,186 - app.main - INFO - ✅ Query router registered
-2025-11-07 15:40:59,187 - app.main - INFO - ✅ SQL Export router registered
-INFO:     Started server process [3280380]
-INFO:     Waiting for application startup.
-2025-11-07 15:40:59,190 - app.main - INFO - ============================================================
-2025-11-07 15:40:59,190 - app.main - INFO - 🚀 Starting Escrow Dashboard API...
-2025-11-07 15:40:59,190 - app.main - INFO - ============================================================
-2025-11-07 15:40:59,211 - app.main - INFO - ✅ Database tables created
-2025-11-07 15:40:59,218 - app.main - INFO - ✅ Default users already exist
-2025-11-07 15:40:59,218 - app.main - INFO - ✅ Default users initialized
-INFO:     Application startup complete.
-2025-11-07 15:41:00,203 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-2025-11-07 15:41:00,204 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:46288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
-2025-11-07 15:41:00,206 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:46288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
-2025-11-07 15:41:00,210 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:46288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
-2025-11-07 15:41:00,221 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
-INFO:     127.0.0.1:46296 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
-INFO:     10.10.3.58:59980 - "GET /api/meta/tables HTTP/1.1" 200 OK
-2025-11-07 15:41:00,295 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
-INFO:     10.10.3.58:59988 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:09:22,390 - app.main - INFO - 🌐 GET http://localhost:8000/health
+2025-11-07 17:09:22,391 - app.main - INFO - 📟 Health check requested
+INFO:     127.0.0.1:49996 - "GET /health HTTP/1.1" 200 OK
+2025-11-07 17:09:24,707 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50016 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:09:24,710 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:09:24,711 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:09:24,712 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:09:24,713 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:09:24,714 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50006 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50026 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50040 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59592 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59596 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:09:29,089 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:09:29,090 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:50016 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:09:29,094 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:09:29,095 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:50006 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:09:29,096 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:09:29,096 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50026 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50040 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59610 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59624 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:09:30,933 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:36910 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:13:23,635 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50158 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:13:23,641 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50158 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:13:23,643 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:13:23,644 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:13:23,644 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:13:23,645 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50170 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50186 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59672 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59666 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:13:49,588 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:13:49,589 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:13:49,590 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:13:49,590 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:13:49,591 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:13:49,592 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:48864 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48876 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48888 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48904 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:36652 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:36644 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:16:17,373 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:16:17,376 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:16:17,377 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:51824 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:16:17,378 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:51838 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:16:17,384 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:16:17,392 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:51824 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51838 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:42982 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:42966 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:16:33,627 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:16:33,630 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:16:33,633 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:48064 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:16:33,635 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:16:33,635 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:48064 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48070 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:16:33,642 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:48064 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:55188 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:55182 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:17:33,396 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:43288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:17:33,399 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:43288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:17:33,402 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:43288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:17:33,403 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:43296 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:17:33,411 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:17:33,411 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:54060 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:54052 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:17:36,608 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:17:36,611 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:17:36,612 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:43288 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:17:36,616 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:17:36,617 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:17:36,617 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:43296 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43298 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43314 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:54074 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:54086 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:18:41,108 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:18:41,110 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:18:41,112 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:18:41,112 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:18:41,113 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:41592 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:18:41,114 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:41598 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41608 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41612 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:53706 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:53708 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:18:43,967 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:53722 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:18:45,331 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:53734 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:21:23,191 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:54536 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:21:23,197 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:21:23,197 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:21:23,197 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:21:23,198 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:21:23,199 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:54536 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54524 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54510 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:38356 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:38342 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:21:26,331 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:38362 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:21:40,163 - app.main - INFO - 🌐 OPTIONS http://localhost:8000/api/dashboards-files/save
+INFO:     127.0.0.1:51816 - "OPTIONS /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-07 17:21:40,166 - app.main - INFO - 🌐 POST http://localhost:8000/api/dashboards-files/save
+INFO:     127.0.0.1:51816 - "POST /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-07 17:21:40,210 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:51816 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:21:40,231 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:51816 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:21:45,734 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:51818 - "GET /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:21:55,267 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:36830 - "GET /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:21:56,038 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:36830 - "GET /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:22:00,527 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:36830 - "GET /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:24:05,286 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:57818 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:24:05,318 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:57820 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:24:15,013 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:38420 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:24:16,303 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:38426 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:24:17,021 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:38436 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:24:32,838 - app.main - INFO - 🌐 POST http://localhost:8000/api/dashboards-files/save
+INFO:     127.0.0.1:47284 - "POST /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-07 17:24:32,850 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:47284 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:24:32,861 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:47284 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:24:35,230 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:47284 - "GET /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:24:44,787 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:24:44,787 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:24:44,790 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:24:44,791 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:24:44,792 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:24:44,794 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46388 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46404 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46406 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46414 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51364 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51370 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:24:46,515 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:46388 - "GET /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:50:55,458 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:51822 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:50:56,109 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:51826 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:51:22,139 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:51:22,142 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:51:22,143 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:34796 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:51:22,145 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:51:22,146 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:51:22,147 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:34810 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34816 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34822 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:58148 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:58136 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:51:29,664 - app.main - INFO - 🌐 OPTIONS http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:48496 - "OPTIONS /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:51:29,699 - app.main - INFO - 🌐 DELETE http://localhost:8000/api/dashboards-files/24
+INFO:     127.0.0.1:48496 - "DELETE /api/dashboards-files/24 HTTP/1.1" 200 OK
+2025-11-07 17:51:29,712 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:48496 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:51:29,719 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:48496 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:52:33,549 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:52:33,551 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:52:33,552 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:52:33,552 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:52:33,553 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44106 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:52:33,554 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44116 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44122 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44126 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:46576 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:46572 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:52:34,982 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:46592 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:52:46,082 - app.main - INFO - 🌐 OPTIONS http://localhost:8000/api/dashboards-files/save
+INFO:     127.0.0.1:56134 - "OPTIONS /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-07 17:52:46,084 - app.main - INFO - 🌐 POST http://localhost:8000/api/dashboards-files/save
+INFO:     127.0.0.1:56134 - "POST /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-07 17:52:46,093 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:56134 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:52:46,101 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:56134 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:59:48,138 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:33684 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 17:59:48,140 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:59:48,142 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 17:59:48,147 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:59:48,149 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 17:59:48,154 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:33684 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33686 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33696 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:54214 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:54220 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:59:50,165 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:47522 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 17:59:51,035 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47532 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 17:59:51,070 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47540 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 18:00:37,752 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 18:00:37,755 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 18:00:37,755 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 18:00:37,757 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 18:00:37,757 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 18:00:37,759 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:51556 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51564 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51550 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51568 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45990 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45994 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 19:06:04,322 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:32974 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 19:06:04,553 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:32974 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:06:04,554 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:32974 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:06:04,835 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 19:06:04,838 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 19:06:04,840 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 19:06:04,841 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:55410 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55450 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:06:04,842 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 19:06:04,845 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:55436 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55424 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:32990 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:32976 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 19:06:18,034 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 19:06:18,035 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 19:06:18,035 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:45372 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45370 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45362 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:06:18,040 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:45372 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:06:18,043 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 19:06:18,044 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:36942 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:36926 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 19:40:57,373 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 19:40:57,375 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50906 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:40:57,383 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50906 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:40:57,387 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50906 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:40:57,391 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:50906 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:36456 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 19:40:57,417 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:36458 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 19:41:01,994 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:36818 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 19:41:02,217 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36818 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:41:02,219 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36832 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:54:15,829 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56636 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 19:54:15,832 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56650 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 19:54:16,037 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56650 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:54:16,039 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56636 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:54:16,202 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 19:54:16,202 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56636 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56650 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 19:54:16,206 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56666 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 19:54:16,224 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56666 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 19:54:42,102 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:58290 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 19:54:42,104 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:58296 - "POST /api/users/ HTTP/1.1" 200 OK
+2025-11-07 19:54:44,188 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:58296 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 19:54:52,577 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/18
+INFO:     10.10.3.58:57018 - "OPTIONS /api/users/18 HTTP/1.1" 200 OK
+2025-11-07 19:54:52,581 - app.main - INFO - 🌐 DELETE http://10.10.3.58:8000/api/users/18
+INFO:     10.10.3.58:57028 - "DELETE /api/users/18 HTTP/1.1" 200 OK
+2025-11-07 19:54:54,011 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:57028 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 19:55:22,275 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:47386 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 19:55:22,495 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:47386 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:58:21,164 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:44504 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 19:58:21,370 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:44504 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 19:58:21,524 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 19:58:21,524 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:60266 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:58:21,528 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:60266 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:58:21,530 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:60270 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 19:58:21,532 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:60270 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:44510 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 19:58:21,568 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:44520 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 19:58:30,295 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:38552 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 20:00:40,254 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44640 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:00:40,751 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44640 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:00:40,911 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44640 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:00:53,512 - app.main - INFO - 🌐 OPTIONS http://localhost:8000/api/dashboards-files/save
+INFO:     127.0.0.1:37090 - "OPTIONS /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-07 20:00:53,516 - app.main - INFO - 🌐 POST http://localhost:8000/api/dashboards-files/save
+INFO:     127.0.0.1:37098 - "POST /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-07 20:00:53,527 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:37098 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:00:53,542 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:37098 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:00:57,719 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/test
+INFO:     127.0.0.1:37098 - "GET /api/dashboards-files/test HTTP/1.1" 200 OK
+2025-11-07 20:00:59,288 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/1
+INFO:     127.0.0.1:37098 - "GET /api/dashboards-files/1 HTTP/1.1" 200 OK
+2025-11-07 20:01:13,407 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:38588 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:01:22,652 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/dashboards/my
+2025-11-07 20:01:22,652 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/dashboards/my
+INFO:     10.10.3.58:54716 - "OPTIONS /api/dashboards/my HTTP/1.1" 200 OK
+INFO:     10.10.3.58:54718 - "OPTIONS /api/dashboards/my HTTP/1.1" 200 OK
+2025-11-07 20:01:22,660 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards/my
+INFO:     10.10.3.58:54720 - "GET /api/dashboards/my HTTP/1.1" 422 Unprocessable Entity
+2025-11-07 20:01:22,669 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards/my
+INFO:     10.10.3.58:54720 - "GET /api/dashboards/my HTTP/1.1" 422 Unprocessable Entity
+2025-11-07 20:01:24,415 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 20:01:24,421 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:55332 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:01:24,428 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:55332 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:01:24,437 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:55332 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:01:24,444 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:55332 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:54730 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:01:24,462 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:54742 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:15:56,120 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:47966 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:15:56,331 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:47966 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:15:56,333 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:47978 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:15:56,459 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 20:15:56,460 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44580 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:15:56,464 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44580 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:15:56,474 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44580 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:15:56,478 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44580 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:47988 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:15:56,512 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47996 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:25:20,969 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:48880 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:25:21,171 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:48880 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:25:21,172 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:48880 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:25:21,210 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 20:25:21,210 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:48880 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48884 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:25:21,213 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 20:25:21,214 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:48880 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48884 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:25:23,765 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:48880 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:25:23,980 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:48884 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:25:24,104 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:25:24,108 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:25:24,109 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:40888 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:25:24,110 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:40894 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:25:24,113 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:25:24,114 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:40888 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40894 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48886 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48892 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:30:28,756 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:43856 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:30:28,975 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:43856 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:30:29,021 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 20:30:29,024 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:43866 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:43856 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:30:37,953 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:48520 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:30:38,175 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:48520 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:30:38,308 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:30:38,311 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:30:38,312 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 20:30:38,314 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:46290 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46282 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:30:38,323 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:30:38,324 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46304 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46306 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48522 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48532 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:30:44,205 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:50208 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:30:44,407 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:50208 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:34:01,395 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52302 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:34:01,430 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52302 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:34:01,635 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52302 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:34:01,677 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:52302 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:34:01,684 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:52302 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:34:04,738 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52302 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:34:04,944 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52302 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:36:06,614 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:36060 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:36:06,816 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36060 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:36:06,818 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36068 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:36:06,840 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 20:36:06,840 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:36068 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:36060 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:36:06,842 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:36076 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:36:06,849 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:36076 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:36:09,951 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:36076 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:36:10,151 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36076 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:38:37,607 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:48750 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:38:37,841 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:48750 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:38:37,843 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:48750 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:38:37,995 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:38:37,996 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:53558 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:38:38,001 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 20:38:38,004 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:38:38,005 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:53558 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53570 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:38:38,016 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:53558 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48760 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:48752 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:39:22,471 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:51714 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-07 20:40:08,928 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56426 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:40:09,133 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56426 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:50:42,091 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52216 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:50:42,093 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52216 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:50:42,302 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52216 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:50:42,303 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52216 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:51:00,510 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:49686 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:51:00,708 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:49686 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:51:00,746 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:49686 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:51:00,749 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:49686 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:51:00,756 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:49686 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 20:51:21,146 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:42246 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:51:21,352 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:42246 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 20:51:21,474 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:51:21,475 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 20:51:21,477 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 20:51:21,477 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:44480 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:51:21,478 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44496 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 20:51:21,479 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:44500 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44506 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:42256 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:42252 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 20:52:11,987 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:46850 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 20:52:12,198 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:46850 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:06:34,668 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:46960 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:06:34,675 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:46966 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:06:34,871 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:46966 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:06:34,873 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:46960 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:06:34,912 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:46960 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:06:34,914 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:46966 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:06:34,917 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:46974 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:06:34,929 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:46974 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:06:38,767 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:46974 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:06:38,965 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:46974 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:15:23,858 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:50968 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:15:23,860 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:50968 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:15:24,075 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:50968 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:15:24,076 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:50968 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:15:24,111 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:50968 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:15:24,112 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:50968 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:15:24,113 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:15:24,116 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:50976 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:50968 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:15:34,584 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:39432 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:15:34,796 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:39432 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:15:34,846 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:15:34,846 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:39442 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:39432 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:15:40,726 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:45230 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:15:40,945 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:45230 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:15:41,104 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:15:41,106 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:15:41,109 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:15:41,110 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:56838 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56840 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:15:41,114 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:56844 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:15:41,117 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:56846 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45240 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45238 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 21:15:48,627 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:45250 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:15:48,842 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:45250 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:15:48,901 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:15:48,902 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:45250 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45252 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:15:51,867 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:45250 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:15:52,085 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:45252 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:17:48,216 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56134 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:17:48,426 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56134 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:21:37,913 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:53448 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:21:38,115 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:53448 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:23:06,011 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:51526 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:23:06,229 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51526 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:23:06,279 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:23:06,280 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51536 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51526 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:24:58,263 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:45540 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:24:58,485 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:45540 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:24:58,552 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:24:58,554 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:45540 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45552 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:25:03,100 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:45540 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:25:03,347 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:45552 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:25:03,534 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 21:25:03,548 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:25:03,552 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:25:03,556 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 21:25:03,558 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:45272 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:25:03,564 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:45286 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45298 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45302 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:52126 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:52140 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 21:25:08,638 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52156 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:25:08,852 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52156 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:25:40,863 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:36526 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:25:40,866 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:36526 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:25:41,093 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36526 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:25:41,118 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36526 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:25:41,309 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 21:25:41,320 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:39754 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:25:41,327 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:25:41,328 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:25:41,330 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 21:25:41,332 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:39766 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39754 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39784 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:36540 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:36550 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 21:26:04,885 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:36866 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:26:05,105 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:36866 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:26:38,935 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:40202 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:26:39,170 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:40202 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:26:39,367 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:26:39,368 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:52334 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:26:39,369 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 21:26:39,371 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:52334 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:26:39,388 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:26:39,401 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:52332 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52334 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40232 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40216 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 21:26:45,478 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56748 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:26:45,699 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56748 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:26:45,755 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 21:26:45,756 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56748 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56754 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:26:45,763 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:26:45,764 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56748 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56754 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:30:35,451 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:45698 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:30:35,658 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:45698 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:30:35,880 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:30:35,885 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:45698 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45708 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:31:46,427 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56836 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:31:46,430 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56836 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:31:46,662 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56836 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:31:46,670 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56844 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:31:46,713 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 21:31:46,713 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56844 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56836 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:31:46,715 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56850 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:31:46,721 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:56836 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:34:31,457 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:59752 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:34:31,671 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:59752 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:34:31,724 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:59752 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:34:31,729 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:59752 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:35:11,530 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:35434 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:35:11,754 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:35434 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:35:11,795 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:35434 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:35:11,804 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:35448 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:36:32,070 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:42334 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:36:32,289 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:42334 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:36:32,571 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 21:36:32,576 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:49528 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:36:32,604 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:49528 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:36:32,652 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     10.10.3.58:42336 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49530 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 21:36:32,661 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 21:36:32,664 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:49530 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:42350 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 21:36:42,102 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:48624 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:36:42,311 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:48624 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:36:42,359 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:48624 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:36:42,368 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:48624 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:37:45,795 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:34360 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:37:45,883 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:34360 - "POST /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:37:46,112 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:34360 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:44:43,347 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:57192 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:44:43,352 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:57192 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 21:44:43,544 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:57192 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:44:43,550 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:57192 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 21:44:43,635 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:57192 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:44:43,636 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:57193 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:44:43,642 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:57193 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:44:43,650 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:57193 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:57:28,839 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 21:57:28,839 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:58990 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59006 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:57:28,851 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:57:28,854 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:58990 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59006 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:57:56,643 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-07 21:57:56,643 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:51851 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.0.23:51852 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:57:56,648 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:51851 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:57:56,657 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:51851 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:58:47,750 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:58:47,751 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:45906 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45894 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 21:58:49,073 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 21:58:49,074 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:45906 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:45894 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:01:59,027 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:51024 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:01:59,234 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51024 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:01:59,236 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51024 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:01:59,303 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:01:59,305 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51024 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51032 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:02:04,262 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51024 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:02:04,287 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51032 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:02:06,105 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:02:06,105 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51032 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51024 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:02:09,199 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:02:09,200 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51032 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51024 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:02:11,489 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:51032 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:02:11,700 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51024 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:02:11,758 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:02:11,762 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51032 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51024 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:02:16,190 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:02:16,194 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51032 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51024 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:02:21,798 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:46266 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:02:22,001 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:46266 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:02:22,203 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46414 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 22:02:22,208 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 22:02:22,209 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 22:02:22,212 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:02:22,214 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:02:22,215 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:46414 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46424 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46426 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:46288 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:46276 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 22:02:51,588 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:52292 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:02:51,809 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:52292 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:03:21,838 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:59208 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:03:21,841 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:59208 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:03:22,052 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:59208 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:03:22,212 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:59252 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 22:03:22,215 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:03:22,216 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:03:22,219 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 22:03:22,220 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:59252 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59254 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 22:03:22,225 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:59252 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59238 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:59222 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 22:03:26,443 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:59208 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:03:26,648 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:59208 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:03:35,635 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:51366 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:03:35,853 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51366 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:03:36,025 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:03:36,026 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:47992 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 22:03:36,029 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 22:03:36,030 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:47992 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 22:03:36,038 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:03:36,039 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:47992 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47996 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51370 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51378 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 22:05:01,355 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:57782 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:05:01,581 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:57782 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:05:01,642 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:05:01,646 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:57782 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:57786 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:05:04,200 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:05:04,201 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:57782 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:57786 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:05:08,640 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:05:08,643 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:57786 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:57782 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:05:18,588 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:55696 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:05:18,808 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:55696 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:05:18,983 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 22:05:18,994 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 22:05:19,004 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:05:19,004 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:05:19,008 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:05:19,014 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:32834 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32844 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32854 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32860 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:55710 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:55724 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 22:05:23,999 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:43116 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:05:24,221 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:43116 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:05:29,108 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:43116 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:05:29,325 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:43116 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:05:29,393 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:05:29,398 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:43116 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:43130 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:05:31,545 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-07 22:05:31,546 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:43116 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:43130 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:06:38,014 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/19
+INFO:     10.10.3.58:53588 - "OPTIONS /api/users/19 HTTP/1.1" 200 OK
+2025-11-07 22:06:38,015 - app.main - INFO - 🌐 DELETE http://10.10.3.58:8000/api/users/19
+INFO:     10.10.3.58:53588 - "DELETE /api/users/19 HTTP/1.1" 200 OK
+2025-11-07 22:06:38,068 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:53588 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:06:51,249 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:35378 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:06:51,463 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:35378 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:07:02,691 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:34908 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-07 22:07:02,899 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:34908 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-07 22:07:03,051 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:07:03,052 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-07 22:07:03,053 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:60538 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60540 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 22:07:03,054 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-07 22:07:03,062 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:60554 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-07 22:07:03,065 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:60538 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:34926 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:34914 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-07 22:07:15,133 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:64188 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-07 22:07:15,142 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.0.23:64188 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 12:53:02,102 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:40854 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:53:02,165 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:40858 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:53:12,186 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:56592 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 12:53:12,382 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:56592 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-08 12:53:12,392 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:56592 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 12:53:26,998 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:54999 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 12:53:27,008 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:54999 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 12:53:27,202 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:54999 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 12:53:27,346 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:35620 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:53:27,370 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:35622 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:53:30,595 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:36600 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 12:53:44,197 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:33274 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:53:44,221 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:33284 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:55:29,793 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:51468 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 12:55:30,002 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51468 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-08 12:55:30,005 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51468 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 12:55:30,252 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 12:55:30,253 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:53004 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 12:55:30,264 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-08 12:55:30,264 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-08 12:55:30,271 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-08 12:55:30,275 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     127.0.0.1:53004 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53014 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53028 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51478 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51494 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:55:32,991 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:51504 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 12:55:36,017 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:51520 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 12:56:13,378 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:59502 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:56:13,419 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:59506 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:56:15,577 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:59514 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 12:56:37,086 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47724 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:56:37,127 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47728 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 12:57:52,942 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:35022 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 12:57:53,155 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:35022 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:09:14,121 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47248 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:09:14,153 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47258 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:09:16,717 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47264 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:09:16,752 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:47266 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:09:21,980 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:63974 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:09:22,199 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:63974 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:09:22,206 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:63974 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:13:39,278 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:46358 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:13:39,280 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:46358 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:13:39,492 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:46358 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:13:39,493 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:46358 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:19:03,346 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:19:03,348 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:19:03,349 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:56984 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:19:03,362 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:56984 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:19:03,369 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+2025-11-08 13:19:03,374 - app.main - INFO - 🌐 GET http://localhost:8000/api/dashboards-files/list
+INFO:     127.0.0.1:56984 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56986 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:34454 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:34466 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:19:22,800 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:40532 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:19:23,015 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:40532 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:19:23,299 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+2025-11-08 13:19:23,299 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:40532 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40548 - "OPTIONS /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:19:23,301 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-08 13:19:23,303 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:40548 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40532 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:19:26,470 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-08 13:19:26,475 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:40532 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40548 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:19:38,844 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:43174 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:19:39,059 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:43174 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:19:39,105 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-08 13:19:39,109 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:43174 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:43176 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:19:41,326 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-08 13:19:41,329 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:43174 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:43176 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:19:44,219 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:43174 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:19:44,437 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:43176 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:20:38,135 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:57672 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:20:38,140 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:57672 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:20:38,340 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:57672 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:20:38,348 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:57672 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:20:38,547 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:42088 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:20:38,571 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:42100 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:20:42,346 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:51950 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 13:20:43,202 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:51954 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 13:23:14,148 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:43710 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:23:14,169 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:43714 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:23:16,312 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:43722 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:23:16,335 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:43734 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:23:18,027 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:43750 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 13:28:34,463 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:64461 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:28:34,505 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.0.23:64461 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:28:34,712 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:64461 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:28:34,721 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.0.23:64461 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:28:35,237 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:35472 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:28:35,274 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:35486 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:28:37,177 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:35492 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 13:32:53,504 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56310 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:32:53,505 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:56310 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:32:53,720 - app.main - INFO - 🌐 OPTIONS http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56310 - "OPTIONS /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:32:53,722 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:56310 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:32:53,916 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:32:53,923 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:32:53,928 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:32:53,932 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:32:53,940 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:32:53,946 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:56328 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56340 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56354 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56364 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56318 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:56338 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:33:41,924 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:33:41,925 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:33:41,925 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:33:41,925 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:33:41,925 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:33:41,927 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:40036 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40052 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40062 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40072 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40022 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40024 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:33:48,286 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:33:48,289 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:33:48,289 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:40086 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:33:48,294 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:33:48,300 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:33:48,309 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:40098 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40112 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40118 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40082 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:40080 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:33:49,054 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:40122 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 13:33:50,487 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:42836 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 13:34:02,483 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/dashboards-files/save
+INFO:     10.10.3.58:47200 - "POST /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-08 13:34:02,532 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:47206 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:34:02,550 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:47212 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:34:10,660 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:34:10,660 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:44464 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:34:10,668 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:44472 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:34:10,675 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:44488 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:34:10,681 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:44496 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:44456 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:34:10,689 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+INFO:     10.10.3.58:44508 - "GET /api/meta/tables HTTP/1.1" 200 OK
+2025-11-08 13:34:15,301 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/query/
+INFO:     10.10.3.58:44516 - "POST /api/query/ HTTP/1.1" 200 OK
+2025-11-08 13:34:24,836 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/dashboards-files/save
+INFO:     10.10.3.58:48474 - "POST /api/dashboards-files/save HTTP/1.1" 200 OK
+2025-11-08 13:34:24,860 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:48480 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:34:24,880 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:48482 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:37:11,879 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:51170 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:37:12,101 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:51186 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:37:12,314 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-08 13:37:12,319 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51188 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51204 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:37:13,148 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-08 13:37:13,149 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:51224 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:51212 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:39:45,506 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+2025-11-08 13:39:45,508 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/
+INFO:     10.10.3.58:41354 - "GET /api/users/ HTTP/1.1" 200 OK
+INFO:     10.10.3.58:41364 - "GET /api/users/ HTTP/1.1" 200 OK
+2025-11-08 13:39:48,699 - app.main - INFO - 🌐 POST http://10.10.3.58:8000/api/auth/login
+INFO:     10.10.3.58:41376 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-11-08 13:39:48,914 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/users/me
+INFO:     10.10.3.58:41386 - "GET /api/users/me HTTP/1.1" 200 OK
+2025-11-08 13:39:49,049 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:39:49,078 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:41404 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+2025-11-08 13:39:49,088 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:39:49,089 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/meta/tables
+2025-11-08 13:39:49,091 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+2025-11-08 13:39:49,093 - app.main - INFO - 🌐 GET http://10.10.3.58:8000/api/dashboards-files/list
+INFO:     10.10.3.58:41418 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:41390 - "GET /api/meta/tables HTTP/1.1" 200 OK
+INFO:     10.10.3.58:41432 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:41444 - "GET /api/dashboards-files/list HTTP/1.1" 200 OK
+INFO:     10.10.3.58:41420 - "GET /api/meta/tables HTTP/1.1" 200 OK

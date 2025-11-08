@@ -84,10 +84,12 @@
 .developer-panel__actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
   flex-shrink: 0;
 }
 
+/* Кнопки */
 .developer-panel__btn {
   display: inline-flex;
   align-items: center;
@@ -125,7 +127,6 @@
   border-color: var(--domrf-green);
   box-shadow: 0 4px 12px rgba(139, 197, 64, 0.18);
 }
-
 .developer-panel__btn--primary:hover {
   background: var(--domrf-green-dark);
   box-shadow: 0 6px 16px rgba(139, 197, 64, 0.25);
@@ -138,7 +139,6 @@
   color: #2b76f0;
   border-color: #bbdefb;
 }
-
 .developer-panel__btn--secondary:hover {
   background: #bbdefb;
   color: #1f5ed1;
@@ -151,7 +151,6 @@
   border-color: var(--domrf-green);
   box-shadow: 0 4px 12px rgba(139, 197, 64, 0.18);
 }
-
 .developer-panel__btn--success:hover {
   background: var(--domrf-green-dark);
   box-shadow: 0 6px 16px rgba(139, 197, 64, 0.25);
@@ -171,7 +170,6 @@
   border-color: var(--domrf-border);
   color: var(--domrf-green);
 }
-
 .developer-panel__btn--icon:hover {
   background: #e5f3dd;
   border-color: #8BC540;
@@ -189,65 +187,52 @@
     padding: 12px 16px;
     flex-wrap: wrap;
   }
-
   .developer-panel__title {
     font-size: 18px;
   }
-
   .developer-panel__actions {
     width: 100%;
     margin-top: 8px;
     flex-wrap: wrap;
   }
-
   .developer-panel__btn {
     padding: 8px 14px;
     font-size: 12px;
   }
 }
-
 @media (max-width: 768px) {
   .developer-panel__layout {
     flex-direction: column;
   }
-
   .developer-panel__toolbar {
     padding: 10px 12px;
     gap: 8px;
   }
-
   .developer-panel__toolbar-left {
     gap: 8px;
   }
-
   .developer-panel__title {
     font-size: 14px;
   }
-
   .developer-panel__widget-count {
     font-size: 11px;
     padding: 4px 10px;
   }
-
   .developer-panel__actions {
     gap: 6px;
   }
-
   .developer-panel__btn {
     padding: 7px 12px;
     font-size: 11px;
   }
-
   .developer-panel__btn--icon {
     width: 36px;
     height: 36px;
   }
-
   .developer-panel--zoomed .developer-panel__content {
     zoom: 85%;
   }
 }
-
 @media (max-width: 480px) {
   .developer-panel__toolbar {
     padding: 8px 10px;
@@ -255,35 +240,30 @@
     align-items: stretch;
     gap: 8px;
   }
-
   .developer-panel__toolbar-left {
     width: 100%;
   }
-
   .developer-panel__title {
     font-size: 13px;
   }
-
   .developer-panel__actions {
     width: 100%;
     gap: 6px;
   }
-
   .developer-panel__btn {
     flex: 1;
     padding: 8px 10px;
     font-size: 10px;
   }
-
   .developer-panel__btn--icon {
     flex: 0.5;
   }
-
   .developer-panel--zoomed .developer-panel__content {
     zoom: 75%;
   }
 }
-/* Элементы управления автообновлением */
+
+/* ============ Refresh Controls ============ */
 .developer-panel__refresh-controls {
   display: flex;
   align-items: center;
@@ -304,12 +284,10 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
 .developer-panel__select:hover {
   border-color: #8BC540;
   background: #F6F9FF;
 }
-
 .developer-panel__select:focus {
   outline: none;
   border-color: #8BC540;
@@ -328,19 +306,7 @@
 .developer-panel__btn.spinning {
   animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.developer-panel__actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  from { transform: rotate(0deg);}
+  to   { transform: rotate(360deg);}
 }

@@ -2,9 +2,931 @@
 > escrow-dashboard-frontend@1.0.0 dev
 > vite --host 0.0.0.0 --port 5173
 
-Re-optimizing dependencies because lockfile has changed
 
-  VITE v5.4.21  ready in 208 ms
+  VITE v5.4.21  ready in 190 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: http://10.10.3.58:5173/
+17:13:22 [vite] hmr update /src/pages/DeveloperPanel/components/ChartConfigPanel.tsx, /src/index.css
+17:16:17 [vite] hmr update /src/pages/DeveloperPanel/components/ChartConfigPanel.tsx, /src/index.css
+17:16:31 [vite] hmr update /src/pages/DeveloperPanel/components/ChartConfigPanel.tsx, /src/index.css
+17:17:32 [vite] hmr update /src/pages/DeveloperPanel/components/ChartConfigPanel.tsx, /src/index.css
+17:21:20 [vite] hmr update /src/pages/DeveloperPanel/components/ModalConfirm.tsx, /src/index.css
+17:50:54 [vite] hmr update /src/pages/DeveloperPanel/components/Sidebar.tsx, /src/index.css
+17:51:17 [vite] hmr update /src/pages/DeveloperPanel/styles/Sidebar.css
+17:58:26 [vite] hmr update /src/pages/DeveloperPanel/components/WidgetEditor.tsx, /src/index.css
+17:58:28 [vite] hmr update /src/pages/DeveloperPanel/components/WidgetEditor.tsx, /src/index.css
+17:59:45 [vite] hmr update /src/pages/DeveloperPanel/components/WidgetEditor.tsx, /src/index.css
+17:59:46 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+326|            </>);
+327|  
+328|        case 'info':
+   |             ^
+329|          return (
+330|            <div className="widget-editor__section">
+
+  Plugin: vite:esbuild
+  File: /home/user/escrow-dashboard/frontend/src/pages/DeveloperPanel/components/WidgetEditor.tsx
+17:59:47 [vite] ✨ new dependencies optimized: marked
+17:59:47 [vite] ✨ optimized dependencies changed. reloading
+17:59:47 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+326|            </>);
+327|  
+328|        case 'info':
+   |             ^
+329|          return (
+330|            <div className="widget-editor__section">
+
+  Plugin: vite:esbuild
+  File: /home/user/escrow-dashboard/frontend/src/pages/DeveloperPanel/components/WidgetEditor.tsx
+18:00:22 [vite] hmr update /src/pages/DeveloperPanel/styles/InfoEditor.css
+18:05:42 [vite] hmr update /src/pages/DeveloperPanel/components/DashboardCanvas.tsx, /src/index.css
+19:49:26 [vite] hmr update /src/pages/AccountantPage.tsx, /src/index.css
+20:21:44 [vite] hmr update /src/pages/Login.tsx, /src/index.css
+20:21:52 [vite] hmr update /src/pages/Login.tsx, /src/index.css
+20:23:21 [vite] hmr update /src/pages/style_page/LoginPage.css
+20:29:49 [vite] hmr update /src/pages/style_page/LoginPage.css
+20:33:46 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+20:36:52 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:40:04 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:41:45 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:43:11 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:43:35 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:43:57 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:45:50 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:46:19 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:48:18 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:48:41 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:52:04 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:54:35 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:55:54 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:55:54 [vite] Internal server error: [postcss] /home/user/escrow-dashboard/frontend/src/pages/style_page/AppExcelImport.css:26:1: Unexpected }
+  Plugin: vite:css
+  File: /home/user/escrow-dashboard/frontend/src/pages/style_page/AppExcelImport.css:26:0
+  24 |  -webkit-font-smoothing: antialiased;
+  25 |  -moz-osx-font-smoothing: grayscale; / Добавил для кросс-браузерности */
+  26 |  }
+     |  ^
+  27 |  .app {
+  28 |  display: flex;
+      at Input.error (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/input.js:135:16)
+      at Parser.unexpectedClose (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:587:22)
+      at Parser.end (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:330:12)
+      at Parser.parse (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:456:16)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parse.js:11:12)
+      at new LazyResult (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/lazy-result.js:165:16)
+      at Processor.process (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/processor.js:53:14)
+      at compileCSS (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36898:59)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36171:11)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+20:56:13 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:56:13 [vite] Internal server error: [postcss] /home/user/escrow-dashboard/frontend/src/pages/style_page/AppExcelImport.css:26:1: Unexpected }
+  Plugin: vite:css
+  File: /home/user/escrow-dashboard/frontend/src/pages/style_page/AppExcelImport.css:26:0
+  24 |  -webkit-font-smoothing: antialiased;
+  25 |  -moz-osx-font-smoothing: grayscale; / Добавил для кросс-браузерности */
+  26 |  }
+     |  ^
+  27 |  .app {
+  28 |  display: flex;
+      at Input.error (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/input.js:135:16)
+      at Parser.unexpectedClose (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:587:22)
+      at Parser.end (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:330:12)
+      at Parser.parse (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:456:16)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parse.js:11:12)
+      at new LazyResult (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/lazy-result.js:165:16)
+      at Processor.process (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/processor.js:53:14)
+      at compileCSS (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36898:59)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36171:11)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+20:56:16 [vite] Pre-transform error: [postcss] /home/user/escrow-dashboard/frontend/src/pages/style_page/AppExcelImport.css:26:1: Unexpected }
+20:56:16 [vite] Internal server error: [postcss] /home/user/escrow-dashboard/frontend/src/pages/style_page/AppExcelImport.css:26:1: Unexpected }
+  Plugin: vite:css
+  File: /home/user/escrow-dashboard/frontend/src/pages/style_page/AppExcelImport.css:26:0
+  24 |  -webkit-font-smoothing: antialiased;
+  25 |  -moz-osx-font-smoothing: grayscale; / Добавил для кросс-браузерности */
+  26 |  }
+     |  ^
+  27 |  .app {
+  28 |  display: flex;
+      at Input.error (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/input.js:135:16)
+      at Parser.unexpectedClose (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:587:22)
+      at Parser.end (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:330:12)
+      at Parser.parse (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parser.js:456:16)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/parse.js:11:12)
+      at new LazyResult (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/lazy-result.js:165:16)
+      at Processor.process (/home/user/escrow-dashboard/frontend/node_modules/postcss/lib/processor.js:53:14)
+      at compileCSS (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36898:59)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36171:11)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+20:57:00 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+20:58:39 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+20:58:54 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+20:59:17 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+20:59:17 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Цвета из скриншота (точные) === */
+  3 |   --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+  4 |   --brand-success: #198754;     /* Зелёный для кнопок "Сохранить", "Редактирование" */
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Цвета из скриншота (точные) === */
+  3  |    --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+20:59:17 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Цвета из скриншота (точные) === */
+  3 |   --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+  4 |   --brand-success: #198754;     /* Зелёный для кнопок "Сохранить", "Редактирование" */
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Цвета из скриншота (точные) === */
+  3  |    --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+20:59:27 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+20:59:27 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Цвета из скриншота (точные) === */
+  3 |   --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+  4 |   --brand-success: #198754;     /* Зелёный для кнопок "Сохранить", "Редактирование" */
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Цвета из скриншота (точные) === */
+  3  |    --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+20:59:27 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Цвета из скриншота (точные) === */
+  3 |   --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+  4 |   --brand-success: #198754;     /* Зелёный для кнопок "Сохранить", "Редактирование" */
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Цвета из скриншота (точные) === */
+  3  |    --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+20:59:28 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Цвета из скриншота (точные) === */
+  3 |   --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+  4 |   --brand-success: #198754;     /* Зелёный для кнопок "Сохранить", "Редактирование" */
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Цвета из скриншота (точные) === */
+  3  |    --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+20:59:35 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Цвета из скриншота (точные) === */
+  3 |   --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+  4 |   --brand-success: #198754;     /* Зелёный для кнопок "Сохранить", "Редактирование" */
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Цвета из скриншота (точные) === */
+  3  |    --brand-primary: #0d6efd;     /* Синий для ссылок, фокуса, акцентов */
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+20:59:40 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+21:02:01 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+21:03:16 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+21:04:46 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+21:07:40 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+21:07:40 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Корпоративная палитра DOM.RF === */
+  3 |   --brand-primary: #0A5C9A;
+  4 |   --brand-accent: #00ADEF;
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Корпоративная палитра DOM.RF === */
+  3  |    --brand-primary: #0A5C9A;
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+21:07:41 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Unexpected token (1:0)
+
+> 1 | :root {
+    | ^
+  2 |   /* === Корпоративная палитра DOM.RF === */
+  3 |   --brand-primary: #0A5C9A;
+  4 |   --brand-accent: #00ADEF;
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:0
+  1  |  :root {
+     |  ^
+  2  |    /* === Корпоративная палитра DOM.RF === */
+  3  |    --brand-primary: #0A5C9A;
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.unexpected (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12971:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+21:08:01 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+21:08:01 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Missing semicolon. (1:4)
+
+> 1 | root {
+    |     ^
+  2 |   /* === Корпоративная палитра DOM.RF === */
+  3 |   --brand-primary: #0A5C9A;
+  4 |   --brand-accent: #00ADEF;
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:4
+  1  |  root {
+     |      ^
+  2  |    /* === Корпоративная палитра DOM.RF === */
+  3  |    --brand-primary: #0A5C9A;
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.semicolon (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6920:10)
+      at TypeScriptParserMixin.parseExpressionStatement (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13361:10)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12975:19)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+21:08:01 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Missing semicolon. (1:4)
+
+> 1 | root {
+    |     ^
+  2 |   /* === Корпоративная палитра DOM.RF === */
+  3 |   --brand-primary: #0A5C9A;
+  4 |   --brand-accent: #00ADEF;
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:4
+  1  |  root {
+     |      ^
+  2  |    /* === Корпоративная палитра DOM.RF === */
+  3  |    --brand-primary: #0A5C9A;
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.semicolon (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6920:10)
+      at TypeScriptParserMixin.parseExpressionStatement (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13361:10)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12975:19)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+21:08:03 [vite] Internal server error: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx: Missing semicolon. (1:4)
+
+> 1 | root {
+    |     ^
+  2 |   /* === Корпоративная палитра DOM.RF === */
+  3 |   --brand-primary: #0A5C9A;
+  4 |   --brand-accent: #00ADEF;
+  Plugin: vite:react-babel
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPanel.tsx:1:4
+  1  |  root {
+     |      ^
+  2  |    /* === Корпоративная палитра DOM.RF === */
+  3  |    --brand-primary: #0A5C9A;
+      at constructor (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.semicolon (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:6920:10)
+      at TypeScriptParserMixin.parseExpressionStatement (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13361:10)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12975:19)
+      at TypeScriptParserMixin.parseStatementContent (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseProgram (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at TypeScriptParserMixin.parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:10183:18)
+      at parse (/home/user/escrow-dashboard/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:261:32)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:189:28
+      at /home/user/escrow-dashboard/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:113:33
+      at step (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:287:14)
+      at /home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/user/escrow-dashboard/frontend/node_modules/gensync/index.js:223:11)
+21:08:07 [vite] hmr update /src/pages/AccountantPanel.tsx, /src/index.css
+21:08:20 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+21:10:27 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+21:14:30 [vite] hmr update /src/pages/style_page/AppExcelImport.css
+21:15:10 [vite] hmr update /src/pages/style_page/LoginPage.css
+21:17:31 [vite] hmr update /src/pages/AccountantPage.tsx, /src/index.css
+21:17:31 [vite] Internal server error: Failed to resolve import "./AccountantPage.css" from "src/pages/AccountantPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPage.tsx:4:7
+  18 |  import { useNavigate } from "react-router-dom";
+  19 |  import CardBlock from "./CardBlock";
+  20 |  import "./AccountantPage.css";
+     |          ^
+  21 |  const cards = [
+  22 |    {
+      at TransformPluginContext._formatError (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+21:17:31 [vite] Internal server error: Failed to resolve import "./AccountantPage.css" from "src/pages/AccountantPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPage.tsx:4:7
+  18 |  import { useNavigate } from "react-router-dom";
+  19 |  import CardBlock from "./CardBlock";
+  20 |  import "./AccountantPage.css";
+     |          ^
+  21 |  const cards = [
+  22 |    {
+      at TransformPluginContext._formatError (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+21:17:39 [vite] hmr update /src/App.tsx, /src/index.css
+21:17:48 [vite] Internal server error: Failed to resolve import "./AccountantPage.css" from "src/pages/AccountantPage.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/user/escrow-dashboard/frontend/src/pages/AccountantPage.tsx:4:7
+  18 |  import { useNavigate } from "react-router-dom";
+  19 |  import CardBlock from "./CardBlock";
+  20 |  import "./AccountantPage.css";
+     |          ^
+  21 |  const cards = [
+  22 |    {
+      at TransformPluginContext._formatError (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+21:18:33 [vite] hmr update /src/App.tsx, /src/index.css
+21:20:08 [vite] hmr update /src/pages/style_page/AccountantPage.css
+21:20:59 [vite] hmr update /src/pages/CardBlock.tsx, /src/index.css
+21:20:59 [vite] Internal server error: Failed to resolve import "./style_page/CardBlock.css" from "src/pages/CardBlock.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/user/escrow-dashboard/frontend/src/pages/CardBlock.tsx:3:7
+  15 |    window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+  16 |  }
+  17 |  import "./style_page/CardBlock.css";
+     |          ^
+  18 |  export default function CardBlock({
+  19 |    title,
+      at TransformPluginContext._formatError (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+21:20:59 [vite] Internal server error: Failed to resolve import "./style_page/CardBlock.css" from "src/pages/CardBlock.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/user/escrow-dashboard/frontend/src/pages/CardBlock.tsx:3:7
+  15 |    window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+  16 |  }
+  17 |  import "./style_page/CardBlock.css";
+     |          ^
+  18 |  export default function CardBlock({
+  19 |    title,
+      at TransformPluginContext._formatError (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+21:21:10 [vite] hmr update /src/index.css, /src/pages/AccountantPage.tsx
+21:21:14 [vite] hmr update /src/pages/style_page/CardBlock.css
+21:22:41 [vite] hmr update /src/pages/style_page/CardBlock.css
+21:24:40 [vite] hmr update /src/pages/style_page/LoginPage.css
+21:29:21 [vite] hmr update /src/pages/AdminPanel.tsx, /src/index.css
+21:29:21 [vite] Internal server error: Failed to resolve import "./AdminPanel.css" from "src/pages/AdminPanel.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/user/escrow-dashboard/frontend/src/pages/AdminPanel.tsx:6:7
+  20 |  import { useAuth } from "../contexts/AuthContext";
+  21 |  import api from "../services/api";
+  22 |  import "./AdminPanel.css";
+     |          ^
+  23 |  const AdminPanel = () => {
+  24 |    _s();
+      at TransformPluginContext._formatError (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///home/user/escrow-dashboard/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+21:29:46 [vite] hmr update /src/App.tsx, /src/index.css
+21:30:16 [vite] hmr update /src/App.tsx, /src/index.css
+21:32:14 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:32:40 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:34:28 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:37:15 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:41:13 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:43:22 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:45:39 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:48:48 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:49:13 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:51:24 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:56:27 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:57:24 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:58:07 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:58:14 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:58:25 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:58:31 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:58:37 [vite] hmr update /src/pages/style_page/AdminPanel.css
+21:58:38 [vite] hmr update /src/pages/style_page/AdminPanel.css
+22:00:48 [vite] hmr update /src/pages/style_page/AdminPanel.css
+22:01:14 [vite] hmr update /src/pages/style_page/AdminPanel.css
+22:01:23 [vite] hmr update /src/pages/style_page/AdminPanel.css
+22:03:17 [vite] hmr update /src/pages/style_page/AccountantPage.css
+22:06:15 [vite] hmr update /src/pages/style_page/AdminPanel.css
+13:04:38 [vite] hmr update /src/contexts/AuthContext.tsx, /src/index.css, /src/pages/DeveloperPanel/index.tsx, /src/pages/ViewerPanel.tsx, /src/pages/AdminPanel.tsx
+13:06:37 [vite] hmr update /src/contexts/AuthContext.tsx, /src/index.css, /src/pages/DeveloperPanel/index.tsx, /src/pages/ViewerPanel.tsx, /src/pages/AdminPanel.tsx
+13:09:04 [vite] vite.config.ts changed, restarting server...
+13:09:04 [vite] server restarted.
+13:09:13 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+326|            </>);
+327|  
+328|        case 'info':
+   |             ^
+329|          return (
+330|            <div className="widget-editor__section">
+
+  Plugin: vite:esbuild
+  File: /home/user/escrow-dashboard/frontend/src/pages/DeveloperPanel/components/WidgetEditor.tsx
+13:13:12 [vite] hmr update /src/index.css, /src/pages/DeveloperPanel/components/Sidebar.tsx, /src/pages/DeveloperPanel/components/WidgetEditor.tsx
+13:13:31 [vite] vite.config.ts changed, restarting server...
+13:13:31 [vite] server restarted.
+13:13:39 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+326|            </>);
+327|  
+328|        case 'info':
+   |             ^
+329|          return (
+330|            <div className="widget-editor__section">
+
+  Plugin: vite:esbuild
+  File: /home/user/escrow-dashboard/frontend/src/pages/DeveloperPanel/components/WidgetEditor.tsx
+13:16:24 [vite] hmr update /src/pages/DeveloperPanel/components/WidgetEditor.tsx, /src/index.css
+13:18:22 [vite] hmr update /src/index.css, /src/pages/DeveloperPanel/components/Sidebar.tsx, /src/pages/DeveloperPanel/components/WidgetEditor.tsx
+13:19:01 [vite] hmr update /src/index.css, /src/pages/DeveloperPanel/components/Sidebar.tsx, /src/pages/DeveloperPanel/components/WidgetEditor.tsx
+13:23:06 [vite] vite.config.ts changed, restarting server...
+13:23:06 [vite] server restarted.
+13:32:46 [vite] hmr update /src/index.css, /src/pages/DeveloperPanel/index.tsx
+13:33:39 [vite] hmr update /src/index.css, /src/contexts/AuthContext.tsx, /src/pages/DeveloperPanel/index.tsx
+13:33:39 [vite] hmr invalidate /src/contexts/AuthContext.tsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+13:33:39 [vite] page reload src/contexts/AuthContext.tsx
+13:43:41 [vite] hmr update /src/pages/DeveloperPanel/components/DashboardCanvas.tsx, /src/index.css

@@ -1,21 +1,17 @@
 import axios from 'axios';
 
-// определим хост API относительно текущего браузера
-const apiHost = window.location.hostname === 'localhost'
-  ? 'localhost'
-  : window.location.hostname; // заменяется на IP хоста при доступе с другого ПК
-
-const apiPort = 8000; // твой порт API (FastAPI)
-const apiBaseUrl = `http://${apiHost}:${apiPort}`;
+// Используем только относительный путь — вся маршрутизация осуществляется через vite.config.js proxy!
+// Это работает и для dev, и для production, и с любого ПК сети.
+// В vite.config.js '/api' -> target: 'http://IP_ТВОЕГО_БЭКЕНДА:8000'
 
 const api = axios.create({
-  baseURL: apiBaseUrl,
+  baseURL: '', // Пустой baseURL значит, что все запросы относительные ('/api/...'), будет работать прокси!
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Interceptor для добавления токена
+// Interceptor для добавления токена (оставляем как есть)
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -27,7 +23,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Interceptor для обработки 401 ошибок
+// Interceptor для 401
 api.interceptors.response.use(
   (response) => response,
   (error) => {

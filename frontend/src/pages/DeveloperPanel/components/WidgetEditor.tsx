@@ -2,26 +2,17 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { DashboardWidget } from '../types';
 import { executeSQL } from "../../../services/queryService";
 import ChartPreview from './ChartPreview';
+import ChartConfigPanel from './ChartConfigPanel';
 import FiltersPanel from './FiltersPanel';
 import FilterFieldSelector from './FilterFieldSelector';
 import { buildWhereSQL } from '../utils/sqlUtils';
 import '../styles/WidgetEditor.css';
+import InfoEditor from './InfoEditor';
 
-const iconMap: { [key: string]: string } = {
+// Карточки для иконок
+const iconMap = {
   table: "📑", chart: "📈", filter: "🔍", kpi: "💡", info: "📝"
 };
-
-const CHART_TYPE_OPTIONS = [
-  { value: "line", label: "Линейный" },
-  { value: "bar", label: "Столбчатый" },
-  { value: "pie", label: "Круговой" },
-  { value: "area", label: "Площадь" },
-  { value: "scatter", label: "Точечный" },
-  { value: "radar", label: "Радар" },
-  { value: "doughnut", label: "Кольцевой" },
-  { value: "polarArea", label: "Полярный" },
-  { value: "bubble", label: "Пузырьки" },
-];
 
 const AGGREGATIONS = [
   { value: '', label: 'Без агрегации' },
@@ -41,6 +32,14 @@ const WidgetEditor: React.FC<{
   onClose?: () => void;
 }> = ({ widget, onUpdate, onRemove, onClose }) => {
   const [propsState, setPropsState] = useState(widget?.props || {});
+  const [chartConfig, setChartConfig] = useState(propsState.chartConfig || {
+    type: propsState.chartType || 'line',
+    colors: ['#8BC540', '#4EC3E0'],
+    legendPosition: 'top',
+    showTitle: false,
+    titleText: '',
+    dark: false,
+  });
   const [executeLoading, setExecuteLoading] = useState(false);
   const [executeError, setExecuteError] = useState<string | null>(null);
   const [previewData, setPreviewData] = useState<any>(null);
@@ -52,6 +51,7 @@ const WidgetEditor: React.FC<{
   useEffect(() => {
     setPropsState(widget?.props || {});
     setPreviewData(null);
+    setChartConfig(widget?.props?.chartConfig || chartConfig);
     setExecuteError(null);
     setFilterFields((widget?.props?.filterFields) || []);
     setFilterValues((widget?.props?.filterValues) || {});
@@ -107,11 +107,13 @@ const WidgetEditor: React.FC<{
         datasets: [{
           label: propsState.yField + (propsState.aggregation ? ` (${propsState.aggregation})` : ''),
           data: result.data.map((row: any) =>
-            propsState.aggregation ? row[`${propsState.aggregation}_${propsState.yField}`] : row[propsState.yField]
+            propsState.aggregation
+              ? row[`${propsState.aggregation}_${propsState.yField}`]
+              : row[propsState.yField]
           ),
-          backgroundColor: '#60a5fa',
-          borderColor: '#2563eb',
-          fill: propsState.chartType === 'area',
+          backgroundColor: chartConfig.colors?.[0] || '#60a5fa',
+          borderColor: chartConfig.colors?.[1] || '#2563eb',
+          fill: chartConfig.type === 'area',
           tension: 0.3,
         }]
       };
@@ -126,10 +128,21 @@ const WidgetEditor: React.FC<{
   useEffect(() => {
     if (canPreviewChart) handlePreviewChart();
     else setPreviewData(null);
-  }, [propsState.sql, propsState.xField, propsState.yField, propsState.chartType, propsState.aggregation, filterFields, filterValues]);
+  }, [
+    propsState.sql, propsState.xField, propsState.yField,
+    chartConfig.type, propsState.aggregation,
+    filterFields, filterValues, chartConfig.colors
+  ]);
 
   const renderFields = () => {
     switch (widget.type) {
+      case 'info':
+        return (
+          <InfoEditor
+            value={propsState.content || ""}
+            onChange={val => setPropsState({ ...propsState, content: val })}
+          />
+        );
       case 'table':
         return (
           <div className="widget-editor__section">
@@ -177,34 +190,24 @@ const WidgetEditor: React.FC<{
                 />
               </div>
             </div>
-
-            <div className="widget-editor__row">
-              <div className="widget-editor__col">
-                <label className="widget-editor__label">Тип графика</label>
-                <select
-                  value={propsState.chartType || ''}
-                  onChange={e => setPropsState({ ...propsState, chartType: e.target.value })}
-                  className="widget-editor__select"
-                >
-                  {CHART_TYPE_OPTIONS.map(opt => (
-                    <option value={opt.value} key={opt.value}>{opt.label}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="widget-editor__col">
-                <label className="widget-editor__label">Агрегация</label>
-                <select
-                  value={propsState.aggregation || ''}
-                  onChange={e => setPropsState({ ...propsState, aggregation: e.target.value })}
-                  className="widget-editor__select"
-                >
-                  {AGGREGATIONS.map(opt => (
-                    <option value={opt.value} key={opt.value}>{opt.label}</option>
-                  ))}
-                </select>
-              </div>
+            <div className="widget-editor__section">
+              <ChartConfigPanel
+                initial={chartConfig}
+                onChange={cfg => setChartConfig(cfg)}
+              />
             </div>
-
+            <div className="widget-editor__col">
+              <label className="widget-editor__label">Агрегация</label>
+              <select
+                value={propsState.aggregation || ''}
+                onChange={e => setPropsState({ ...propsState, aggregation: e.target.value })}
+                className="widget-editor__select"
+              >
+                {AGGREGATIONS.map(opt => (
+                  <option value={opt.value} key={opt.value}>{opt.label}</option>
+                ))}
+              </select>
+            </div>
             <FilterFieldSelector
               allFields={columns}
               selectedFields={filterFields}
@@ -215,7 +218,6 @@ const WidgetEditor: React.FC<{
               filterValues={filterValues}
               onUpdate={vals => { setFilterValues(vals); setPropsState(ps => ({ ...ps, filterValues: vals })); }}
             />
-
             <div className="widget-editor__section">
               <label className="widget-editor__label">SQL (данные для графика)</label>
               <textarea
@@ -235,10 +237,13 @@ const WidgetEditor: React.FC<{
               </div>
               {executeError && <div className="widget-editor__error">{executeError}</div>}
             </div>
-
             {previewData && previewData.labels?.length > 0 && previewData.datasets?.length > 0 ? (
               <div className="widget-editor__preview">
-                <ChartPreview type={propsState.chartType || "line"} data={previewData} />
+                <ChartPreview
+                  type={chartConfig.type || "line"}
+                  data={previewData}
+                  theme={chartConfig}
+                />
               </div>
             ) : (
               !executeLoading && <div className="widget-editor__empty">Нет данных или не выбраны оси</div>
@@ -295,26 +300,19 @@ const WidgetEditor: React.FC<{
             </div>
           </>
         );
-      case 'info':
-        return (
-          <div className="widget-editor__section">
-            <label className="widget-editor__label">Описание/текст</label>
-            <textarea
-              value={propsState.content || ''}
-              onChange={e => setPropsState({ ...propsState, content: e.target.value })}
-              className="widget-editor__textarea"
-              rows={3}
-              placeholder="Описание или инструкции..."
-            />
-          </div>
-        );
       default:
         return <div className="widget-editor__empty">Настройка недоступна для этого типа виджета.</div>;
     }
   };
 
   const handleSave = () => {
-    let updatedProps = { ...propsState, filterFields, filterValues };
+    let updatedProps = {
+      ...propsState,
+      filterFields,
+      filterValues,
+      chartConfig,
+      chartType: chartConfig.type,
+    };
     if (widget.type === 'chart' && previewData) {
       updatedProps = { ...updatedProps, result: previewData };
     }
@@ -336,11 +334,7 @@ const WidgetEditor: React.FC<{
           <button className="widget-editor__close-btn" onClick={onClose}>✕</button>
         )}
       </div>
-
-      <div className="widget-editor__content">
-        {renderFields()}
-      </div>
-
+      <div className="widget-editor__content">{renderFields()}</div>
       <div className="widget-editor__footer">
         <button className="widget-editor__btn widget-editor__btn--primary" onClick={handleSave}>💾 Сохранить</button>
         <button className="widget-editor__btn widget-editor__btn--danger" onClick={onRemove}>🗑️ Удалить</button>
