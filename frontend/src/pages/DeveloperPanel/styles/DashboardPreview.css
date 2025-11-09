@@ -1,4 +1,12 @@
-/* ============ DOM.RF Color Palette ============ */
+/*=====================================================================
+  DashboardPreview.css – ИДЕАЛЬНОЕ ВПИСЫВАНИЕ В БЛОКИ
+  • 24-колоночная сетка
+  • layout: { x, y, w, h } → 1-в-1
+  • Все виджеты: table, chart, kpi, info, filter
+  • Без обрезки, с прокруткой при необходимости
+  • Адаптивность + mobile fallback
+=====================================================================*/
+
 :root {
   --domrf-green: #8BC540;
   --domrf-gray-dark: #2F444E;
@@ -8,177 +16,108 @@
   --domrf-white: #FFFFFF;
 }
 
-/* ============ Container ============ */
-.dashboard-preview {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 18px;
-  padding: 20px;
-  background: linear-gradient(to bottom, #ffffff, #f9fbff);
+/* === ГЛОБАЛЬНЫЕ ФИКСЫ === */
+body, html, #root {
+  width: 100vw !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important;
 }
 
-/* ============ Widget Card ============ */
+.public-dashboards-viewer,
+.dashboard-preview {
+  width: 100vw !important;
+  min-width: 1100px !important;
+  max-width: 1420px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important;
+  padding: 0 1rem;
+}
+
+.dashboard-preview {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: minmax(60px, auto);
+  gap: 18px;
+  padding: 24px;
+  background: linear-gradient(to bottom, #fff, #f9fbff);
+  min-height: 100vh;
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 48, 135, 0.06);
+  border: 1.5px solid var(--domrf-border);
+}
+
+/* === ВИДЖЕТ — ИДЕАЛЬНОЕ ВПИСЫВАНИЕ === */
 .dashboard-preview__widget {
   background: var(--domrf-white);
   border: 1px solid var(--domrf-border);
   border-radius: 14px;
-  padding: 16px;
+  box-shadow: 0 1px 3px rgba(47,68,78,0.04), 0 4px 12px rgba(139,197,64,0.07);
+  padding: 18px 14px 18px 18px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04),
-              0 4px 12px rgba(31, 94, 209, 0.05);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  min-height: 100%;
 }
 
+/* Hover + Selected */
 .dashboard-preview__widget:hover {
-  border-color: #d8e3f2;
-  box-shadow: 0 2px 4px rgba(16, 24, 40, 0.06),
-              0 12px 28px rgba(139, 197, 64, 0.08);
+  border-color: #d7e8c1;
+  box-shadow: 0 2px 6px rgba(47,68,78,0.06), 0 16px 36px rgba(139,197,64,0.09);
   transform: translateY(-2px);
+  z-index: 10;
 }
-
 .dashboard-preview__widget--selected {
-  border-color: var(--domrf-green);
+  border-color: var(--domrf-green) !important;
   outline: 2px solid var(--domrf-green);
-  outline-offset: -1px;
-  box-shadow: 0 2px 4px rgba(16, 24, 40, 0.06),
-              0 12px 28px rgba(139, 197, 64, 0.15);
+  box-shadow: 0 2px 10px rgba(139,197,64,.21);
+  z-index: 20;
 }
 
-/* ============ Header ============ */
+/* === HEADER ВИДЖЕТА === */
 .dashboard-preview__header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 4px;
-}
-
-.dashboard-preview__icon {
-  font-size: 20px;
+  gap: 11px;
+  margin-bottom: 7px;
   flex-shrink: 0;
 }
-
+.dashboard-preview__icon { 
+  font-size: 21px; 
+  flex-shrink: 0;
+}
 .dashboard-preview__title {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--domrf-gray-dark);
+  letter-spacing: -0.2px;
   line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
 }
 
-/* ============ SQL Info ============ */
-.dashboard-preview__sql-info {
-  font-size: 12px;
-  color: var(--domrf-gray-light);
-  background: var(--domrf-bg-light);
-  border-left: 3px solid var(--domrf-green);
-  padding: 8px 10px;
-  border-radius: 6px;
-  line-height: 1.4;
-  word-break: break-word;
-}
-
-.dashboard-preview__sql-info strong {
-  color: var(--domrf-gray-dark);
-  font-weight: 700;
-}
-
-/* ============ SQL Input ============ */
-.dashboard-preview__sql-input {
-  width: 100%;
-  border: 1.5px solid var(--domrf-border);
-  border-radius: 8px;
-  padding: 9px 11px;
-  font-family: 'Courier New', 'Menlo', monospace;
-  font-size: 12px;
-  color: var(--domrf-gray-dark);
-  background: var(--domrf-white);
-  resize: vertical;
-  min-height: 60px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.dashboard-preview__sql-input:focus {
-  outline: none;
-  border-color: var(--domrf-green);
-  box-shadow: 0 0 0 3px rgba(139, 197, 64, 0.15);
-  background: #fafbff;
-}
-
-.dashboard-preview__sql-input::placeholder {
-  color: #94a8bf;
-}
-
-/* ============ Preview Button ============ */
-.dashboard-preview__preview-btn {
-  width: 100%;
-  padding: 9px 14px;
-  border-radius: 8px;
-  border: none;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.dashboard-preview__preview-btn--table,
-.dashboard-preview__preview-btn--chart {
-  background: var(--domrf-green);
-  color: var(--domrf-white);
-  box-shadow: 0 4px 12px rgba(139, 197, 64, 0.18);
-}
-
-.dashboard-preview__preview-btn--table:hover,
-.dashboard-preview__preview-btn--chart:hover {
-  background: #7ab530;
-  box-shadow: 0 6px 16px rgba(139, 197, 64, 0.25);
-  transform: translateY(-1px);
-}
-
-.dashboard-preview__preview-btn:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.dashboard-preview__preview-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-/* ============ Error State ============ */
-.dashboard-preview__error {
-  padding: 10px 12px;
-  background: #fef3f3;
-  border: 1px solid #f5d4d4;
-  border-left: 3px solid #e74c3c;
-  border-radius: 8px;
-  font-size: 12px;
-  color: #c0392b;
-  line-height: 1.4;
-}
-
-/* ============ Table Content ============ */
+/* === TABLE — С ПРОКРУТКОЙ И ФИКСИРОВАННЫМИ СТРОКАМИ === */
 .dashboard-preview__table-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  border-radius: 9px;
+  background: var(--domrf-white);
 }
-
 .dashboard-preview__table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--domrf-border);
-  background: var(--domrf-white);
+  font-size: 13px;
+  min-width: 100%;
 }
-
 .dashboard-preview__table th {
   background: linear-gradient(to bottom, #f9fbff, #f3f6ff);
   color: var(--domrf-gray-dark);
@@ -188,226 +127,173 @@
   border-bottom: 1.5px solid var(--domrf-border);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
-
 .dashboard-preview__table td {
   padding: 10px 12px;
   border-bottom: 1px solid #eef2f7;
-  color: var(--domrf-gray-light);
+  color: var(--domrf-gray-dark);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 200px;
 }
-
 .dashboard-preview__table tbody tr:nth-child(odd) td {
-  background: rgba(139, 197, 64, 0.04);
+  background: rgba(139, 197, 64, 0.045);
 }
-
 .dashboard-preview__table tbody tr:hover td {
-  background: rgba(139, 197, 64, 0.08);
+  background: #f6f9ff;
 }
 
-/* ============ Chart Content ============ */
+/* === CHART — РАСТЯГИВАЕТСЯ ПО ВЫСОТЕ === */
 .dashboard-preview__chart-content {
+  flex: 1;
+  min-height: 170px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.dashboard-preview__chart-controls {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
-}
-
-.dashboard-preview__chart-select {
-  width: 100%;
-  border: 1.5px solid var(--domrf-border);
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: #fdfdff;
   border-radius: 8px;
-  padding: 7px 10px;
-  font-size: 12px;
+  overflow: hidden;
+}
+.dashboard-preview__chart-content > * {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+}
+
+/* === KPI — ЦЕНТРИРОВАННЫЙ, ЖИРНЫЙ === */
+.dashboard-preview__kpi-content {
+  flex: 1;
+  background: linear-gradient(135deg, #f0fde9, #eef8e7);
+  border: 1px solid #d4edca;
+  border-left: 4px solid var(--domrf-green);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
   color: var(--domrf-gray-dark);
-  background: var(--domrf-white);
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dashboard-preview__chart-select:hover {
-  border-color: #d8e3f2;
-  background: #fafbff;
+/* === INFO — ЧИТАЕМЫЙ ТЕКСТ === */
+.dashboard-preview__info-content {
+  flex: 1;
+  font-size: 13.5px;
+  color: var(--domrf-gray-dark);
+  padding: 14px;
+  background: var(--domrf-bg-light);
+  border-radius: 10px;
+  border-left: 3px solid var(--domrf-green);
+  line-height: 1.6;
+  overflow: auto;
+}
+.dashboard-preview__info-content > div {
+  width: 100%;
 }
 
-.dashboard-preview__chart-select:focus {
-  outline: none;
-  border-color: var(--domrf-green);
-  box-shadow: 0 0 0 2px rgba(139, 197, 64, 0.15);
-}
-
-/* ============ Filter Content ============ */
+/* === FILTER — С АКЦЕНТОМ НА ЗНАЧЕНИЕ === */
 .dashboard-preview__filter-content {
-  font-size: 13px;
+  flex: 1;
+  font-size: 14px;
   color: var(--domrf-gray-light);
   padding: 12px;
   background: var(--domrf-bg-light);
   border: 1px solid var(--domrf-border);
-  border-radius: 8px;
+  border-radius: 10px;
   line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-
 .dashboard-preview__filter-content span {
   font-weight: 700;
   color: var(--domrf-green);
+  white-space: nowrap;
 }
 
-/* ============ KPI Content ============ */
-.dashboard-preview__kpi-content {
-  background: linear-gradient(135deg, #f0fde9, #eef8e7);
-  border: 1px solid #d4edca;
-  border-left: 3px solid var(--domrf-green);
-  border-radius: 10px;
-  padding: 14px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--domrf-gray-dark);
-}
-
-/* ============ Info Content ============ */
-.dashboard-preview__info-content {
-  font-size: 13px;
-  color: var(--domrf-gray-light);
-  padding: 12px;
-  background: var(--domrf-bg-light);
-  border-radius: 8px;
-  border-left: 3px solid var(--domrf-green);
-  line-height: 1.6;
-}
-
-/* ============ Empty States ============ */
-.dashboard-preview__empty {
-  padding: 16px;
-  text-align: center;
-  color: #94a8bf;
-  font-size: 12px;
-  background: rgba(139, 197, 64, 0.06);
-  border: 1px dashed var(--domrf-border);
-  border-radius: 8px;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.5;
-}
-
+/* === ПУСТОЕ СОСТОЯНИЕ === */
 .dashboard-preview__empty-state {
   grid-column: 1 / -1;
   padding: 48px 32px;
   text-align: center;
-  color: #94a8bf;
-  font-size: 15px;
+  color: #a2b6b8;
+  font-size: 17px;
   background: var(--domrf-white);
   border: 1px dashed var(--domrf-border);
   border-radius: 14px;
   margin: 20px;
   line-height: 1.6;
-  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+  box-shadow: 0 1.5px 6px rgba(47,68,78,0.06);
 }
 
-/* ============ Responsive ============ */
-@media (max-width: 1024px) {
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 1400px) {
   .dashboard-preview {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(18, 1fr);
     gap: 16px;
+    padding: 20px;
+  }
+}
+@media (max-width: 1250px) {
+  .dashboard-preview {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
     padding: 18px;
   }
-
-  .dashboard-preview__widget {
-    padding: 14px;
-  }
-
-  .dashboard-preview__chart-controls {
-    grid-template-columns: 1fr 1fr;
-  }
 }
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .dashboard-preview {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: 12px;
     padding: 14px;
   }
-
   .dashboard-preview__widget {
-    padding: 12px;
-    gap: 10px;
-  }
-
-  .dashboard-preview__title {
-    font-size: 14px;
-  }
-
-  .dashboard-preview__chart-controls {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .dashboard-preview__sql-input {
-    font-size: 11px;
-    padding: 8px;
-    min-height: 50px;
-  }
-
-  .dashboard-preview__table {
-    font-size: 11px;
-  }
-
-  .dashboard-preview__table td,
-  .dashboard-preview__table th {
-    padding: 8px 10px;
+    padding: 12px 10px;
   }
 }
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .public-dashboards-viewer,
+  .dashboard-preview {
+    min-width: 100vw !important;
+    padding: 8px;
+  }
   .dashboard-preview {
     grid-template-columns: 1fr;
     gap: 10px;
     padding: 10px;
   }
-
   .dashboard-preview__widget {
+    grid-column: 1 / -1 !important;
     padding: 10px;
+    border-radius: 12px;
   }
-
-  .dashboard-preview__chart-controls {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-preview__table {
-    font-size: 10px;
-  }
-
-  .dashboard-preview__table td,
-  .dashboard-preview__table th {
-    padding: 6px 8px;
-  }
-
-  .dashboard-preview__title {
-    font-size: 13px;
-  }
-
-  .dashboard-preview__sql-input {
-    font-size: 10px;
-    min-height: 45px;
-  }
+  .dashboard-preview__title { font-size: 15px; }
+  .dashboard-preview__table th,
+  .dashboard-preview__table td { font-size: 12px; padding: 6px 8px; }
+  .dashboard-preview__kpi-content { font-size: 18px; }
+  .dashboard-preview__empty-state { padding: 20px; font-size: 15px; margin: 10px; }
 }
 
-/* ============ Light Theme (Default) ============ */
-.dashboard-preview {
-  --bg-primary: var(--domrf-white);
-  --bg-secondary: var(--domrf-bg-light);
-  --text-primary: var(--domrf-gray-dark);
-  --text-secondary: var(--domrf-gray-light);
-  --border-color: var(--domrf-border);
-  --accent-color: var(--domrf-green);
+/* === ДОСТУПНОСТЬ === */
+::selection {
+  background: var(--domrf-green);
+  color: #fff;
+}
+.dashboard-preview__widget:focus-visible {
+  outline: 3px solid rgba(139, 197, 64, 0.3);
+  outline-offset: 2px;
+}
+/* =============================
+   Фикс центрирования текста в info
+   ============================= */
+.dashboard-preview__info-content * {
+  text-align: inherit !important;
 }

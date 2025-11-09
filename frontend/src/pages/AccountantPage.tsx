@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import CardBlock from './CardBlock';
 import "./style_page/AccountantPage.css";
 
+// Импортируй Footer один раз (путь скорректируй под проект)
+import Footer from './Footer';
+
 const cards = [
   {
     title: "Анализ Эскроу",
@@ -59,6 +62,7 @@ export default function AccountantPage() {
           </CardBlock>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

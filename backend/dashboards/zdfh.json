@@ -1,10 +1,10 @@
 {
-  "title": "sef",
+  "title": "zdfh",
   "description": "",
   "config": {
     "widgets": [
       {
-        "id": "e9f7cb60-becc-4b20-b51c-c556f8aa59bf",
+        "id": "8bf9a3c0-4ccb-4244-8f91-48353c6097d7",
         "type": "table",
         "props": {
           "sql": "SELECT * FROM escrow_accounts LIMIT 100",
@@ -744,20 +744,60 @@
           },
           "chartType": "line"
         }
+      },
+      {
+        "id": "efc035f6-2dbf-4bb5-b362-ccaf7ed39fbb",
+        "type": "info",
+        "props": {
+          "filterFields": [],
+          "filterValues": {},
+          "chartConfig": {
+            "type": "line",
+            "colors": [
+              "#8BC540",
+              "#4EC3E0"
+            ],
+            "legendPosition": "top",
+            "showTitle": false,
+            "titleText": "",
+            "dark": false
+          },
+          "chartType": "line",
+          "content": "Table",
+          "style": {
+            "fontSize": 38,
+            "color": "#1d5bd7",
+            "fontWeight": "bold",
+            "textAlign": "center",
+            "fontFamily": "Inter, Arial, sans-serif",
+            "width": 1520,
+            "backgroundColor": "#fff",
+            "borderRadius": 8,
+            "padding": 15
+          }
+        }
       }
     ],
     "layout": [
       {
-        "widgetId": "e9f7cb60-becc-4b20-b51c-c556f8aa59bf",
+        "widgetId": "8bf9a3c0-4ccb-4244-8f91-48353c6097d7",
+        "x": 0,
+        "y": 12,
+        "w": 24,
+        "h": 25
+      },
+      {
+        "widgetId": "efc035f6-2dbf-4bb5-b362-ccaf7ed39fbb",
         "x": 0,
         "y": 0,
-        "w": 6,
-        "h": 8
+        "w": 24,
+        "h": 12
       }
     ],
     "filters": {},
     "theme": "corporate"
   },
-  "created_at": "2025-11-08T13:34:02.483744",
-  "updated_at": "2025-11-08T13:34:02.483749"
+  "created_at": "2025-11-09T12:46:27.715631",
+  "updated_at": "2025-11-09T12:47:00.911075",
+  "is_published": true
 }

@@ -1,15 +1,90 @@
-.widget-info-editor { display: flex; flex-direction: column; gap: 8px; }
-.widget-info-label { font-weight: 700; color: #334050; font-size: 13px; }
+.widget-info-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fafdfe;
+  border-radius: 10px;
+  padding: 20px 20px 16px 20px;
+  box-shadow: 0 2px 14px rgba(139,197,64,0.08);
+  border: 1.3px solid #eaeef2;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.widget-info-label {
+  font-weight: 700;
+  color: #334050;
+  font-size: 13px;
+}
+
+.widget-info-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+.widget-info-toolbar button {
+  width: 33px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid #ccd9e1;
+  background: #f3f8ff;
+  color: #174c85;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .14s, color .14s, border .14s;
+}
+.widget-info-toolbar button.selected {
+  background: #3896ce;
+  color: #fff;
+  border-color: #3896ce;
+}
+
 .widget-info-textarea {
   border: 1.5px solid #dde5db;
   border-radius: 10px;
   padding: 8px 12px;
   font-size: 13px;
-  font-family: 'Courier New', monospace;
+  font-family: "Inter", "Arial", sans-serif;
   background: #f8fafb;
   resize: vertical;
+  min-height: 90px;
+  transition: border .15s;
 }
-.widget-info-textarea:focus { border-color: #8bc540; outline: none; }
-.widget-info-hint { color: #82a298; font-size: 12px; }
-.widget-info-preview-section { background: #f6f9ff; border: 1.2px solid #eaeef2; border-radius: 10px; padding: 8px 12px; }
-.widget-info-preview { min-height: 24px; color: #27272d; font-size: 15px; }
+.widget-info-textarea:focus {
+  border-color: #8bc540;
+  outline: none;
+}
+
+.widget-info-hint {
+  color: #82a298;
+  font-size: 12px;
+}
+
+.widget-info-preview-section {
+  background: #f6f9ff;
+  border: 1.2px solid #eaeef2;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.widget-info-preview {
+  min-height: 24px;
+  color: #27272d;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+/* Критично: наследовать выравнивание из родителя */
+.widget-info-preview * {
+  text-align: inherit !important;
+}
+
+/* Дополнительно: для классов align-*, если используешь */
+.align-left { text-align: left !important; }
+.align-center { text-align: center !important; }
+.align-right { text-align: right !important; }
+.widget-info-preview, .widget-info-preview * {
+  text-align: inherit !important;
+}
+

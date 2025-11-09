@@ -1,166 +1,295 @@
-:root {
-  --domrf-green: #8bc540;
-  --domrf-blue: #4ec3e0;
-  --domrf-gray: #2f444e;
-  --domrf-accent: #149183;
-  --domrf-light-bg: #f4f8f4;
-  --domrf-border: #dde5db;
-  --domrf-panel: #fff;
-  --domrf-shadow: rgba(76, 195, 224, 0.14);
-  --domrf-shadow-strong: rgba(47, 68, 78, 0.09);
-  --input-height: 36px;
-}
+/* ========================================
+   ChartConfigPanel — Корпоративный стиль ДОМ.РФ
+   Уровень: Senior Frontend
+   ======================================== */
 
-/* Корневая карточка панели */
 .chart-config-panel {
-  background: var(--domrf-panel);
-  border-radius: 18px;
-  border: 1.5px solid var(--domrf-border);
-  padding: 22px 28px 16px;
-  margin: 18px 0 20px 0;
-  box-shadow: 0 4px 14px var(--domrf-shadow), 0 1.5px 7px var(--domrf-shadow-strong);
-  display: block;
-  transition: box-shadow 0.17s;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-/* Grid для компактного и аккуратного расположения */
+.chart-config-panel.chart-dark {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.chart-config-panel.chart-dark .chart-config-divider {
+  border-color: #333;
+}
+
+.chart-config-panel.chart-dark .chart-config-label,
+.chart-config-panel.chart-dark label {
+  color: #b0b0b0;
+}
+
+.chart-config-panel.chart-dark input::placeholder,
+.chart-config-panel.chart-dark select {
+  color: #888;
+}
+
+/* ===== Грид-лейаут ===== */
 .chart-config-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px 32px;
-}
-@media (max-width: 680px) {
-  .chart-config-grid {
-    grid-template-columns: 1fr;
-    gap: 13px;
-  }
-  .chart-config-panel { padding: 15px; }
+  gap: 16px;
+  grid-template-columns: 1fr;
 }
 
-/* Поля и лейблы */
-.chart-config-field {
+/* ===== Поля ввода ===== */
+.chart-config-field,
+.chart-config-row-tight {
   display: flex;
-  flex-direction: column;
-  gap: 9px;
-  justify-content: flex-start;
-}
-.chart-config-label {
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--domrf-gray);
-  margin-bottom: 2px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-/* Цвета серий */
+.chart-config-row-tight {
+  gap: 16px;
+}
+
+.chart-config-label {
+  font-weight: 500;
+  color: #2d2d2d;
+  min-width: 140px;
+  font-size: 13.5px;
+}
+
+.chart-config-panel.chart-dark .chart-config-label {
+  color: #cccccc;
+}
+
+/* ===== Селекты ===== */
+.chart-config-select {
+  padding: 8px 12px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  color: #1a1a1a;
+  min-width: 160px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666' width='18px' height='18px'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+.chart-config-select:focus {
+  outline: none;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+}
+
+.chart-config-panel.chart-dark .chart-config-select {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23aaa' width='18px' height='18px'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+}
+
+.chart-config-panel.chart-dark .chart-config-select:focus {
+  border-color: #4a8eff;
+  box-shadow: 0 0 0 3px rgba(74, 142, 255, 0.25);
+}
+
+/* ===== Инпуты ===== */
+.chart-config-input {
+  padding: 8px 12px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  color: #1a1a1a;
+  transition: all 0.2s ease;
+}
+
+.chart-config-input:focus {
+  outline: none;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+}
+
+.chart-config-input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.chart-config-panel.chart-dark .chart-config-input {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.chart-config-panel.chart-dark .chart-config-input:focus {
+  border-color: #4a8eff;
+  box-shadow: 0 0 0 3px rgba(74, 142, 255, 0.25);
+}
+
+/* ===== Чекбоксы ===== */
+.chart-config-row-tight label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  color: #2d2d2d;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chart-config-panel.chart-dark .chart-config-row-tight label {
+  color: #cccccc;
+}
+
+.chart-config-row-tight input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #0052cc;
+  cursor: pointer;
+}
+
+.chart-config-panel.chart-dark input[type="checkbox"] {
+  accent-color: #4a8eff;
+}
+
+/* ===== Цветовые пикери ===== */
 .chart-config-colors {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
-input[type='color'] {
+
+.chart-config-colors input[type="color"] {
   width: 36px;
   height: 36px;
-  border: none;
+  padding: 2px;
+  border: 2px solid #e5e7eb;
   border-radius: 8px;
-  background: #f6fbfa;
-  box-shadow: 0 0 0 2px var(--domrf-border);
-  padding: 0;
   cursor: pointer;
-  transition: box-shadow 0.17s;
+  transition: all 0.15s ease;
+  background: transparent;
 }
-input[type='color']:focus {
-  outline: 2px solid var(--domrf-green);
-  box-shadow: 0 0 0 4px var(--domrf-blue);
+
+.chart-config-colors input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
 }
+
+.chart-config-colors input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+.chart-config-colors input[type="color"]:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+}
+
+.chart-config-panel.chart-dark .chart-config-colors input[type="color"] {
+  border-color: #444;
+}
+
+.chart-config-panel.chart-dark .chart-config-colors input[type="color"]:hover {
+  box-shadow: 0 0 0 2px rgba(74, 142, 255, 0.3);
+}
+
+/* ===== Кнопки +/- ===== */
 .chart-config-color-btn {
-  background: #ebf3eb;
-  border: 1.5px solid var(--domrf-border);
-  color: var(--domrf-green);
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #d0d5dd;
   border-radius: 8px;
-  font-size: 17px;
-  width: 33px;
-  height: 33px;
+  background: #f9f9f9;
+  color: #444;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, color 0.14s;
-  cursor: pointer;
-  margin: 0 2px;
 }
+
 .chart-config-color-btn:hover {
-  background: var(--domrf-green);
-  color: #fff;
+  background: #0052cc;
+  color: white;
+  border-color: #0052cc;
+  transform: translateY(-1px);
 }
 
-/* Краткая строка для чекбоксов/селектов */
-.chart-config-row-tight {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 6px;
+.chart-config-panel.chart-dark .chart-config-color-btn {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #aaa;
 }
 
-/* Стиль чекбоксов и текстов */
-.chart-config-row-tight input[type='checkbox'] {
-  transform: scale(1.13);
-  margin-right: 7px;
-  accent-color: var(--domrf-green);
-  vertical-align: middle;
-  cursor: pointer;
+.chart-config-panel.chart-dark .chart-config-color-btn:hover {
+  background: #4a8eff;
+  border-color: #4a8eff;
+  color: white;
 }
 
-.chart-config-label,
-.chart-config-row-tight label {
-  font-size: 14px;
-  color: var(--domrf-gray);
-  vertical-align: middle;
+/* ===== Разделитель ===== */
+.chart-config-divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 16px 0;
 }
 
-/* Select и input */
-.chart-config-select, .chart-config-input {
-  height: var(--input-height);
-  border: 1.5px solid var(--domrf-border);
-  border-radius: 9px;
-  background: #f7faf7;
-  padding: 0 12px;
-  font-size: 15px;
-  color: var(--domrf-gray);
-  margin: 0 10px 0 2px;
-  transition: border-color 0.13s, box-shadow 0.12s;
-}
-.chart-config-select:focus,
-.chart-config-input:focus {
-  border-color: var(--domrf-green);
-  box-shadow: 0 2px 8px var(--domrf-shadow);
-  outline: none;
-}
-.chart-config-input::placeholder {
-  color: #a9bac6;
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+  .chart-config-grid {
+    gap: 14px;
+  }
+
+  .chart-config-field,
+  .chart-config-row-tight {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chart-config-label {
+    min-width: auto;
+    margin-bottom: 4px;
+  }
+
+  .chart-config-select,
+  .chart-config-input {
+    width: 100%;
+  }
+
+  .chart-config-colors {
+    justify-content: flex-start;
+  }
+
+  .chart-config-color-btn {
+    width: 40px;
+    height: 40px;
+  }
 }
 
-/* Тёмная тема */
-.chart-dark {
-  background: #232b2b;
-  color: #c6eed6;
-}
-.chart-dark .chart-config-label,
-.chart-dark .chart-config-row-tight label,
-.chart-dark .chart-config-select,
-.chart-dark .chart-config-input {
-  color: #c6eed6;
-  background: #253b23;
-}
-.chart-dark input[type='color'] { background: #2f444e; }
-.chart-dark .chart-config-color-btn {
-  background: #2f444e; color: #8bc540; border-color: #4ec3e0;
-}
-.chart-dark .chart-config-color-btn:hover {
-  background: #8bc540; color: #fff;
+/* ===== Фокус для доступности ===== */
+.chart-config-select:focus-visible,
+.chart-config-input:focus-visible,
+.chart-config-color-btn:focus-visible {
+  outline: 2px solid #0052cc;
+  outline-offset: 2px;
 }
 
-/* Responsive для телефона */
-@media (max-width: 480px) {
-  .chart-config-panel { border-radius: 8px; font-size: 12px;}
-  .chart-config-grid { gap: 10px;}
-  .chart-config-color-btn, input[type='color'] { width: 24px; height: 24px;}
+.chart-config-panel.chart-dark .chart-config-select:focus-visible,
+.chart-config-panel.chart-dark .chart-config-input:focus-visible,
+.chart-config-panel.chart-dark .chart-config-color-btn:focus-visible {
+  outline-color: #4a8eff;
 }

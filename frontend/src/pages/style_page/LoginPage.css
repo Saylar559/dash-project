@@ -32,19 +32,19 @@ body, #root {
   line-height: 1.47;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.2rem;
 }
+
 
 /* ==== ФОН ==== */
 .login-bg {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: none;
 }
+
 .login-bg-blur {
   position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; border-radius: var(--radius-lg);
 }

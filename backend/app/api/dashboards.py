@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.models.dashboard import Dashboard  # Только Dashboard! Без DashboardWidget
+from app.models.dashboard import Dashboard
 from app.models.user import User
 from app.auth.jwt import get_current_user
 from pydantic import BaseModel
@@ -12,6 +12,7 @@ import json
 router = APIRouter(prefix="/api/dashboards", tags=["Dashboards"])
 
 # ============ Schemas ============
+
 class WidgetConfig(BaseModel):
     id: str
     type: str
@@ -60,12 +61,19 @@ async def list_dashboards(
     dashboards = db.query(Dashboard).filter(
         Dashboard.owner_id == current_user.id
     ).order_by(Dashboard.updated_at.desc()).all()
+    # Кастомная сериализация через pydantic
     return [
-        {
-            **dashboard.__dict__,
-            "config": json.loads(dashboard.config) if isinstance(dashboard.config, str) else dashboard.config
-        }
-        for dashboard in dashboards
+        DashboardResponse(
+            id = d.id,
+            title = d.title,
+            description = d.description,
+            config = json.loads(d.config) if isinstance(d.config, str) else d.config,
+            is_published = d.is_published,
+            created_at = d.created_at,
+            updated_at = d.updated_at,
+            owner_id = d.owner_id,
+        )
+        for d in dashboards
     ]
 
 @router.get("/{dashboard_id}", response_model=DashboardResponse)
@@ -81,10 +89,16 @@ async def get_dashboard(
     ).first()
     if not dashboard:
         raise HTTPException(status_code=404, detail="Дашборд не найден")
-    return {
-        **dashboard.__dict__,
-        "config": json.loads(dashboard.config) if isinstance(dashboard.config, str) else dashboard.config
-    }
+    return DashboardResponse(
+        id = dashboard.id,
+        title = dashboard.title,
+        description = dashboard.description,
+        config = json.loads(dashboard.config) if isinstance(dashboard.config, str) else dashboard.config,
+        is_published = dashboard.is_published,
+        created_at = dashboard.created_at,
+        updated_at = dashboard.updated_at,
+        owner_id = dashboard.owner_id,
+    )
 
 @router.post("/", response_model=DashboardResponse)
 async def create_dashboard(
@@ -104,13 +118,20 @@ async def create_dashboard(
         db.add(dashboard)
         db.commit()
         db.refresh(dashboard)
-        return {
-            **dashboard.__dict__,
-            "config": json.loads(dashboard.config)
-        }
+        return DashboardResponse(
+            id = dashboard.id,
+            title = dashboard.title,
+            description = dashboard.description,
+            config = json.loads(dashboard.config),
+            is_published = dashboard.is_published,
+            created_at = dashboard.created_at,
+            updated_at = dashboard.updated_at,
+            owner_id = dashboard.owner_id,
+        )
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=400, detail=str(e))
+
 
 @router.put("/{dashboard_id}", response_model=DashboardResponse)
 async def update_dashboard(
@@ -138,13 +159,20 @@ async def update_dashboard(
         dashboard.updated_at = datetime.utcnow()
         db.commit()
         db.refresh(dashboard)
-        return {
-            **dashboard.__dict__,
-            "config": json.loads(dashboard.config)
-        }
+        return DashboardResponse(
+            id = dashboard.id,
+            title = dashboard.title,
+            description = dashboard.description,
+            config = json.loads(dashboard.config),
+            is_published = dashboard.is_published,
+            created_at = dashboard.created_at,
+            updated_at = dashboard.updated_at,
+            owner_id = dashboard.owner_id,
+        )
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=400, detail=str(e))
+
 
 @router.delete("/{dashboard_id}")
 async def delete_dashboard(
@@ -166,6 +194,7 @@ async def delete_dashboard(
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=400, detail=str(e))
+
 
 @router.post("/{dashboard_id}/publish")
 async def publish_dashboard(

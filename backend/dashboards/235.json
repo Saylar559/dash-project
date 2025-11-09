@@ -1,5 +1,5 @@
 {
-  "title": "1",
+  "title": "235",
   "description": "",
   "config": {
     "widgets": [
@@ -766,11 +766,11 @@
           "content": "Table",
           "style": {
             "fontSize": 38,
-            "color": "#1d5bd7",
+            "color": "#000000",
             "fontWeight": "bold",
-            "textAlign": "center",
+            "textAlign": "left",
             "fontFamily": "Inter, Arial, sans-serif",
-            "width": 1520,
+            "width": 1320,
             "backgroundColor": "#fff",
             "borderRadius": 8,
             "padding": 15
@@ -790,14 +790,14 @@
         "widgetId": "efc035f6-2dbf-4bb5-b362-ccaf7ed39fbb",
         "x": 0,
         "y": 0,
-        "w": 24,
+        "w": 23,
         "h": 12
       }
     ],
     "filters": {},
     "theme": "corporate"
   },
-  "created_at": "2025-11-09T12:51:26.406925",
-  "updated_at": "2025-11-09T12:52:19.678351",
+  "created_at": "2025-11-09T14:01:21.929919",
+  "updated_at": "2025-11-09T14:01:21.929919",
   "is_published": false
 }

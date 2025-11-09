@@ -12,6 +12,9 @@ import DashboardCanvas from "./components/DashboardCanvas";
 import { RefreshCw, Eye, EyeOff, Clock, Save, ZoomIn, ZoomOut } from 'lucide-react';
 import { useAutoRefresh } from './hooks/useAutoRefresh';
 import './styles/DeveloperPanel.css';
+import Footer from '../Footer';
+import DashboardPublishModal from './components/DashboardPublishModal';
+import './styles/DashboardPublishModal.css';
 
 const initialConfig: DashboardConfig = {
   widgets: [],
@@ -30,9 +33,9 @@ const DeveloperPanel: React.FC = () => {
     saveDashboard,
     deleteDashboard,
     getDashboard,
+    updateDashboard,
   } = useDashboardFiles();
 
-  // State
   const [dashboardConfig, setDashboardConfig] = useState<DashboardConfig>(initialConfig);
   const [selectedWidgetId, setSelectedWidgetId] = useState<string | null>(null);
   const [selectedDashboard, setSelectedDashboard] = useState<any>(null);
@@ -46,29 +49,31 @@ const DeveloperPanel: React.FC = () => {
   const [autoRefreshInterval, setAutoRefreshInterval] = useState(0);
   const [lastRefreshTime, setLastRefreshTime] = useState<Date | null>(null);
 
+  const [publishModalOpen, setPublishModalOpen] = useState(false);
+  const [dashboardToPublish, setDashboardToPublish] = useState<any>(null);
+
   const widgetEditorRef = useRef<HTMLDivElement>(null);
 
-  // Load dashboards on mount
   useEffect(() => {
     fetchDashboards();
   }, [fetchDashboards]);
 
-  // Scroll to widget editor when selected
   useEffect(() => {
     if (selectedWidgetId && widgetEditorRef.current) {
-      widgetEditorRef.current.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center' 
+      widgetEditorRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
       });
     }
   }, [selectedWidgetId]);
 
-  // Auto-refresh handler
+  useEffect(() => {
+    setIsPublished(selectedDashboard?.is_published || false);
+  }, [selectedDashboard]);
+
   const handleAutoRefresh = useCallback(async () => {
     if (!isPublished) return;
-    
     try {
-      // Trigger re-render by updating config
       setDashboardConfig(prev => ({
         ...prev,
         _refreshKey: Math.random(),
@@ -80,7 +85,6 @@ const DeveloperPanel: React.FC = () => {
     }
   }, [isPublished]);
 
-  // Use auto-refresh hook
   const { isRefreshing, refreshNow } = useAutoRefresh({
     enabled: autoRefreshInterval > 0 && isPublished,
     intervalSeconds: autoRefreshInterval,
@@ -92,14 +96,12 @@ const DeveloperPanel: React.FC = () => {
     immediate: false,
   });
 
-  // Add widget
   const handleAddWidget = useCallback((type: DashboardWidget['type'], props?: any) => {
     const newWidget: DashboardWidget = {
       id: uuidv4(),
       type,
       props: props || {},
     };
-    
     setDashboardConfig((prev) => ({
       ...prev,
       widgets: [...prev.widgets, newWidget],
@@ -114,25 +116,34 @@ const DeveloperPanel: React.FC = () => {
         }
       ]
     }));
-    
     setSelectedWidgetId(newWidget.id);
     setSuccessMessage(`✅ Виджет "${type}" добавлен`);
     setTimeout(() => setSuccessMessage(null), 2000);
   }, []);
 
-  // Update widget
-  const handleUpdateWidget = useCallback((id: string, props: any) => {
-    setDashboardConfig((prev) => ({
+  // === КРИТИЧЕСКИЙ ФИКС для правильного сохранения style (слияние, не замена!)
+  const handleUpdateWidget = useCallback((id: string, patch: any) => {
+    setDashboardConfig(prev => ({
       ...prev,
-      widgets: prev.widgets.map((w) =>
-        w.id === id ? { ...w, props } : w
-      ),
+      widgets: prev.widgets.map(w =>
+        w.id === id
+          ? {
+              ...w,
+              props: {
+                ...w.props,
+                ...(patch.content !== undefined ? { content: patch.content } : {}),
+                ...(patch.style ? { style: { ...w.props.style, ...patch.style } } : {}),
+                ...Object.fromEntries(Object.entries(patch).filter(([k]) => k !== 'content' && k !== 'style')),
+              }
+            }
+          : w
+      )
     }));
     setSuccessMessage('✅ Виджет обновлён');
     setTimeout(() => setSuccessMessage(null), 2000);
   }, []);
+  // === конец фикса
 
-  // Remove widget
   const handleRemoveWidget = useCallback((id: string) => {
     setDashboardConfig((prev) => ({
       ...prev,
@@ -144,62 +155,47 @@ const DeveloperPanel: React.FC = () => {
     setTimeout(() => setSuccessMessage(null), 2000);
   }, []);
 
-  // Duplicate widget
   const handleDuplicateWidget = useCallback((id: string) => {
     const widget = dashboardConfig.widgets.find(w => w.id === id);
     if (!widget) return;
-    
     const newWidget: DashboardWidget = {
       ...widget,
       id: uuidv4(),
       props: { ...widget.props },
     };
-    
     const layout = dashboardConfig.layout.find(l => l.widgetId === id);
-    const newLayout = layout 
-      ? { 
-          ...layout, 
-          widgetId: newWidget.id, 
-          x: (layout.x + layout.w) % 24, 
-          y: layout.y 
-        }
+    const newLayout = layout
+      ? { ...layout, widgetId: newWidget.id, x: (layout.x + layout.w) % 24, y: layout.y }
       : { widgetId: newWidget.id, x: 0, y: 0, w: 6, h: 8 };
-
     setDashboardConfig((prev) => ({
       ...prev,
       widgets: [...prev.widgets, newWidget],
       layout: [...prev.layout, newLayout],
     }));
-    
     setSuccessMessage('✅ Виджет дублирован');
     setTimeout(() => setSuccessMessage(null), 2000);
   }, [dashboardConfig]);
 
-  // Save dashboard (prepare)
   const handleSaveDashboard = useCallback(() => {
     if (!dashboardConfig.widgets.length) {
       setErrorMessage('❌ Дашборд пуст — добавьте хотя бы один виджет');
       setTimeout(() => setErrorMessage(null), 3000);
       return;
     }
-    
     const title = prompt('📝 Название дашборда:');
     if (!title?.trim()) {
       setErrorMessage('❌ Название не указано');
       setTimeout(() => setErrorMessage(null), 3000);
       return;
     }
-    
     const description = prompt('📄 Описание (необязательно):') || 'Создан в конструкторе';
     setPendingSave({ title: title.trim(), description: description.trim() });
     setModalOpen(true);
   }, [dashboardConfig.widgets.length]);
 
-  // Confirm save
   const confirmSaveDashboard = async () => {
     if (!pendingSave) return;
     setIsSaving(true);
-    
     try {
       await saveDashboard(pendingSave.title, dashboardConfig);
       setSuccessMessage(`✅ Дашборд "${pendingSave.title}" сохранён!`);
@@ -215,19 +211,15 @@ const DeveloperPanel: React.FC = () => {
     }
   };
 
-  // Select dashboard
   const handleSelectDashboard = useCallback(async (dashboard: any) => {
     setSelectedDashboard(dashboard);
-    
     try {
       const full = await getDashboard(dashboard.id);
       const config = full.config || initialConfig;
-      
       setDashboardConfig(config);
-      setIsPublished(false);
+      setIsPublished(full.is_published || false);
       setSelectedWidgetId(null);
       setAutoRefreshInterval(0);
-      
       setSuccessMessage(`📂 Дашборд "${dashboard.title}" открыт`);
       setTimeout(() => setSuccessMessage(null), 2000);
     } catch (err: any) {
@@ -236,20 +228,16 @@ const DeveloperPanel: React.FC = () => {
     }
   }, [getDashboard]);
 
-  // Delete dashboard
   const handleDeleteDashboard = useCallback(async (id: string, title: string) => {
     if (!confirm(`🗑️ Удалить дашборд "${title}"?`)) return;
-    
     try {
       await deleteDashboard(id);
       setSuccessMessage(`✅ Дашборд "${title}" удалён`);
       setTimeout(() => setSuccessMessage(null), 2000);
-      
       if (selectedDashboard?.id === id) {
         setSelectedDashboard(null);
         setDashboardConfig(initialConfig);
       }
-      
       await fetchDashboards();
     } catch (err: any) {
       setErrorMessage(`❌ ${err?.message || 'Ошибка удаления'}`);
@@ -257,7 +245,35 @@ const DeveloperPanel: React.FC = () => {
     }
   }, [deleteDashboard, fetchDashboards, selectedDashboard]);
 
-  // Clear all
+  const handlePublishDashboard = useCallback(async (id: string, nextPublish: boolean) => {
+    try {
+      await updateDashboard(id, { is_published: nextPublish });
+      setSuccessMessage(nextPublish ? "✅ Дашборд опубликован!" : "Дашборд снят с публикации");
+      setIsPublished(nextPublish);
+      await fetchDashboards();
+    } catch (err: any) {
+      setErrorMessage("Ошибка публикации");
+      setTimeout(() => setErrorMessage(null), 2000);
+    }
+  }, [updateDashboard, fetchDashboards]);
+
+  const handleRequestPublish = (dashboard: any) => {
+    setDashboardToPublish(dashboard);
+    setPublishModalOpen(true);
+  };
+
+  const handleConfirmPublish = async () => {
+    if (dashboardToPublish) {
+      await handlePublishDashboard(dashboardToPublish.id, true);
+    }
+    setPublishModalOpen(false);
+  };
+
+  const handleClosePublishModal = () => {
+    setPublishModalOpen(false);
+    setTimeout(() => setDashboardToPublish(null), 200);
+  };
+
   const handleClearAll = useCallback(() => {
     if (confirm('🗑️ Очистить всё? Все виджеты будут удалены.')) {
       setDashboardConfig(initialConfig);
@@ -270,7 +286,6 @@ const DeveloperPanel: React.FC = () => {
     }
   }, []);
 
-  // Layout change
   const handleLayoutChange = useCallback((layoutArr: any[]) => {
     setDashboardConfig((prev) => ({
       ...prev,
@@ -284,7 +299,6 @@ const DeveloperPanel: React.FC = () => {
     }));
   }, []);
 
-  // Toggle publish mode
   const togglePublishLocal = useCallback(() => {
     setIsPublished((p) => !p);
     setSelectedWidgetId(null);
@@ -293,49 +307,39 @@ const DeveloperPanel: React.FC = () => {
     }
   }, [isPublished]);
 
-  // Toggle zoom
   const toggleZoom = useCallback(() => {
     setZoomed(!zoomed);
   }, [zoomed]);
 
-  // Manual refresh
   const handleRefreshNow = useCallback(() => {
     refreshNow();
   }, [refreshNow]);
 
   return (
     <div className={`developer-panel ${zoomed ? 'developer-panel--zoomed' : ''}`}>
-      {/* Header */}
       <Header
         username={user?.username || 'Developer'}
         email={user?.email || 'developer@example.com'}
         onNavigateDashboards={() => (window.location.href = '/viewer')}
         onLogout={logout}
       />
-
-      {/* Notifications */}
       <Notifications
         error={errorMessage || dashboardError}
         success={successMessage}
         onClearError={() => setErrorMessage(null)}
         onClearSuccess={() => setSuccessMessage(null)}
       />
-
-      {/* Confirm Modal */}
       <ModalConfirm
         open={modalOpen}
         title="Подтвердить сохранение"
         message={`Сохранить дашборд "${pendingSave?.title}"?`}
         onConfirm={confirmSaveDashboard}
-        onCancel={() => { 
-          setModalOpen(false); 
-          setPendingSave(null); 
+        onCancel={() => {
+          setModalOpen(false);
+          setPendingSave(null);
         }}
       />
-
-      {/* Main Layout */}
       <div className="developer-panel__layout">
-        {/* Sidebar */}
         <Sidebar
           dashboards={dashboards}
           selectedDashboard={selectedDashboard}
@@ -345,16 +349,21 @@ const DeveloperPanel: React.FC = () => {
           onSelectDashboard={handleSelectDashboard}
           onDeleteDashboard={handleDeleteDashboard}
           onClear={handleClearAll}
+          onRequestPublish={handleRequestPublish}
+          onPublishDashboard={handlePublishDashboard}
         />
-
-        {/* Main Content */}
+        <DashboardPublishModal
+          dashboardTitle={dashboardToPublish?.title || ""}
+          open={publishModalOpen}
+          onClose={handleClosePublishModal}
+          onConfirm={handleConfirmPublish}
+        />
         <div className="developer-panel__content">
-          {/* Toolbar */}
           <div className="developer-panel__toolbar">
             <div className="developer-panel__toolbar-left">
               <h2 className="developer-panel__title">
-                {selectedDashboard 
-                  ? `📊 ${selectedDashboard.title}` 
+                {selectedDashboard
+                  ? `📊 ${selectedDashboard.title}`
                   : '🎯 Рабочая область'
                 }
               </h2>
@@ -362,9 +371,7 @@ const DeveloperPanel: React.FC = () => {
                 {dashboardConfig.widgets.length} виджетов
               </span>
             </div>
-
             <div className="developer-panel__actions">
-              {/* Refresh dashboards list */}
               <button
                 className="developer-panel__btn developer-panel__btn--icon"
                 onClick={() => fetchDashboards()}
@@ -373,8 +380,6 @@ const DeveloperPanel: React.FC = () => {
               >
                 <RefreshCw size={18} />
               </button>
-
-              {/* Zoom toggle */}
               <button
                 className="developer-panel__btn developer-panel__btn--icon"
                 onClick={toggleZoom}
@@ -382,8 +387,6 @@ const DeveloperPanel: React.FC = () => {
               >
                 {zoomed ? <ZoomOut size={18} /> : <ZoomIn size={18} />}
               </button>
-
-              {/* Auto-refresh controls (only in view mode) */}
               {isPublished && (
                 <div className="developer-panel__refresh-controls">
                   <button
@@ -416,12 +419,10 @@ const DeveloperPanel: React.FC = () => {
                   )}
                 </div>
               )}
-
-              {/* View/Edit toggle */}
               <button
                 className={`developer-panel__btn ${
-                  isPublished 
-                    ? 'developer-panel__btn--secondary' 
+                  isPublished
+                    ? 'developer-panel__btn--secondary'
                     : 'developer-panel__btn--primary'
                 }`}
                 onClick={togglePublishLocal}
@@ -439,8 +440,6 @@ const DeveloperPanel: React.FC = () => {
                   </>
                 )}
               </button>
-
-              {/* Save button */}
               <button
                 className="developer-panel__btn developer-panel__btn--success"
                 onClick={handleSaveDashboard}
@@ -452,8 +451,6 @@ const DeveloperPanel: React.FC = () => {
               </button>
             </div>
           </div>
-
-          {/* Dashboard Canvas */}
           <DashboardCanvas
             widgets={dashboardConfig.widgets}
             layout={
@@ -476,14 +473,13 @@ const DeveloperPanel: React.FC = () => {
             isPublished={isPublished}
             canEdit={!isPublished}
             autoRefreshInterval={autoRefreshInterval}
+            onUpdateWidget={handleUpdateWidget}
           />
-
-          {/* Widget Editor */}
           {!isPublished && selectedWidgetId && (
             <div ref={widgetEditorRef}>
               <WidgetEditor
                 widget={dashboardConfig.widgets.find(w => w.id === selectedWidgetId)}
-                onUpdate={(props) => handleUpdateWidget(selectedWidgetId, props)}
+                onUpdate={(patch) => handleUpdateWidget(selectedWidgetId, patch)}
                 onRemove={() => handleRemoveWidget(selectedWidgetId)}
                 onClose={() => setSelectedWidgetId(null)}
               />
@@ -491,6 +487,7 @@ const DeveloperPanel: React.FC = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

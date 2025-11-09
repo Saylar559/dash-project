@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import api from '../services/api';
 import { User } from '../types';
 import "./style_page/AdminPanel.css"; // Подключай отдельный CSS файл!
-
+import Footer from './Footer';
 type SortKey = 'id' | 'username' | 'email' | 'role' | 'is_active' | 'created_at';
 type SortOrder = 'asc' | 'desc';
 
@@ -418,8 +418,10 @@ const AdminPanel: React.FC = () => {
           </div>
         )}
       </main>
+      <Footer />
     </div>
   );
+  
 };
 
 export default AdminPanel;

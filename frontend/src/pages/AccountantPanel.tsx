@@ -6,7 +6,7 @@ dayjs.extend(customParseFormat);
 
 // CSS — импортируй внешний файл!
 import "./style_page/AppExcelImport.css";
-
+import Footer from './Footer';
 function formatAmountRub(n) {
   if (typeof n !== 'number' || Number.isNaN(n)) return '';
   return new Intl.NumberFormat('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + ' руб.';
@@ -359,7 +359,10 @@ export default function App() {
         ) : (
           <div className="success">Обработка завершена успешно или данные отсутствуют.</div>
         )}
+        <Footer />
       </main>
+      
     </div>
   );
+  
 }

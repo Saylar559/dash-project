@@ -1,0 +1,76 @@
+/* DashboardPublishModal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9000;
+  background: rgba(40, 42, 55, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-publish {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(80,90,125,0.20), 0 1.5px 8px rgba(60,70,90,0.09);
+  min-width: 380px;
+  max-width: 98vw;
+  padding: 32px 28px 24px 32px;
+  font-family: inherit;
+  color: #222d3a;
+  font-size: 17px;
+  animation: modal-appear 0.23s cubic-bezier(.21,.89,.2,1.13);
+}
+
+@keyframes modal-appear {
+  0% { transform: scale(0.93) translateY(20px); opacity: 0.8; }
+  100% { transform: none; opacity: 1; }
+}
+
+.modal-publish h2 {
+  margin-top: 0;
+  font-size: 21px;
+  margin-bottom: 12px;
+  color: #376bb0;
+  font-weight: bold;
+  letter-spacing: .01em;
+}
+
+.modal-publish b {
+  font-weight: 600;
+  color: #1150cc;
+}
+
+.modal-publish .modal-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 12px;
+  gap: 14px;
+}
+
+.modal-publish button {
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 8px 18px;
+  margin: 0;
+  cursor: pointer;
+  background: #f0f4ff;
+  color: #2857ab;
+  font-weight: 500;
+  box-shadow: 0 0.5px 2.2px rgba(57,86,175,.06);
+  transition: background 0.18s, color 0.18s;
+}
+
+.modal-publish button:hover {
+  background: #376bb0;
+  color: #fff;
+}
+
+.modal-publish button:active {
+  background: #2b548d;
+  color: #e0eaff;
+}

@@ -5,35 +5,47 @@ import "react-resizable/css/styles.css";
 import "../styles/DashboardCanvas.css";
 import TablePreview from "./TablePreview";
 import ChartPreview from "./ChartPreview";
+import InfoTextWidget from "./InfoTextWidget";
 import { marked } from "marked";
 import { useAutoRefresh } from "../hooks/useAutoRefresh";
 
-type InfoTextStyle = {
-  fontSize: number;
-  color: string;
-  fontWeight: "normal" | "bold";
-  textAlign: "left" | "center" | "right";
-  fontFamily: string;
-};
-
-const DEFAULT_INFO_STYLE: InfoTextStyle = {
-  fontSize: 18,
-  color: "#232b3b",
-  fontWeight: "normal",
-  textAlign: "left",
-  fontFamily: "Inter, Arial, sans-serif",
-};
-
 const ResponsiveGridLayout = WidthProvider(GridLayout);
 
-const InfoWidget: React.FC<{ content: string; style?: InfoTextStyle }> = ({ content, style }) => (
+type WidgetConfig = {
+  id: string;
+  type: string;
+  props: any;
+  [key: string]: any;
+};
+
+type CanvasProps = {
+  widgets: WidgetConfig[];
+  layout: Layout[];
+  onLayoutChange: (l: Layout[]) => void;
+  selectedWidgetId: string | null;
+  onSelectWidget: (id: string | null) => void;
+  onEditWidget?: (id: string) => void;
+  onDuplicateWidget?: (id: string) => void;
+  onRemoveWidget?: (id: string) => void;
+  onUpdateWidget: (id: string, patch: any) => void;
+  isPublished?: boolean;
+  canEdit?: boolean;
+  autoRefreshInterval?: number;
+};
+
+const InfoWidget: React.FC<{ content: string; style?: React.CSSProperties }> = ({ content, style }) => (
   <div className="widget-info-preview" style={{
-    background: "#f6f9ff",
+    background: style?.backgroundColor ?? "#f6f9ff",
     border: "1.2px solid #eaeef2",
-    borderRadius: 10,
-    padding: 12,
-    minHeight: 30,
-    ...(style || DEFAULT_INFO_STYLE)
+    borderRadius: style?.borderRadius ?? 10,
+    padding: style?.padding ?? 14,
+    color: style?.color ?? "#23272b",
+    fontSize: style?.fontSize ?? 15,
+    width: style?.width ?? "100%",
+    textAlign: style?.textAlign ?? "left",
+    fontWeight: style?.fontWeight,
+    fontFamily: style?.fontFamily,
+    minHeight: 32
   }}>
     {content && content.trim()
       ? <div dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
@@ -41,85 +53,6 @@ const InfoWidget: React.FC<{ content: string; style?: InfoTextStyle }> = ({ cont
     }
   </div>
 );
-
-const InfoWidgetEditor: React.FC<{
-  value: string;
-  style: InfoTextStyle;
-  onChange: (val: string, style: InfoTextStyle) => void;
-  onCancel: () => void;
-  onSave: () => void;
-}> = ({ value, style, onChange, onCancel, onSave }) => (
-  <div className="info-widget-editor-modal">
-    <div style={{
-      boxShadow: "0 7px 32px 0 #1d27501a", padding: 22, background: "#fff",
-      borderRadius: 12, position: "fixed", left: "44%", top: "16%", zIndex: 1800, minWidth: 380
-    }}>
-      <h3 style={{ marginTop: 0 }}>Редактор инфо-текста</h3>
-      <div style={{ display: "flex", gap: 14, marginBottom: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={style.fontFamily}
-          onChange={e => onChange(value, { ...style, fontFamily: e.target.value })}>
-          <option value="Inter, Arial, sans-serif">Inter</option>
-          <option value="Roboto, Arial, sans-serif">Roboto</option>
-          <option value="serif">Serif</option>
-          <option value="monospace">Mono</option>
-        </select>
-        <input type="number" min={8} max={60} step={1} value={style.fontSize}
-          onChange={e => onChange(value, { ...style, fontSize: Number(e.target.value) })} style={{ width: 55 }} />
-        <select value={style.fontWeight}
-          onChange={e => onChange(value, { ...style, fontWeight: e.target.value as InfoTextStyle["fontWeight"] })}>
-          <option value="normal">Обычный</option>
-          <option value="bold">Жирный</option>
-        </select>
-        <input type="color" value={style.color}
-          onChange={e => onChange(value, { ...style, color: e.target.value })} />
-        <button onClick={() => onChange(value, { ...style, textAlign: "left" })}
-                style={{ fontWeight: style.textAlign === "left" ? 700 : 400 }}>Лево</button>
-        <button onClick={() => onChange(value, { ...style, textAlign: "center" })}
-                style={{ fontWeight: style.textAlign === "center" ? 700 : 400 }}>Центр</button>
-        <button onClick={() => onChange(value, { ...style, textAlign: "right" })}
-                style={{ fontWeight: style.textAlign === "right" ? 700 : 400 }}>Право</button>
-      </div>
-      <textarea
-        value={value}
-        onChange={e => onChange(e.target.value, style)}
-        style={{
-          width: "100%", minHeight: 70, resize: "vertical",
-          ...style, fontWeight: style.fontWeight, textAlign: style.textAlign,
-          fontFamily: style.fontFamily, color: style.color, fontSize: style.fontSize,
-          border: "1px solid #e5e9f2", borderRadius: 8, padding: "12px 15px"
-        }}
-      />
-      <div style={{ marginTop: 14, display: "flex", gap: 12 }}>
-        <button onClick={onSave} style={{
-          background: "#8bc540", color: "#fff", fontWeight: 600, border: 0,
-          borderRadius: 6, padding: "7px 16px", cursor: "pointer"
-        }}>Сохранить</button>
-        <button onClick={onCancel} style={{
-          background: "#eaeef2", color: "#232b3b", border: 0, borderRadius: 6,
-          padding: "7px 16px", cursor: "pointer"
-        }}>Отмена</button>
-      </div>
-    </div>
-    <div style={{
-      position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
-      background: "#1a253744", zIndex: 1700
-    }} onClick={onCancel} />
-  </div>
-);
-
-type CanvasProps = {
-  widgets: any[];
-  layout: Layout[];
-  onLayoutChange: (l: Layout[]) => void;
-  selectedWidgetId: string | null;
-  onSelectWidget: (id: string | null) => void;
-  onEditWidget?: (id: string, propsPatch?: Partial<any>) => void;
-  onDuplicateWidget?: (id: string) => void;
-  onRemoveWidget?: (id: string) => void;
-  isPublished?: boolean;
-  canEdit?: boolean;
-  autoRefreshInterval?: number;
-};
 
 const DashboardCanvas: React.FC<CanvasProps> = ({
   widgets,
@@ -130,84 +63,219 @@ const DashboardCanvas: React.FC<CanvasProps> = ({
   onEditWidget,
   onDuplicateWidget,
   onRemoveWidget,
+  onUpdateWidget,
   isPublished = false,
   canEdit = true,
   autoRefreshInterval = 0,
 }) => {
   const [refreshKey, setRefreshKey] = useState(0);
 
-  // --- InfoWidget editor modалка
-  const [infoEditorId, setInfoEditorId] = useState<string | null>(null);
-  const [infoEditValue, setInfoEditValue] = useState<string>("");
-  const [infoEditStyle, setInfoEditStyle] = useState<InfoTextStyle>(DEFAULT_INFO_STYLE);
-
-  const handleEditInfoWidget = useCallback((w: any) => {
-    setInfoEditorId(w.id);
-    setInfoEditValue(w.props?.content || "");
-    setInfoEditStyle(w.props?.style || DEFAULT_INFO_STYLE);
-  }, []);
-
-  const handleSaveInfoWidget = useCallback(() => {
-    if (infoEditorId && onEditWidget) {
-      onEditWidget(infoEditorId, { content: infoEditValue, style: infoEditStyle });
-    }
-    setInfoEditorId(null);
-  }, [infoEditorId, infoEditValue, infoEditStyle, onEditWidget]);
+  const handleRefresh = useCallback(() => setRefreshKey(prev => prev + 1), []);
+  useAutoRefresh({
+    enabled: autoRefreshInterval > 0,
+    intervalSeconds: autoRefreshInterval,
+    onRefresh: handleRefresh,
+  });
 
   const safeLayout = useMemo<Layout[]>(
-    () => (layout || []).map((l) => ({
-      ...l, minW: l.minW ?? 4, minH: l.minH ?? 12, maxW: 24, maxH: 48,
-      isResizable: !isPublished && (l.isResizable ?? true),
-      isDraggable: !isPublished && (l.isDraggable ?? true),
-    })), [layout, isPublished]);
+    () =>
+      (layout || []).map((l) => ({
+        ...l,
+        minW: l.minW ?? 4,
+        minH: l.minH ?? 12,
+        maxW: 24,
+        maxH: 48,
+        isResizable: !isPublished && (l.isResizable ?? true),
+        isDraggable: !isPublished && (l.isDraggable ?? true),
+      })),
+    [layout, isPublished]
+  );
 
-  // ... (buildChartData & showEmptyState — как у тебя)
+  const buildChartData = useCallback((w: WidgetConfig) => {
+    try {
+      if (
+        Array.isArray(w.props?.result?.labels) &&
+        Array.isArray(w.props?.result?.datasets)
+      ) {
+        return w.props.result;
+      }
+      if (
+        Array.isArray(w.props?.result?.data) &&
+        w.props?.xField &&
+        w.props?.yField
+      ) {
+        const rows = w.props.result.data;
+        const isAgg = Boolean(w.props.aggregation);
+        const yKey = isAgg ? `${w.props.aggregation}_${w.props.yField}` : w.props.yField;
+        const palette = [
+          "#8BC540", "#2B76F0", "#FF9D5C", "#6E5CE0",
+          "#00B4D8", "#FFB84D", "#E74C3C", "#00D9A3"
+        ];
+        return {
+          labels: rows.map((r: any) => r[w.props.xField]?.toString() || "N/A"),
+          datasets: [{
+            label: w.props.label || w.props.yField,
+            data: rows.map((r: any) => Number(r[yKey]) || 0),
+            backgroundColor:
+              w.props.chartType === "pie" || w.props.chartType === "doughnut"
+                ? palette
+                : "rgba(139,197,64,.8)",
+            borderColor:
+              w.props.chartType === "pie" || w.props.chartType === "doughnut"
+                ? palette : "#8BC540",
+            borderWidth: 2,
+            fill: w.props.chartType === "area",
+            tension: 0.4,
+          }]
+        };
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const showEmptyState = useCallback((w: WidgetConfig) => {
+    switch (w.type) {
+      case "table":
+        return !w.props?.result?.data || w.props.result.data.length === 0;
+      case "chart":
+        return !buildChartData(w);
+      case "info":
+        return !w.props?.content || !w.props.content.trim();
+      case "kpi":
+        return !w.props?.result?.data || w.props.result.data.length === 0;
+      default:
+        return false;
+    }
+  }, [buildChartData]);
+
+  const extractInfoStyle = (w: WidgetConfig) => {
+    if (w.type !== "info" || !w.props?.style) return undefined;
+    return { ...w.props.style };
+  };
+
+  const handleInfoWidgetUpdate = useCallback((id: string, patch: any) => {
+    onUpdateWidget(id, patch);
+  }, [onUpdateWidget]);
 
   return (
-    <div className={`canvas-wrapper${isPublished ? " canvas-wrapper--clean" : ""}`}
-      style={isPublished ? { background: "#fff", boxShadow: "none", border: "none", padding: 0, margin: 0 } : {}}>
+    <div
+      className={`canvas-wrapper${isPublished ? " canvas-wrapper--clean" : ""}`}
+      style={isPublished
+        ? { background: "#fff", boxShadow: "none", border: "none", padding: 0, margin: 0 }
+        : {}}
+    >
       <ResponsiveGridLayout
-        // ... (как у тебя)
+        key={refreshKey}
+        className={`canvas-layout${isPublished ? " canvas-layout--published" : ""}`}
+        cols={24}
+        rowHeight={10}
+        margin={isPublished ? [0, 0] : [16, 16]}
+        containerPadding={isPublished ? [0, 0] : [8, 8]}
+        layout={safeLayout}
+        draggableHandle={isPublished ? undefined : ".canvas-drag-handle"}
+        isResizable={!isPublished && canEdit}
+        isDraggable={!isPublished && canEdit}
+        onLayoutChange={onLayoutChange}
+        style={isPublished ? { background: "#fff", boxShadow: "none", border: "none" } : {}}
       >
         {widgets.map((w) => {
-          // ... (other content unchanged)
+          const chartData = w.type === "chart" ? buildChartData(w) : null;
+          const isEmpty = showEmptyState(w);
+          const infoStyle = extractInfoStyle(w);
+
           return (
-            <div key={w.id} className={`canvas-widget${isPublished ? " canvas-widget--clean" : ""}`}>
-              {/* Drag & action bar */}
+            <div
+              key={w.id}
+              className={`canvas-widget${isPublished ? " canvas-widget--clean" : ""}${isEmpty ? " canvas-widget--empty" : ""}${selectedWidgetId === w.id ? " canvas-widget--selected" : ""}`}
+              style={isPublished
+                ? { background: "#fff", border: "none", boxShadow: "none", padding: 0, minHeight: 0 }
+                : {}
+              }
+              onClick={
+                !isPublished && canEdit
+                  ? (e) => {
+                      e.stopPropagation();
+                      onSelectWidget?.(w.id);
+                    }
+                  : undefined
+              }
+            >
               {!isPublished && (
-                <div className="canvas-action-bar">
-                  {w.type === "info" && (
-                    <button className="canvas-action-btn canvas-action-btn--edit"
-                            onClick={(e) => { e.stopPropagation(); handleEditInfoWidget(w); }}
-                            title="Редактировать" aria-label="Редактировать">✎</button>
-                  )}
-                  {onDuplicateWidget && (<button>⧉</button>)}
-                  {onRemoveWidget && (<button>🗑️</button>)}
+                <div className="canvas-drag-handle" tabIndex={0}>
+                  <span aria-hidden="true">⠿</span>
+                  <span>{w.name || w.type.toUpperCase()}</span>
                 </div>
               )}
-              {/* Content */}
-              <div className="canvas-widget__content">
-                {w.type === "info" && (
-                  <InfoWidget content={w.props?.content || ""} style={w.props?.style} />
+              {!isPublished && (
+                <div className="canvas-action-bar">
+                  {onEditWidget && (
+                    <button className="canvas-action-btn canvas-action-btn--edit"
+                      onClick={(e) => { e.stopPropagation(); onEditWidget(w.id); }}
+                      title="Редактировать" aria-label="Редактировать">✎
+                    </button>
+                  )}
+                  {onDuplicateWidget && (
+                    <button className="canvas-action-btn canvas-action-btn--duplicate"
+                      onClick={(e) => { e.stopPropagation(); onDuplicateWidget(w.id); }}
+                      title="Дублировать" aria-label="Дублировать">⧉
+                    </button>
+                  )}
+                  {onRemoveWidget && (
+                    <button className="canvas-action-btn canvas-action-btn--remove"
+                      onClick={(e) => { e.stopPropagation(); if (window.confirm("Удалить виджет?")) onRemoveWidget(w.id); }}
+                      title="Удалить" aria-label="Удалить">🗑️
+                    </button>
+                  )}
+                </div>
+              )}
+              <div className="canvas-widget__content" style={isPublished ? { background: "#fff", padding: 0 } : {}}>
+                {w.type === "table" && w.props?.result?.columns?.length > 0 && (
+                  <TablePreview
+                    key={`table-${w.id}-${refreshKey}`}
+                    result={w.props.result}
+                    maxRows={10}
+                    isPublished={isPublished}
+                  />
                 )}
-                {/* Остальное — как у тебя */}
+                {w.type === "chart" && chartData && (
+                  <ChartPreview
+                    key={`chart-${w.id}-${refreshKey}`}
+                    type={w.props.chartType || "line"}
+                    data={chartData}
+                  />
+                )}
+                {w.type === "info" && selectedWidgetId === w.id && canEdit ? (
+                  <InfoTextWidget
+                    value={w.props?.content || ""}
+                    style={w.props?.style}
+                    onChangeContent={content => handleInfoWidgetUpdate(w.id, { content })}
+                    onChangeStyle={style => handleInfoWidgetUpdate(w.id, { style })}
+                  />
+                ) : w.type === "info" && (
+                  <InfoWidget
+                    content={w.props?.content || ""}
+                    style={infoStyle}
+                  />
+                )}
+                {isEmpty && (
+                  <div className="canvas-widget__empty">
+                    <div>📭</div>
+                    <p>Нет данных</p>
+                  </div>
+                )}
               </div>
             </div>
           );
         })}
       </ResponsiveGridLayout>
-
-      {infoEditorId && (
-        <InfoWidgetEditor
-          value={infoEditValue}
-          style={infoEditStyle}
-          onChange={(v, s) => { setInfoEditValue(v); setInfoEditStyle(s); }}
-          onCancel={() => setInfoEditorId(null)}
-          onSave={handleSaveInfoWidget}
-        />
+      {widgets.length === 0 && (
+        <div className="canvas-empty" style={isPublished ? { background: "#fff" } : {}}>
+          <div>📋</div>
+          <p>Дашборд пуст — добавьте виджеты</p>
+        </div>
       )}
-
-      {/* Остальные блоки, как у тебя */}
     </div>
   );
 };

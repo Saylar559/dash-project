@@ -1,355 +1,376 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { executeSQL } from "../../services/queryService";
-import ChartPreview from "./ChartPreview";
-import FiltersPanel from "./FiltersPanel";
-import FilterFieldSelector from "./FilterFieldSelector";
-import { buildWhereSQL } from "../utils/sqlUtils";
-import { RefreshCw, Save, ChevronDown, ChevronUp } from 'lucide-react';
-import '../styles/ChartWidget.css';
+/* ========================================
+   ChartWidget – ДОМ.РФ UI Kit (senior)
+   Согласован с ChartConfigPanel & ChartPreview
+   ======================================== */
 
-
-const CHART_TYPES = [
-  { value: 'line', label: '📈 Линия', description: 'Показывает тренды' },
-  { value: 'bar', label: '📊 Столбцы', description: 'Сравнение значений' },
-  { value: 'area', label: '📉 Площадь', description: 'Заполненная линия' },
-  { value: 'pie', label: '🥧 Круговая', description: 'Доли от целого' },
-  { value: 'doughnut', label: '🍩 Кольцевая', description: 'Круг с дыркой' },
-  { value: 'radar', label: '🎯 Радар', description: 'Многомерные данные' },
-  { value: 'polarArea', label: '🌐 Полярная', description: 'Круговая площадь' },
-  { value: 'scatter', label: '🔵 Точечная', description: 'Корреляции' },
-];
-
-
-const AGGREGATIONS = [
-  { value: '', label: 'Без агрегации', icon: '⚪' },
-  { value: 'SUM', label: 'Сумма', icon: '➕' },
-  { value: 'AVG', label: 'Среднее', icon: '〰️' },
-  { value: 'COUNT', label: 'Количество', icon: '🔢' },
-  { value: 'MIN', label: 'Минимум', icon: '⬇️' },
-  { value: 'MAX', label: 'Максимум', icon: '⬆️' },
-];
-
-
-interface ChartWidgetProps {
-  widget: any;
-  onUpdate: (props: any) => void;
+.chart-widget {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  transition: all .2s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
+/* ----- Тёмная тема ----- */
+.chart-widget.chart-dark {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+}
+.chart-widget.chart-dark .chart-widget__label,
+.chart-widget.chart-dark .chart-widget__title,
+.chart-widget.chart-dark .chart-widget__stats,
+.chart-widget.chart-dark .chart-widget__saved-badge,
+.chart-widget.chart-dark .chart-widget__empty-text,
+.chart-widget.chart-dark .chart-widget__error,
+.chart-widget.chart-dark .chart-widget__loading {
+  color: #e0e0e0;
+}
+.chart-widget.chart-dark input,
+.chart-widget.chart-dark textarea,
+.chart-widget.chart-dark select,
+.chart-widget.chart-dark .chart-widget__sql-input,
+.chart-widget.chart-dark .chart-widget__select {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+.chart-widget.chart-dark .chart-widget__sql-input::placeholder,
+.chart-widget.chart-dark input::placeholder,
+.chart-widget.chart-dark select option {
+  color: #888;
+}
 
-const ChartWidget: React.FC<ChartWidgetProps> = ({ widget, onUpdate }) => {
-  // State
-  const [sql, setSQL] = useState(widget?.props?.sql ?? "");
-  const [result, setResult] = useState<any>(widget?.props?.result ?? null);
-  const [xField, setXField] = useState(widget?.props?.xField ?? "");
-  const [yField, setYField] = useState(widget?.props?.yField ?? "");
-  const [chartType, setChartType] = useState(widget?.props?.chartType ?? "line");
-  const [aggregation, setAggregation] = useState(widget?.props?.aggregation ?? "");
-  const [filterFields, setFilterFields] = useState<string[]>(widget?.props?.filterFields ?? []);
-  const [filterValues, setFilterValues] = useState<Record<string, any>>(widget?.props?.filterValues ?? {});
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [isFiltersExpanded, setIsFiltersExpanded] = useState(false);
-  const [lastSaved, setLastSaved] = useState<Date | null>(null);
+/* ----- Header ----- */
+.chart-widget__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.chart-widget__title {
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chart-widget__saved-badge {
+  background: #e6f4ea;
+  color: #137333;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.chart-widget.chart-dark .chart-widget__saved-badge {
+  background: #2a4b3a;
+  color: #8fd9a8;
+}
+.chart-widget__stats {
+  font-size: 13px;
+  color: #76787a;
+}
 
+/* ----- Section ----- */
+.chart-widget__section {
+  margin-bottom: 16px;
+}
+.chart-widget__label {
+  display: block;
+  font-weight: 500;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+}
+.chart-widget.chart-dark .chart-widget__label { color: #ccc; }
 
-  const columns = useMemo(() => result?.columns || [], [result]);
+/* ----- SQL textarea ----- */
+.chart-widget__sql-input {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px 12px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 13.5px;
+  resize: vertical;
+  transition: all .2s ease;
+}
+.chart-widget__sql-input:focus {
+  outline: none;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0,82,204,.15);
+}
+.chart-widget__sql-input::placeholder {
+  color: #888;
+  font-style: italic;
+}
 
+/* ----- Chart type buttons ----- */
+.chart-widget__chart-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chart-widget__chart-type-btn {
+  padding: 8px 14px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #2d2d2d;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.chart-widget__chart-type-btn:hover {
+  background: #f0f4ff;
+  border-color: #0052cc;
+}
+.chart-widget__chart-type-btn.active {
+  background: #0052cc;
+  color: #fff;
+  border-color: #0052cc;
+  font-weight: 600;
+}
+.chart-widget.chart-dark .chart-widget__chart-type-btn {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+.chart-widget.chart-dark .chart-widget__chart-type-btn:hover {
+  background: #3a3a3a;
+  border-color: #4a8eff;
+}
+.chart-widget.chart-dark .chart-widget__chart-type-btn.active {
+  background: #4a8eff;
+  border-color: #4a8eff;
+}
 
-  // Build SQL with filters
-  const currentSQL = useMemo(() => {
-    if (!sql?.trim()) return "";
-    const whereClause = filterFields.length ? buildWhereSQL(filterValues) : "";
-    const cleared = sql.replace(/where .*/i, "").trim().replace(/;$/, "");
-    return whereClause ? `${cleared} ${whereClause}` : cleared;
-  }, [sql, filterFields, filterValues]);
+/* ----- Controls (X/Y/Agg) ----- */
+.chart-widget__controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.chart-widget__control-group {
+  display: flex;
+  flex-direction: column;
+}
+.chart-widget__select {
+  padding: 8px 12px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all .2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666' width='16px' height='16px'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+.chart-widget__select:focus {
+  outline: none;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0,82,204,.15);
+}
+.chart-widget.chart-dark .chart-widget__select {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ccc' width='16px' height='16px'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+}
+.chart-widget.chart-dark .chart-widget__select:focus {
+  border-color: #4a8eff;
+  box-shadow: 0 0 0 3px rgba(74,142,255,.25);
+}
 
+/* ----- Filters toggle ----- */
+.chart-widget__filters-toggle {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #2d2d2d;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .2s ease;
+}
+.chart-widget__filters-toggle:hover {
+  background: #f0f4ff;
+  border-color: #0052cc;
+}
+.chart-widget.chart-dark .chart-widget__filters-toggle {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+.chart-widget.chart-dark .chart-widget__filters-toggle:hover {
+  background: #3a3a3a;
+  border-color: #4a8eff;
+}
+.chart-widget__filters-content {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+}
+.chart-widget.chart-dark .chart-widget__filters-content {
+  background: #2a2a2a;
+  border-color: #444;
+}
 
-  // Execute SQL
-  const executeQuery = useCallback(async (query: string) => {
-    if (!query) return;
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await executeSQL(query);
-      setResult(res);
-      
-      // Auto-select fields if empty
-      if (res?.columns?.length) {
-        if (!xField) setXField(res.columns[0] || "");
-        if (!yField && res.columns.length > 1) setYField(res.columns[1] || "");
-      }
-      
-      // Sync filter fields
-      if (!Array.isArray(filterFields) || filterFields.length === 0) {
-        setFilterFields(res?.columns || []);
-      } else {
-        setFilterFields(ff => ff.filter(f => (res?.columns || []).includes(f)));
-      }
-    } catch (e: any) {
-      setError(e?.response?.data?.detail || e?.message || "Ошибка выполнения SQL");
-    } finally {
-      setLoading(false);
-    }
-  }, [xField, yField, filterFields]);
+/* ----- Action buttons ----- */
+.chart-widget__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.chart-widget__btn {
+  padding: 8px 16px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #2d2d2d;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .2s ease;
+}
+.chart-widget__btn:hover {
+  background: #0052cc;
+  color: #fff;
+  border-color: #0052cc;
+}
+.chart-widget__btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+.chart-widget__save-btn {
+  background: #0052cc;
+  color: #fff;
+  border-color: #0052cc;
+}
+.chart-widget__save-btn:hover {
+  background: #003d99;
+}
+.chart-widget.chart-dark .chart-widget__btn {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+.chart-widget.chart-dark .chart-widget__btn:hover {
+  background: #4a8eff;
+  border-color: #4a8eff;
+}
+.chart-widget.chart-dark .chart-widget__save-btn {
+  background: #4a8eff;
+  border-color: #4a8eff;
+}
+.chart-widget.chart-dark .chart-widget__save-btn:hover {
+  background: #3578e5;
+}
 
+/* ----- Loading ----- */
+.chart-widget__loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #76787a;
+  font-size: 14px;
+}
+.chart-widget__spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d0d5dd;
+  border-top-color: #0052cc;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.chart-widget.chart-dark .chart-widget__spinner {
+  border-color: #444;
+  border-top-color: #4a8eff;
+}
 
-  // Initial load
-  useEffect(() => {
-    if (currentSQL) {
-      executeQuery(currentSQL);
-    }
-  }, [currentSQL]);
+/* ----- Error ----- */
+.chart-widget__error {
+  background: #ffebee;
+  color: #c62828;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13.5px;
+}
+.chart-widget.chart-dark .chart-widget__error {
+  background: #4b2a2a;
+  color: #ff8a80;
+}
 
+/* ----- Empty state ----- */
+.chart-widget__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  color: #76787a;
+  text-align: center;
+}
+.chart-widget__empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.chart-widget__empty-text {
+  font-size: 15px;
+}
 
-  // Aggregation query
-  useEffect(() => {
-    if (!aggregation || !xField || !yField || !currentSQL.toLowerCase().includes("select")) return;
-    const baseQuery = currentSQL.trim().replace(/;$/, "");
-    const aggSQL = `SELECT "${xField}", ${aggregation}("${yField}") AS "${aggregation}_${yField}" FROM (${baseQuery}) t GROUP BY "${xField}" LIMIT 100`;
-    executeQuery(aggSQL);
-  }, [aggregation, xField, yField]);
+/* ----- Chart container ----- */
+.chart-widget__chart-container {
+  margin-top: 16px;
+  min-height: 320px;
+}
 
+/* ----- Адаптивность ----- */
+@media (max-width: 768px) {
+  .chart-widget {
+    padding: 16px;
+  }
+  .chart-widget__header { flex-direction: column; align-items: flex-start; }
+  .chart-widget__controls { grid-template-columns: 1fr; }
+  .chart-widget__chart-types { justify-content: center; }
+  .chart-widget__actions { justify-content: stretch; }
+  .chart-widget__actions button { flex: 1; }
+}
 
-  // Save handler
-  const handleSave = useCallback(() => {
-    onUpdate({
-      sql,
-      chartType,
-      xField,
-      yField,
-      aggregation,
-      filterFields,
-      filterValues,
-      result,
-    });
-    setLastSaved(new Date());
-  }, [sql, chartType, xField, yField, aggregation, filterFields, filterValues, result, onUpdate]);
-
-
-  // Refresh handler
-  const handleRefresh = useCallback(() => {
-    executeQuery(currentSQL);
-  }, [currentSQL, executeQuery]);
-
-
-  // Chart data
-  const chartData = useMemo(() => {
-    if (!result?.data || !xField || !yField) return null;
-    const isAgg = Boolean(aggregation);
-    const yKey = isAgg ? `${aggregation}_${yField}` : yField;
-    
-    return {
-      labels: result.data.map((row: any) => row[xField]?.toString() || "N/A"),
-      datasets: [{
-        label: yField + (aggregation ? ` (${aggregation})` : ''),
-        data: result.data.map((row: any) => Number(row[yKey]) || 0),
-        backgroundColor: chartType === 'pie' || chartType === 'doughnut' 
-          ? ['#8BC540', '#2B76F0', '#FF9D5C', '#6E5CE0', '#00B4D8', '#FFB84D', '#E74C3C', '#00D9A3']
-          : 'rgba(139, 197, 64, 0.8)',
-        borderColor: chartType === 'pie' || chartType === 'doughnut'
-          ? ['#6B9B2C', '#1f5ed1', '#FF8C42', '#5A4DB8', '#0096B8', '#FF9F33', '#c0392b', '#00B88A']
-          : '#8BC540',
-        borderWidth: 2,
-        fill: chartType === 'area',
-        tension: 0.4,
-      }],
-    };
-  }, [result, xField, yField, aggregation, chartType]);
-
-
-  // Stats
-  const stats = useMemo(() => {
-    if (!result?.data?.length) return null;
-    return {
-      rows: result.data.length,
-      columns: result.columns.length,
-      hasData: result.data.length > 0,
-    };
-  }, [result]);
-
-
-  return (
-    <div className="chart-widget chart-widget--green">
-      {/* Header */}
-      <div className="chart-widget__header">
-        <div className="chart-widget__title">
-          📊 Настройка графика
-          {lastSaved && (
-            <span className="chart-widget__saved-badge">
-              ✅ Сохранено {lastSaved.toLocaleTimeString()}
-            </span>
-          )}
-        </div>
-        {stats && (
-          <div className="chart-widget__stats">
-            {stats.rows} строк • {stats.columns} колонок
-          </div>
-        )}
-      </div>
-
-
-      {/* SQL Input */}
-      <div className="chart-widget__section">
-        <label className="chart-widget__label">SQL-запрос</label>
-        <textarea
-          className="chart-widget__sql-input"
-          value={sql}
-          onChange={e => setSQL(e.target.value)}
-          rows={3}
-          placeholder="SELECT date, amount FROM payments WHERE date >= '2025-01-01'"
-        />
-      </div>
-
-
-      {/* Chart Type Selector */}
-      <div className="chart-widget__section">
-        <label className="chart-widget__label">Тип графика</label>
-        <div className="chart-widget__chart-types">
-          {CHART_TYPES.map(type => (
-            <button
-              key={type.value}
-              className={`chart-widget__chart-type-btn ${chartType === type.value ? 'active' : ''}`}
-              onClick={() => setChartType(type.value)}
-              title={type.description}
-            >
-              {type.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-
-      {/* Axes & Aggregation */}
-      <div className="chart-widget__controls">
-        <div className="chart-widget__control-group">
-          <label className="chart-widget__label">X-ось (категории)</label>
-          <select
-            className="chart-widget__select"
-            value={xField}
-            onChange={e => setXField(e.target.value)}
-          >
-            <option value="">Выберите поле</option>
-            {columns.map(col => <option key={col} value={col}>{col}</option>)}
-          </select>
-        </div>
-
-
-        <div className="chart-widget__control-group">
-          <label className="chart-widget__label">Y-ось (значения)</label>
-          <select
-            className="chart-widget__select"
-            value={yField}
-            onChange={e => setYField(e.target.value)}
-          >
-            <option value="">Выберите поле</option>
-            {columns.map(col => <option key={col} value={col}>{col}</option>)}
-          </select>
-        </div>
-
-
-        <div className="chart-widget__control-group">
-          <label className="chart-widget__label">Агрегация</label>
-          <select
-            className="chart-widget__select"
-            value={aggregation}
-            onChange={e => setAggregation(e.target.value)}
-          >
-            {AGGREGATIONS.map(agg => (
-              <option key={agg.value} value={agg.value}>
-                {agg.icon} {agg.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-
-      {/* Filters Section */}
-      <div className="chart-widget__section">
-        <button
-          className="chart-widget__filters-toggle"
-          onClick={() => setIsFiltersExpanded(!isFiltersExpanded)}
-        >
-          <span>🔍 Фильтры ({filterFields.length})</span>
-          {isFiltersExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-        </button>
-
-
-        {isFiltersExpanded && (
-          <div className="chart-widget__filters-content">
-            <FilterFieldSelector
-              allFields={columns}
-              selectedFields={filterFields}
-              onChange={setFilterFields}
-            />
-            <FiltersPanel
-              fields={filterFields}
-              filterValues={filterValues}
-              onUpdate={setFilterValues}
-            />
-          </div>
-        )}
-      </div>
-
-
-      {/* Action Buttons */}
-      <div className="chart-widget__actions">
-        <button
-          className="chart-widget__btn chart-widget__btn--secondary"
-          onClick={handleRefresh}
-          disabled={loading || !sql}
-        >
-          <RefreshCw size={16} />
-          Обновить
-        </button>
-        <button
-          className="chart-widget__save-btn"
-          onClick={handleSave}
-          disabled={!chartData}
-        >
-          <Save size={16} />
-          Сохранить настройки
-        </button>
-      </div>
-
-
-      {/* Loading State */}
-      {loading && (
-        <div className="chart-widget__loading">
-          <div className="chart-widget__spinner"></div>
-          Загрузка данных…
-        </div>
-      )}
-
-
-      {/* Error State */}
-      {error && (
-        <div className="chart-widget__error">
-          <strong>❌ Ошибка:</strong> {error}
-        </div>
-      )}
-
-
-      {/* Chart Preview */}
-      {chartData && !loading ? (
-        <div className="chart-widget__chart-container">
-          <ChartPreview type={chartType} data={chartData} />
-        </div>
-      ) : (
-        !loading && (
-          <div className="chart-widget__empty">
-            <div className="chart-widget__empty-icon">📊</div>
-            <div className="chart-widget__empty-text">
-              {!sql ? "Введите SQL-запрос" : 
-               !xField || !yField ? "Выберите оси X и Y" :
-               "Нет данных для отображения"}
-            </div>
-          </div>
-        )
-      )}
-    </div>
-  );
-};
-
-
-export default ChartWidget;
+/* ----- Фокусы (a11y) ----- */
+.chart-widget *:focus-visible {
+  outline: 2px solid #0052cc;
+  outline-offset: 2px;
+}
+.chart-widget.chart-dark *:focus-visible {
+  outline-color: #4a8eff;
+}

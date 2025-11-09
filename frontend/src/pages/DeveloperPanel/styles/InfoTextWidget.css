@@ -1,0 +1,290 @@
+/* ========================================
+   InfoTextWidget — ДОМ.РФ UI Kit (senior)
+   Единый Design System | Полная согласованность
+   ======================================== */
+
+.info-text-root {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Toolbar ===== */
+.info-text-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid #e5e7eb;
+}
+
+/* Общие стили для контролов */
+.info-text-toolbar select,
+.info-text-toolbar input[type="number"],
+.info-text-toolbar input[type="color"],
+.info-text-toolbar button {
+  padding: 6px 8px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 13.5px;
+  color: #1a1a1a;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Select */
+.info-text-toolbar select {
+  min-width: 120px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666' width='14px' height='14px'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px;
+}
+
+.info-text-toolbar select:focus,
+.info-text-toolbar input:focus {
+  outline: none;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+}
+
+/* Number inputs */
+.info-text-toolbar input[type="number"] {
+  width: 52px;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+.info-text-toolbar input[type="number"]::-webkit-outer-spin-button,
+.info-text-toolbar input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Color inputs */
+.info-text-toolbar input[type="color"] {
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+}
+.info-text-toolbar input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+.info-text-toolbar input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+.info-text-toolbar input[type="color"]:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+}
+
+/* Align buttons */
+.info-text-toolbar > div > button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  background: #f9f9f9;
+  color: #2d2d2d;
+}
+.info-text-toolbar > div > button.selected {
+  background: #0052cc;
+  color: #ffffff;
+  font-weight: 600;
+}
+.info-text-toolbar > div > button:hover:not(.selected) {
+  background: #f0f4ff;
+  border-color: #0052cc;
+}
+
+/* Action buttons */
+.info-text-toolbar button.reset,
+.info-text-toolbar button.save {
+  padding: 6px 12px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.info-text-toolbar button.reset {
+  background: #f8f9fa;
+  color: #6c757d;
+  border-color: #ced4da;
+}
+.info-text-toolbar button.reset:hover {
+  background: #e9ecef;
+  color: #495057;
+}
+.info-text-toolbar button.save {
+  font-weight: 600;
+  min-width: 86px;
+}
+.info-text-toolbar button.save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Textarea (Live Preview) ===== */
+.info-text-area {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  transition: all 0.2s ease;
+  overflow: auto;
+}
+
+.info-text-area:focus {
+  outline: none;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+}
+
+.info-text-area::placeholder {
+  color: #888;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* ===== Тёмная тема ===== */
+.info-text-root.chart-dark {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.info-text-root.chart-dark .info-text-toolbar {
+  border-bottom-color: #444;
+}
+
+.info-text-root.chart-dark .info-text-toolbar select,
+.info-text-root.chart-dark .info-text-toolbar input,
+.info-text-root.chart-dark .info-text-toolbar button {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.info-text-root.chart-dark .info-text-toolbar select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ccc' width='14px' height='14px'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+}
+
+.info-text-root.chart-dark .info-text-toolbar select:focus,
+.info-text-root.chart-dark .info-text-toolbar input:focus {
+  border-color: #4a8eff;
+  box-shadow: 0 0 0 3px rgba(74, 142, 255, 0.25);
+}
+
+.info-text-root.chart-dark .info-text-toolbar input[type="color"]:hover {
+  box-shadow: 0 0 0 2px rgba(74, 142, 255, 0.3);
+}
+
+.info-text-root.chart-dark .info-text-toolbar > div > button {
+  background: #2a2a2a;
+  color: #cccccc;
+}
+.info-text-root.chart-dark .info-text-toolbar > div > button.selected {
+  background: #4a8eff;
+  color: #ffffff;
+}
+.info-text-root.chart-dark .info-text-toolbar > div > button:hover:not(.selected) {
+  background: #3a3a3a;
+  border-color: #4a8eff;
+}
+
+.info-text-root.chart-dark .info-text-toolbar button.reset {
+  background: #2a2a2a;
+  color: #abb5be;
+  border-color: #555;
+}
+.info-text-root.chart-dark .info-text-toolbar button.reset:hover {
+  background: #3a3a3a;
+  color: #e0e0e0;
+}
+
+.info-text-root.chart-dark .info-text-toolbar button.save {
+  background: #2a4b3a;
+  color: #8fd9a8;
+  border-color: #4b7a5a;
+}
+.info-text-root.chart-dark .info-text-toolbar button.save:hover:not(:disabled) {
+  background: #1e6b3a;
+  color: #a8e6b8;
+}
+
+.info-text-root.chart-dark .info-text-area {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+.info-text-root.chart-dark .info-text-area:focus {
+  border-color: #4a8eff;
+  box-shadow: 0 0 0 3px rgba(74, 142, 255, 0.25);
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+  .info-text-root {
+    padding: 12px;
+  }
+  .info-text-toolbar {
+    gap: 6px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .info-text-toolbar > * {
+    width: 100%;
+  }
+  .info-text-toolbar > div {
+    display: flex;
+    gap: 4px;
+  }
+  .info-text-toolbar input[type="number"],
+  .info-text-toolbar input[type="color"] {
+    width: 100% !important;
+  }
+  .info-text-toolbar select {
+    min-width: auto;
+  }
+  .info-text-toolbar button.reset,
+  .info-text-toolbar button.save {
+    width: 100%;
+  }
+}
+
+/* ===== Фокусы (a11y) ===== */
+.info-text-toolbar select:focus-visible,
+.info-text-toolbar input:focus-visible,
+.info-text-toolbar button:focus-visible,
+.info-text-area:focus-visible {
+  outline: 2px solid #0052cc;
+  outline-offset: 2px;
+}
+
+.info-text-root.chart-dark *:focus-visible {
+  outline-color: #4a8eff;
+}
+
+/* ===== Плавные переходы ===== */
+.info-text-toolbar *,
+.info-text-area {
+  transition: all 0.2s ease;
+}

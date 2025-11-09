@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { DashboardWidget } from '../types';
 import { fetchTables } from '../../../services/dbMetaService';
 import { executeSQL } from "../../../services/queryService";
-import { ChevronDown, ChevronUp, Plus, Eye } from 'lucide-react';
+import { ChevronDown, ChevronUp, Plus, Eye, UploadCloud, CheckCircle2, XCircle } from 'lucide-react';
 import '../styles/Sidebar.css';
 
 // Типы виджетов
@@ -15,7 +15,7 @@ const widgetTypes = [
 ];
 
 const Sidebar: React.FC<{
-  dashboards: any[];
+  dashboards: Array<{ id: string, title: string, description?: string, is_published?: boolean }>;
   selectedDashboard: any;
   loading: boolean;
   widgets: DashboardWidget[];
@@ -23,6 +23,8 @@ const Sidebar: React.FC<{
   onSelectDashboard: (dashboard: any) => void;
   onDeleteDashboard: (id: string, title: string) => void;
   onClear: () => void;
+  onPublishDashboard: (id: string, publish: boolean) => Promise<void>;
+  onRequestPublish?: (dashboard: any) => void;
 }> = ({
   dashboards,
   selectedDashboard,
@@ -32,6 +34,8 @@ const Sidebar: React.FC<{
   onSelectDashboard,
   onDeleteDashboard,
   onClear,
+  onPublishDashboard,
+  onRequestPublish,
 }) => {
   const [tables, setTables] = useState<any[]>([]);
   const [tablesLoading, setTablesLoading] = useState(true);
@@ -208,7 +212,7 @@ const Sidebar: React.FC<{
         )}
       </section>
 
-      {/* Список дашбордов с возможностью удалить */}
+      {/* Список дашбордов с публикацией/снятием публикации */}
       <section className="sidebar__section">
         <button
           className="sidebar__section-header"
@@ -232,24 +236,48 @@ const Sidebar: React.FC<{
                       selectedDashboard?.id === d.id ? 'sidebar__dashboard-btn--selected' : ''
                     }`}
                     onClick={() => onSelectDashboard(d)}
-                    title={`Открыть "${d.title}"`}
-                    aria-label={`Открыть ${d.title}`}
+                    title={`Открыть "${typeof d.title === 'string' ? d.title : ''}"`}
+                    aria-label={`Открыть ${typeof d.title === 'string' ? d.title : ''}`}
                   >
                     <span className="sidebar__dashboard-icon">📊</span>
-                    <span className="sidebar__dashboard-title">{d.title}</span>
+                    <span className="sidebar__dashboard-title">
+                      {typeof d.title === 'string' ? d.title : '[—]'}
+                    </span>
                   </button>
                   <button
                     className="sidebar__dashboard-btn sidebar__dashboard-btn--delete"
                     title="Удалить дашборд"
-                    aria-label={`Удалить ${d.title}`}
+                    aria-label={`Удалить ${typeof d.title === 'string' ? d.title : ''}`}
                     onClick={() => {
-                      if (window.confirm(`🗑️ Удалить дашборд "${d.title}"?`)) {
-                        onDeleteDashboard(d.id, d.title);
+                      if (window.confirm(`🗑️ Удалить дашборд "${typeof d.title === 'string' ? d.title : ''}"?`)) {
+                        onDeleteDashboard(d.id, typeof d.title === 'string' ? d.title : '');
                       }
                     }}
                   >
-                    🗑️
+                    <XCircle size={18} style={{ color: "#f95c73" }} />
                   </button>
+                  {/* Кнопка публикации/снять */}
+                  {d.is_published ? (
+                    <button
+                      className="sidebar__dashboard-btn sidebar__dashboard-btn--publish published"
+                      onClick={() => onPublishDashboard(d.id, false)}
+                      title="Снять с публикации"
+                      aria-label="Снять с публикации"
+                    >
+                      <CheckCircle2 size={16} style={{ color: "#8BC540", marginRight: 5 }} />
+                      Снять публикацию
+                    </button>
+                  ) : (
+                    <button
+                      className="sidebar__dashboard-btn sidebar__dashboard-btn--publish"
+                      onClick={() => onRequestPublish ? onRequestPublish(d) : onPublishDashboard(d.id, true)}
+                      title="Опубликовать"
+                      aria-label="Опубликовать"
+                    >
+                      <UploadCloud size={16} style={{ color: "#1c7ed6", marginRight: 5 }} />
+                      Опубликовать
+                    </button>
+                  )}
                 </div>
               ))
             )}

@@ -1,3 +1,4 @@
+import "./pages/style_page/ViewerPanel.css";
 import React, { Suspense, lazy, useMemo, memo } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
@@ -8,7 +9,7 @@ const AdminPanel = lazy(() => import('./pages/AdminPanel'));
 const DeveloperPanel = lazy(() => import('./pages/DeveloperPanel'));
 const ViewerPanel = lazy(() => import('./pages/ViewerPanel'));
 const AccountantPage = lazy(() => import('./pages/AccountantPage'));
-const AccountantPanel = lazy(() => import('./pages/AccountantPanel'));  // <--- ЭТО КОМПОНЕНТ анализа Excel!
+const AccountantPanel = lazy(() => import('./pages/AccountantPanel'));
 
 type UserRole = 'ADMIN' | 'DEVELOPER' | 'ACCOUNTANT' | 'DASHBOARD_USER' | 'USER';
 
@@ -51,6 +52,7 @@ function App() {
     };
     return roleRoutes[user.role as UserRole] || '/viewer';
   }, [user]);
+
   if (loading) return <LoadingScreen text="Инициализация..." />;
 
   return (
@@ -62,7 +64,6 @@ function App() {
           <Route path="/developer" element={<ProtectedRoute allowedRoles={['ADMIN', 'DEVELOPER']}><DeveloperPanel /></ProtectedRoute>} />
           <Route path="/developer/sandbox" element={<ProtectedRoute allowedRoles={['ADMIN', 'DEVELOPER']}><DeveloperPanel /></ProtectedRoute>} />
           <Route path="/viewer" element={<ProtectedRoute allowedRoles={['ADMIN', 'DEVELOPER', 'DASHBOARD_USER', 'USER', 'ACCOUNTANT']}><ViewerPanel /></ProtectedRoute>} />
-
           {/* Главная бухгалтерская страница — квадраты */}
           <Route
             path="/accountant"
@@ -72,7 +73,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
           {/* Страница анализа Эскроу при клике на квадрат */}
           <Route
             path="/accountant/escrow"
@@ -84,8 +84,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          {/* Остальные рабочие маршруты — как у тебя */}
           <Route path="/dashboard/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DEVELOPER', 'DASHBOARD_USER', 'USER', 'ACCOUNTANT']}><ViewerPanel /></ProtectedRoute>} />
           <Route path="/dashboards/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DEVELOPER', 'DASHBOARD_USER', 'USER', 'ACCOUNTANT']}><ViewerPanel /></ProtectedRoute>} />
           <Route path="/" element={<Navigate to={defaultRoute} replace />} />
@@ -95,4 +93,5 @@ function App() {
     </BrowserRouter>
   );
 }
+
 export default memo(App);

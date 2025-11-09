@@ -92,33 +92,30 @@ export const useDashboardFiles = () => {
   }, [fetchDashboards]);
 
   // Обновить дашборд
-  const updateDashboard = useCallback(async (id: string, title: string, config: any) => {
-    try {
-      const response = await fetch(`${API_BASE}/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          title,
-          config,
-        }),
-      });
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.detail || `HTTP ${response.status}`);
-      }
-      const result = await response.json();
-      console.log('✅ Дашборд обновлён:', result);
-      await fetchDashboards();
-      return result;
-    } catch (err: any) {
-      const message = err.message || 'Ошибка обновления';
-      setError(message);
-      console.error('❌ updateDashboard:', message);
-      throw err;
+// Теперь updateDashboard принимает id и простые partial fields:
+const updateDashboard = useCallback(async (id: string, updateFields: object) => {
+  try {
+    const response = await fetch(`${API_BASE}/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updateFields),
+    });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.detail || `HTTP ${response.status}`);
     }
-  }, [fetchDashboards]);
+    const result = await response.json();
+    console.log('✅ Дашборд обновлён:', result);
+    await fetchDashboards();
+    return result;
+  } catch (err: any) {
+    const message = err.message || 'Ошибка обновления';
+    setError(message);
+    console.error('❌ updateDashboard:', message);
+    throw err;
+  }
+}, [fetchDashboards]);
+
 
   // Удалить дашборд
   const deleteDashboard = useCallback(async (id: string) => {

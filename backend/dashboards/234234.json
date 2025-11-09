@@ -1,10 +1,10 @@
 {
-  "title": "test",
+  "title": "234234",
   "description": "",
   "config": {
     "widgets": [
       {
-        "id": "9e6dc396-c120-483e-ad7f-00ad774245c8",
+        "id": "8bf9a3c0-4ccb-4244-8f91-48353c6097d7",
         "type": "table",
         "props": {
           "sql": "SELECT * FROM escrow_accounts LIMIT 100",
@@ -746,60 +746,58 @@
         }
       },
       {
-        "id": "8773a3d4-3134-42a2-9efb-853931fa1f00",
-        "type": "chart",
+        "id": "efc035f6-2dbf-4bb5-b362-ccaf7ed39fbb",
+        "type": "info",
         "props": {
-          "sql": "",
           "filterFields": [],
           "filterValues": {},
           "chartConfig": {
             "type": "line",
             "colors": [
-              "#738859",
-              "#4EC3E0",
-              "#2F444E",
-              "#F89445"
+              "#8BC540",
+              "#4EC3E0"
             ],
             "legendPosition": "top",
             "showTitle": false,
             "titleText": "",
             "dark": false
           },
-          "chartType": "line"
+          "chartType": "line",
+          "content": "Table",
+          "style": {
+            "fontSize": 38,
+            "color": "#000000",
+            "fontWeight": "bold",
+            "textAlign": "center",
+            "fontFamily": "Inter, Arial, sans-serif",
+            "width": 1520,
+            "backgroundColor": "#fff",
+            "borderRadius": 8,
+            "padding": 15
+          }
         }
-      },
-      {
-        "id": "6f9d3030-fa7c-4880-8fbb-e46f65cd766b",
-        "type": "chart",
-        "props": {}
       }
     ],
     "layout": [
       {
-        "widgetId": "9e6dc396-c120-483e-ad7f-00ad774245c8",
+        "widgetId": "8bf9a3c0-4ccb-4244-8f91-48353c6097d7",
+        "x": 0,
+        "y": 12,
+        "w": 24,
+        "h": 25
+      },
+      {
+        "widgetId": "efc035f6-2dbf-4bb5-b362-ccaf7ed39fbb",
         "x": 0,
         "y": 0,
         "w": 24,
-        "h": 29
-      },
-      {
-        "widgetId": "8773a3d4-3134-42a2-9efb-853931fa1f00",
-        "x": 6,
-        "y": 29,
-        "w": 6,
-        "h": 8
-      },
-      {
-        "widgetId": "6f9d3030-fa7c-4880-8fbb-e46f65cd766b",
-        "x": 12,
-        "y": 29,
-        "w": 6,
-        "h": 8
+        "h": 12
       }
     ],
     "filters": {},
     "theme": "corporate"
   },
-  "created_at": "2025-11-07T20:00:53.517693",
-  "updated_at": "2025-11-07T20:00:53.517709"
+  "created_at": "2025-11-09T13:05:07.914045",
+  "updated_at": "2025-11-09T13:05:07.914045",
+  "is_published": false
 }

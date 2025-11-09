@@ -1,5 +1,5 @@
 {
-  "title": "1",
+  "title": "awerQWR",
   "description": "",
   "config": {
     "widgets": [
@@ -744,60 +744,21 @@
           },
           "chartType": "line"
         }
-      },
-      {
-        "id": "efc035f6-2dbf-4bb5-b362-ccaf7ed39fbb",
-        "type": "info",
-        "props": {
-          "filterFields": [],
-          "filterValues": {},
-          "chartConfig": {
-            "type": "line",
-            "colors": [
-              "#8BC540",
-              "#4EC3E0"
-            ],
-            "legendPosition": "top",
-            "showTitle": false,
-            "titleText": "",
-            "dark": false
-          },
-          "chartType": "line",
-          "content": "Table",
-          "style": {
-            "fontSize": 38,
-            "color": "#1d5bd7",
-            "fontWeight": "bold",
-            "textAlign": "center",
-            "fontFamily": "Inter, Arial, sans-serif",
-            "width": 1520,
-            "backgroundColor": "#fff",
-            "borderRadius": 8,
-            "padding": 15
-          }
-        }
       }
     ],
     "layout": [
       {
         "widgetId": "8bf9a3c0-4ccb-4244-8f91-48353c6097d7",
         "x": 0,
-        "y": 12,
-        "w": 24,
-        "h": 25
-      },
-      {
-        "widgetId": "efc035f6-2dbf-4bb5-b362-ccaf7ed39fbb",
-        "x": 0,
         "y": 0,
         "w": 24,
-        "h": 12
+        "h": 25
       }
     ],
     "filters": {},
     "theme": "corporate"
   },
-  "created_at": "2025-11-09T12:51:26.406925",
-  "updated_at": "2025-11-09T12:52:19.678351",
-  "is_published": false
+  "created_at": "2025-11-09T12:18:20.397730",
+  "updated_at": "2025-11-09T12:25:43.398847",
+  "is_published": true
 }
